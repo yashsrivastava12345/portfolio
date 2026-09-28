@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — System Signal Lost | Yash Srivastava Portfolio</title>
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .error-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .error-card {
+      max-width: 680px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card-hover);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), var(--shadow-glow-cyan);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .error-image-wrap {
+      max-width: 320px;
+      margin: 0 auto 24px;
+    }
+
+    .error-image-wrap img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 25px rgba(0, 229, 255, 0.3));
+    }
+
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      color: var(--accent-cyan);
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    }
+
+    .error-heading {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .error-terminal {
+      background: #090d13;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .error-terminal .prompt {
+      color: var(--accent-green);
+    }
+
+    .error-terminal .err {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+  <!-- Ambient Matrix Canvas Effect -->
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <div class="error-wrapper">
+    <div class="error-card">
+      <div class="error-image-wrap">
+        <img src="images/Error 404.webp" onerror="this.onerror=null;this.src='images/Error 404.png';" alt="Cyberpunk workstation showing 404 code error" loading="eager">
+      </div>
+
+      <div class="error-code">404</div>
+      <h1 class="error-heading">SIGNAL INTERRUPTED: RESOURCE NOT FOUND</h1>
+
+      <div class="error-terminal">
+        <div><span class="prompt">$</span> ping -c 1 destination_route</div>
+        <div>[!] Packet transmission failed: host unreachable (error 404)</div>
+        <div>[!] Diagnostics: The endpoint may have been moved, refactored, or is temporarily undergoing maintenance.</div>
+        <div><span class="prompt">$</span> exec recovery_sequence --route=/</div>
+      </div>
+
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-primary">
+          <span>Return to Workstation Hub</span>
+          <span>↵</span>
+        </a>
+        <a href="index.html#contact" class="btn btn-secondary">
+          <span>Notify Developer</span>
+          <span>✉</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/matrix.js"></script>
+</body>
+</html>
