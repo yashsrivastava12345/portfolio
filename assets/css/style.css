@@ -2687,17 +2687,12 @@ img {
   padding: 60px 0 32px;
 }
 
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 36px;
-  margin-bottom: 48px;
-}
-
-.footer-brand-col {
-  max-width: 400px;
+/* Brand block — full width on its own row */
+.footer .footer-brand-col {
+  max-width: 100%;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-title {
@@ -2712,10 +2707,12 @@ img {
   color: var(--text-secondary);
 }
 
-.footer-links-col {
+/* Nav link groups arranged in a horizontal linear row */
+.footer-links-row {
   display: flex;
-  gap: 48px;
   flex-wrap: wrap;
+  gap: 40px 64px;
+  margin-bottom: 48px;
 }
 
 .footer-link-group h4 {
@@ -2743,17 +2740,17 @@ img {
   color: var(--accent-green);
 }
 
+/* Centered copyright bar */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: 24px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-muted);
+  text-align: center;
 }
 
 /* Multi-page Footer Grid Layout (Desktop & Responsive) */
@@ -2818,6 +2815,20 @@ img {
 @media (max-width: 600px) {
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* Responsive: footer-links-row wraps on smaller screens */
+@media (max-width: 768px) {
+  .footer-links-row {
+    gap: 32px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links-row {
+    flex-direction: column;
     gap: 28px;
   }
 }
