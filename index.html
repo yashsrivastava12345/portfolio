@@ -126,7 +126,6 @@
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#architecture" class="nav-link">Architecture</a></li>
           <li><a href="#hardware" class="nav-link">Hardware</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#achievements" class="nav-link">Milestones</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#resume" class="nav-link">Resume</a></li>
@@ -259,30 +258,49 @@
             </a>
           </div>
 
-          <div class="hero-tags">
-            <span class="tag-label">Key Stack:</span>
-            <div class="tag-badges">
-              <span class="badge badge-accent">Python 3</span>
-              <span class="badge">PyQt6 / Qt</span>
-              <span class="badge">Django</span>
-              <span class="badge">Raspberry Pi</span>
-              <span class="badge">Embedded Linux</span>
-              <span class="badge">SQLite / MySQL</span>
-              <span class="badge">Computer Vision</span>
+          <!-- Technical Status Area -->
+          <div class="tech-status-wrapper">
+            <div class="tech-status-label">// Core Technical Focus</div>
+            <div class="tech-status-badges">
+              <span class="tech-badge"><span class="badge-glyph">&gt;_</span> Python</span>
+              <span class="tech-badge"><span class="badge-glyph">{ }</span> PyQt6</span>
+              <span class="tech-badge"><span class="badge-glyph">&lt;/&gt;</span> Django</span>
+              <span class="tech-badge"><span class="badge-glyph">&lt;/&gt;</span> React</span>
+              <span class="tech-badge"><span class="badge-glyph">[ ]</span> Next.js</span>
+              <span class="tech-badge"><span class="badge-glyph">&gt;_</span> AI/ML</span>
+              <span class="tech-badge"><span class="badge-glyph">{ }</span> Raspberry Pi</span>
             </div>
           </div>
         </div>
 
+        <!-- Hero Terminal Visual Card -->
         <div class="hero-visual">
-          <div class="workstation-illustration-wrapper">
-            <div class="hud-corner hud-tl" aria-hidden="true"></div>
-            <div class="hud-corner hud-tr" aria-hidden="true"></div>
-            <div class="hud-corner hud-bl" aria-hidden="true"></div>
-            <div class="hud-corner hud-br" aria-hidden="true"></div>
-            <img src="images/projects/AIwallpaper20250202040324316.webp" onerror="this.onerror=null;this.src='images/projects/AIwallpaper20250202040324316.png';" alt="Technical workstation illustration representing developer workspace" class="workstation-img" width="560" height="460" fetchpriority="high">
-            <div class="hud-status-badge">
-              <span class="hud-dot" aria-hidden="true"></span>
-              <span>DEV_WORKSTATION // ACTIVE</span>
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="terminal-title">yash@workstation: ~/portfolio</div>
+              <div class="terminal-badge">LIVE_NODE</div>
+            </div>
+
+            <div class="terminal-image-container">
+              <img src="images/projects/AIwallpaper20250202040324316.webp" onerror="this.onerror=null;this.src='images/projects/AIwallpaper20250202040324316.png';" alt="Developer at workstation coding on a laptop" loading="eager" width="480" height="240">
+            </div>
+
+            <div class="terminal-body">
+              <div class="terminal-row">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">./system_status.sh --verbose</span>
+              </div>
+              <div class="terminal-output">
+                STATUS: <span class="val-green">READY_TO_BUILD</span><br>
+                DISCIPLINE: <span class="val-cyan">Software + AI + Embedded</span><br>
+                LOCATION: <span class="val-cyan">Ghaziabad, UP, India</span><br>
+                ARCH: <span class="val-green">Raspberry Pi CM5 / Web / Cloud</span>
+              </div>
             </div>
           </div>
         </div>
