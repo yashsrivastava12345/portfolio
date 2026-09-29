@@ -192,13 +192,12 @@
 
               <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
                 <!-- Web3Forms Access Key -->
-                <input type="hidden" name="access_key" id="web3forms-access-key" value="b9e91e79-13f6-41b8-b7de-59ac8c6ed126">
+                <input type="hidden" name="access_key" id="web3forms-access-key" value="03770335-ee12-4217-a02b-a169bbf5cb9e">
                 
                 <!-- Honeypot Field for anti-bot filtering -->
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
                 
                 <!-- Metadata -->
-                <input type="hidden" name="subject" value="Portfolio Message via yashsrivastava.dev">
                 <input type="hidden" name="from_name" value="yashsrivastava.dev Contact Form">
 
                 <div class="form-group">
@@ -209,6 +208,11 @@
                 <div class="form-group">
                   <label for="contact-email" class="form-label">Email Address *</label>
                   <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. alex@company.com" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-subject" class="form-label">Subject *</label>
+                  <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="e.g. Engineering Role / System Development" required>
                 </div>
 
                 <div class="form-group">

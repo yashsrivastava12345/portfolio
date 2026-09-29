@@ -722,6 +722,7 @@ function initContactForm() {
 
   const nameInput = document.getElementById('contact-name');
   const emailInput = document.getElementById('contact-email');
+  const subjectInput = document.getElementById('contact-subject');
   const messageInput = document.getElementById('contact-message');
   const submitBtn = form.querySelector('button[type="submit"]');
 
@@ -731,7 +732,7 @@ function initContactForm() {
     statusMsg.innerHTML = messageHtml;
   }
 
-  [nameInput, emailInput, messageInput].forEach(input => {
+  [nameInput, emailInput, subjectInput, messageInput].forEach(input => {
     if (input) {
       input.addEventListener('input', () => {
         if (statusMsg.classList.contains('error')) {
@@ -746,6 +747,7 @@ function initContactForm() {
 
     const name = nameInput ? nameInput.value.trim() : '';
     const email = emailInput ? emailInput.value.trim() : '';
+    const subjectVal = subjectInput ? subjectInput.value.trim() : '';
     const message = messageInput ? messageInput.value.trim() : '';
 
     const botcheckInput = form.querySelector('input[name="botcheck"]');
@@ -770,6 +772,12 @@ function initContactForm() {
     if (!emailRegex.test(email)) {
       showStatus('Please enter a valid email address (e.g. name@example.com).', 'error');
       emailInput?.focus();
+      return;
+    }
+
+    if (subjectInput && !subjectVal) {
+      showStatus('Please enter a subject for your message.', 'error');
+      subjectInput?.focus();
       return;
     }
 
@@ -799,7 +807,7 @@ function initContactForm() {
         name: name,
         email: email,
         message: message,
-        subject: `Portfolio Inquiry from ${name}`,
+        subject: subjectVal || `Portfolio Inquiry from ${name}`,
         from_name: name,
         botcheck: botcheckInput ? botcheckInput.value : ""
       };

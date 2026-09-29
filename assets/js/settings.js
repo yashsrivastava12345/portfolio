@@ -458,10 +458,10 @@
         }
       });
 
-      // Check visit status: use sessionStorage so each new visit/session displays the intro
+      // Check visit status: use localStorage with portfolio_intro_v3
       let hasSeen = false;
       try {
-        hasSeen = sessionStorage.getItem('portfolio_intro_seen') === 'true';
+        hasSeen = localStorage.getItem('portfolio_intro_v3') === 'true';
       } catch (e) {
         hasSeen = false;
       }
@@ -470,17 +470,32 @@
       const urlParams = new URLSearchParams(window.location.search);
       const forceIntro = urlParams.has('intro') || urlParams.has('terminal');
 
-      // On Home page (where overlay exists in DOM), show intro if not seen this session or forced
-      if (!hasSeen || forceIntro) {
-        this.open(false);
-      } else {
+      // Expose globally for console testing or programmatic triggering
+      window.openTerminalIntro = () => this.open(true);
+      window.resetTerminalIntro = () => {
+        try { localStorage.removeItem('portfolio_intro_v3'); } catch (e) {}
+        window.location.reload();
+      };
+
+      // On Home page (where overlay exists in DOM), show intro if first visit or forced
+      if (hasSeen && !forceIntro) {
+        document.documentElement.classList.add('intro-seen');
+        this.overlay.classList.add('dismissed');
+        this.overlay.classList.remove('visible');
         this.overlay.style.display = 'none';
+      } else {
+        document.documentElement.classList.remove('intro-seen');
+        this.overlay.classList.remove('dismissed');
+        this.overlay.classList.add('visible');
+        this.open(false);
       }
     },
 
     open(isManualReplay = false) {
       if (!this.overlay) return;
       this.lastFocus = document.activeElement;
+      document.documentElement.classList.remove('intro-seen');
+      this.overlay.classList.remove('dismissed');
       this.overlay.removeAttribute('hidden');
       this.overlay.style.display = 'flex';
       void this.overlay.offsetWidth; // Force reflow
@@ -489,7 +504,7 @@
 
       const enterBtn = document.getElementById('btn-enter-portfolio') || document.getElementById('terminal-enter-btn');
       if (enterBtn) {
-        setTimeout(() => enterBtn.focus(), 100);
+        setTimeout(() => enterBtn.focus(), 80);
       }
 
       // Animate terminal lines if motion not reduced
@@ -497,10 +512,14 @@
       const lines = this.overlay.querySelectorAll('.term-line');
 
       if (prefersReducedMotion) {
-        lines.forEach(line => line.style.opacity = '1');
+        lines.forEach(line => {
+          line.style.opacity = '1';
+          line.classList.add('typed');
+        });
       } else {
         lines.forEach(line => {
           line.style.opacity = '0';
+          line.classList.remove('typed');
           const delay = parseInt(line.getAttribute('data-delay') || '0', 10);
           setTimeout(() => {
             line.style.opacity = '1';
@@ -514,9 +533,11 @@
       if (!this.overlay) return;
       if (markSeen) {
         try {
-          sessionStorage.setItem('portfolio_intro_seen', 'true');
+          localStorage.setItem('portfolio_intro_v3', 'true');
         } catch (e) {}
       }
+      document.documentElement.classList.add('intro-seen');
+      this.overlay.classList.add('dismissed');
       this.overlay.classList.remove('visible');
       setTimeout(() => {
         this.overlay.setAttribute('hidden', '');

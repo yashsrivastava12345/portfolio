@@ -12,7 +12,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://yashsrivastava.dev/">
 
-  <!-- Immediate Theme & Palette Initialization (Zero FOUC) -->
+  <!-- Immediate Theme, Palette & Intro State Initialization (Zero FOUC) -->
   <script>
     (function () {
       try {
@@ -20,6 +20,9 @@
         var p = localStorage.getItem('portfolio_palette') || 'emerald';
         document.documentElement.setAttribute('data-theme', t);
         document.documentElement.setAttribute('data-palette', p);
+        if (localStorage.getItem('portfolio_intro_v3') === 'true') {
+          document.documentElement.classList.add('intro-seen');
+        }
       } catch (e) {}
     })();
   </script>
@@ -191,34 +194,36 @@
           <span class="dot dot-green"></span>
         </div>
         <div class="terminal-window-title" id="terminal-intro-title">~/yash/portfolio</div>
-        <div class="terminal-replay-hint">v2.0</div>
       </div>
       <div class="terminal-window-body">
         <div class="terminal-prompt-line" style="margin-bottom: 8px;">
-          <span class="terminal-user">yash@workstation</span>:<span class="terminal-path">~</span>$ <span class="terminal-command">whoami</span>
+          <span class="terminal-prompt-sym">$</span> <span class="terminal-command">whoami</span>
         </div>
         <div class="terminal-output-area">
-          <div class="term-line" data-delay="80" style="color: var(--text-highlight); font-weight: 600;">yash &bull; Software Engineer</div>
+          <div class="term-line" data-delay="80" style="color: var(--text-highlight); font-weight: 600;">yash</div>
           
-          <div class="term-line" data-delay="220" style="margin-top: 10px; margin-bottom: 6px;">
-            <span class="terminal-user">yash@workstation</span>:<span class="terminal-path">~/portfolio</span>$ <span class="terminal-command">./initialize_portfolio.sh</span>
+          <div class="term-line" data-delay="200" style="margin-top: 10px; margin-bottom: 6px;">
+            <span class="terminal-prompt-sym">$</span> <span class="terminal-command">./welcome.sh</span>
           </div>
           
-          <div class="term-line" data-delay="360">&gt; Loading portfolio...</div>
-          <div class="term-line" data-delay="500" style="display: flex; justify-content: space-between;">
+          <div class="term-line" data-delay="340" style="display: flex; justify-content: space-between;">
+            <span>&gt; Initializing portfolio...</span>
+            <span class="term-accent">&check;</span>
+          </div>
+          <div class="term-line" data-delay="480" style="display: flex; justify-content: space-between;">
             <span>&gt; Loading projects...</span>
             <span class="term-accent">&check;</span>
           </div>
-          <div class="term-line" data-delay="640" style="display: flex; justify-content: space-between;">
+          <div class="term-line" data-delay="620" style="display: flex; justify-content: space-between;">
             <span>&gt; Loading skills...</span>
             <span class="term-accent">&check;</span>
           </div>
-          <div class="term-line" data-delay="780" style="display: flex; justify-content: space-between;">
+          <div class="term-line" data-delay="760" style="display: flex; justify-content: space-between;">
             <span>&gt; Loading experience...</span>
             <span class="term-accent">&check;</span>
           </div>
           
-          <div class="term-line term-success" data-delay="940" style="margin-top: 12px; font-size: 0.95rem;">
+          <div class="term-line term-success" data-delay="920" style="margin-top: 12px; font-size: 0.95rem;">
             Welcome to Yash Srivastava's portfolio.
           </div>
         </div>
@@ -1500,7 +1505,7 @@ SQLite Relational Storage (Treatment Sessions &amp; Audit Trail)</pre>
             
             <form id="contact-form" class="contact-form" novalidate>
               <!-- Web3Forms Routing Key -->
-              <input type="hidden" name="access_key" id="web3forms-access-key" value="b9e91e79-13f6-41b8-b7de-59ac8c6ed126">
+              <input type="hidden" name="access_key" id="web3forms-access-key" value="03770335-ee12-4217-a02b-a169bbf5cb9e">
               
               <!-- Anti-Spam Honeypot Field -->
               <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
@@ -1520,6 +1525,13 @@ SQLite Relational Storage (Treatment Sessions &amp; Audit Trail)</pre>
                   Your Email Address <span class="required-star" aria-hidden="true">*</span>
                 </label>
                 <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. sarah@example.com" autocomplete="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">
+                  Subject <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="e.g. Project Consultation / Engineering Role" required>
               </div>
 
               <div class="form-group">
