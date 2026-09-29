@@ -471,10 +471,20 @@ img {
   letter-spacing: 0.08em;
   color: var(--accent-green);
   background: var(--accent-green-dim);
-  border: 1px solid rgba(0, 255, 102, 0.28);
+  border: 1px solid var(--accent-border);
   padding: 6px 14px;
   border-radius: var(--radius-full);
   margin-bottom: 16px;
+}
+
+[data-theme="light"] .section-tag {
+  color: #047857;
+  background: rgba(5, 150, 105, 0.09);
+  border-color: rgba(5, 150, 105, 0.3);
+}
+
+[data-theme="light"] .section-tag::before {
+  color: #0369a1;
 }
 
 .section-tag::before {
@@ -495,7 +505,7 @@ img {
 }
 
 [data-theme="light"] .section-title .text-gradient {
-  background: linear-gradient(135deg, var(--text-highlight) 20%, var(--accent) 85%);
+  background: linear-gradient(135deg, #0f172a 0%, #0369a1 60%, #059669 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -1656,7 +1666,8 @@ img {
   position: relative;
 }
 
-.projects-filter-bar {
+.projects-filter-bar,
+.project-filters {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -1703,6 +1714,35 @@ img {
   border-color: var(--accent-green);
   color: var(--accent-green);
   box-shadow: 0 0 20px rgba(0, 255, 102, 0.5), inset 0 0 12px rgba(0, 255, 102, 0.18);
+}
+
+/* Light Mode Filter Buttons */
+[data-theme="light"] .filter-btn {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  color: #334155;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .filter-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #0284c7;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
+}
+
+[data-theme="light"] .filter-btn.active {
+  background: rgba(5, 150, 105, 0.09);
+  border: 1.5px solid #059669;
+  color: #047857;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.12);
+}
+
+[data-theme="light"] .filter-btn.active:hover {
+  background: rgba(5, 150, 105, 0.14);
+  border-color: #047857;
+  color: #065f46;
 }
 
 .projects-grid {
@@ -1848,6 +1888,56 @@ img {
   gap: 12px;
   padding-top: 16px;
   border-top: 1px solid var(--border-subtle);
+}
+
+/* Light Mode Project Cards */
+[data-theme="light"] .project-card {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.1);
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .project-card:hover {
+  border-color: #0284c7;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.2);
+}
+
+[data-theme="light"] .project-card-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .project-meta-category {
+  color: #0369a1;
+}
+
+[data-theme="light"] .status-milestone {
+  background: rgba(2, 132, 199, 0.1);
+  border-color: rgba(2, 132, 199, 0.3);
+  color: #0369a1;
+}
+
+[data-theme="light"] .status-completed {
+  background: rgba(5, 150, 105, 0.1);
+  border-color: rgba(5, 150, 105, 0.3);
+  color: #047857;
+}
+
+[data-theme="light"] .status-active {
+  background: rgba(5, 150, 105, 0.1);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #047857;
+}
+
+[data-theme="light"] .status-concept {
+  background: rgba(180, 83, 9, 0.08);
+  border-color: rgba(180, 83, 9, 0.28);
+  color: #92400e;
+}
+
+[data-theme="light"] .project-tag-pill {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #475569;
 }
 
 /* --------------------------------------------------------------------------
