@@ -404,12 +404,12 @@
     lastFocus: null,
 
     init() {
-      this.overlay = document.getElementById('terminal-intro-modal');
+      this.overlay = document.getElementById('terminal-intro-modal') || document.getElementById('terminal-intro-overlay');
       if (!this.overlay) return;
 
-      const enterBtn = document.getElementById('btn-enter-portfolio');
-      const skipBtn = document.getElementById('btn-skip-intro');
-      const replayBtns = document.querySelectorAll('.replay-terminal-trigger');
+      const enterBtn = document.getElementById('btn-enter-portfolio') || document.getElementById('terminal-enter-btn');
+      const skipBtn = document.getElementById('btn-skip-intro') || document.getElementById('terminal-skip-btn');
+      const replayBtns = document.querySelectorAll('.replay-terminal-trigger, .replay-terminal-btn');
 
       if (enterBtn) {
         enterBtn.addEventListener('click', () => this.close(true));
@@ -423,20 +423,42 @@
           e.preventDefault();
           this.open(true);
         });
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.open(true);
+          }
+        });
       });
 
-      // Escape key to dismiss
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && this.overlay && !this.overlay.hasAttribute('hidden')) {
+      // Click on backdrop to dismiss
+      this.overlay.addEventListener('click', (e) => {
+        if (e.target === this.overlay) {
           this.close(true);
+        }
+      });
+
+      // Keyboard shortcuts: Escape to dismiss, ~ or Ctrl+Alt+T to toggle
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.overlay && !this.overlay.hasAttribute('hidden') && this.overlay.classList.contains('visible')) {
+          this.close(true);
+        } else if ((e.key === '`' || e.key === '~' || (e.ctrlKey && e.altKey && e.key.toLowerCase() === 't')) && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+          e.preventDefault();
+          if (this.overlay && this.overlay.classList.contains('visible')) {
+            this.close(true);
+          } else {
+            this.open(true);
+          }
         }
       });
 
       // Check first visit on Home page
       const hasSeen = storage.get('portfolio_intro_seen');
-      const isHome = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+      const path = (window.location.pathname || '').toLowerCase();
+      const isHome = path === '/' || path === '' || path.endsWith('/index.html') || path.endsWith('\\index.html') || path.endsWith('/portfolio') || path.endsWith('/portfolio/') || path.endsWith('portfolio') || (!path.includes('/about') && !path.includes('/skills') && !path.includes('/projects') && !path.includes('/experience') && !path.includes('/resume') && !path.includes('/contact'));
+
       if (!hasSeen && isHome) {
-        this.open(false);
+        setTimeout(() => this.open(false), 300);
       }
     },
 
@@ -444,10 +466,11 @@
       if (!this.overlay) return;
       this.lastFocus = document.activeElement;
       this.overlay.removeAttribute('hidden');
+      void this.overlay.offsetWidth; // Force reflow
       this.overlay.classList.add('visible');
       document.body.style.overflow = 'hidden';
 
-      const enterBtn = document.getElementById('btn-enter-portfolio');
+      const enterBtn = document.getElementById('btn-enter-portfolio') || document.getElementById('terminal-enter-btn');
       if (enterBtn) enterBtn.focus();
 
       // Animate terminal lines if motion not reduced
@@ -560,6 +583,13 @@
     Matrix: MatrixEngine,
     TerminalIntro: TerminalIntro,
     Navigation: Navigation
+  };
+
+  // Direct convenience triggers
+  window.openTerminalIntro = () => TerminalIntro.open(true);
+  window.resetTerminalIntro = () => {
+    try { localStorage.removeItem('portfolio_intro_seen'); } catch (e) {}
+    TerminalIntro.open(false);
   };
 
   // Initialize all managers when DOM is ready

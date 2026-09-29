@@ -113,7 +113,7 @@
   <header class="navbar" id="top-navbar">
     <div class="container nav-container">
       <a href="#hero" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
-        <span class="brand-prompt" title="Replay Terminal Intro">&gt;_</span>
+        <span class="brand-prompt replay-terminal-trigger" title="Click to replay Terminal Intro (or press ~)" role="button" tabindex="0" aria-label="Replay Terminal Intro">&gt;_</span>
         <span class="brand-name">YASH SRIVASTAVA</span>
       </a>
 
@@ -180,32 +180,32 @@
   <!-- ========================================================================
        FIRST-VISIT TERMINAL INTRO POPUP (Interactive & Respects Reduced Motion)
        ======================================================================== -->
-  <div class="terminal-intro-overlay" id="terminal-intro-overlay" role="dialog" aria-modal="true" aria-labelledby="terminal-intro-title">
-    <div class="terminal-intro-modal">
-      <div class="terminal-intro-header">
-        <div class="terminal-window-dots" aria-hidden="true">
+  <div class="terminal-intro-overlay" id="terminal-intro-modal" role="dialog" aria-modal="true" aria-labelledby="terminal-intro-title" hidden>
+    <div class="terminal-intro-window">
+      <div class="terminal-window-header">
+        <div class="terminal-dots" aria-hidden="true">
           <span class="dot dot-red"></span>
           <span class="dot dot-yellow"></span>
           <span class="dot dot-green"></span>
         </div>
-        <div class="terminal-intro-title" id="terminal-intro-title">~/yash/portfolio</div>
-        <div style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent);">v2.0</div>
+        <div class="terminal-window-title" id="terminal-intro-title">~/yash/portfolio</div>
+        <div class="terminal-replay-hint">v2.0</div>
       </div>
-      <div class="terminal-intro-body">
-        <div class="terminal-command-line">
-          <span class="prompt">$</span> <span class="cmd-text">./welcome.sh</span>
+      <div class="terminal-window-body">
+        <div class="terminal-prompt-line">
+          <span class="terminal-user">yash@workstation</span>:<span class="terminal-path">~/portfolio</span>$ <span class="terminal-command">./welcome.sh</span>
         </div>
-        <div class="terminal-output-stream">
-          <div class="stream-line">&gt; Initializing Yash Srivastava portfolio environment...</div>
-          <div class="stream-line">&gt; Role: Software Engineer &bull; Python &bull; PyQt6 &bull; Embedded Linux</div>
-          <div class="stream-line">&gt; Systems: Medical Electrotherapy Kiosks, Sensor Buses, Django ORM</div>
-          <div class="stream-line success-line">&check; Systems operational. Ready to enter.</div>
+        <div class="terminal-output-area">
+          <div class="term-line" data-delay="120">&gt; Initializing Yash Srivastava portfolio environment...</div>
+          <div class="term-line" data-delay="400">&gt; <span class="term-highlight">Role:</span> Software Engineer &bull; Python &bull; PyQt6 &bull; Embedded Linux</div>
+          <div class="term-line" data-delay="700">&gt; <span class="term-highlight">Systems:</span> Medical Electrotherapy Kiosks, Sensor Buses, Django ORM</div>
+          <div class="term-line term-success" data-delay="1000">&check; <span class="term-accent">Systems operational. Portfolio ready.</span></div>
         </div>
-        <div class="terminal-intro-actions">
-          <button type="button" class="btn btn-primary" id="terminal-enter-btn">
+        <div class="terminal-actions">
+          <button type="button" class="btn btn-primary" id="btn-enter-portfolio">
             <span>[ ENTER PORTFOLIO ]</span>
           </button>
-          <button type="button" class="btn btn-secondary" id="terminal-skip-btn">
+          <button type="button" class="btn btn-secondary" id="btn-skip-intro">
             <span>[ SKIP ]</span>
           </button>
         </div>
