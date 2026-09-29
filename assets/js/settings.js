@@ -412,10 +412,16 @@
       const replayBtns = document.querySelectorAll('.replay-terminal-trigger, .replay-terminal-btn');
 
       if (enterBtn) {
-        enterBtn.addEventListener('click', () => this.close(true));
+        enterBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.close(true);
+        });
       }
       if (skipBtn) {
-        skipBtn.addEventListener('click', () => this.close(true));
+        skipBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.close(true);
+        });
       }
 
       replayBtns.forEach(btn => {
@@ -452,13 +458,23 @@
         }
       });
 
-      // Check first visit on Home page
-      const hasSeen = storage.get('portfolio_intro_seen');
-      const path = (window.location.pathname || '').toLowerCase();
-      const isHome = path === '/' || path === '' || path.endsWith('/index.html') || path.endsWith('\\index.html') || path.endsWith('/portfolio') || path.endsWith('/portfolio/') || path.endsWith('portfolio') || (!path.includes('/about') && !path.includes('/skills') && !path.includes('/projects') && !path.includes('/experience') && !path.includes('/resume') && !path.includes('/contact'));
+      // Check visit status: use sessionStorage so each new visit/session displays the intro
+      let hasSeen = false;
+      try {
+        hasSeen = sessionStorage.getItem('portfolio_intro_seen') === 'true';
+      } catch (e) {
+        hasSeen = false;
+      }
 
-      if (!hasSeen && isHome) {
-        setTimeout(() => this.open(false), 300);
+      // Check URL overrides: ?intro or ?terminal forces it
+      const urlParams = new URLSearchParams(window.location.search);
+      const forceIntro = urlParams.has('intro') || urlParams.has('terminal');
+
+      // On Home page (where overlay exists in DOM), show intro if not seen this session or forced
+      if (!hasSeen || forceIntro) {
+        this.open(false);
+      } else {
+        this.overlay.style.display = 'none';
       }
     },
 
@@ -466,12 +482,15 @@
       if (!this.overlay) return;
       this.lastFocus = document.activeElement;
       this.overlay.removeAttribute('hidden');
+      this.overlay.style.display = 'flex';
       void this.overlay.offsetWidth; // Force reflow
       this.overlay.classList.add('visible');
       document.body.style.overflow = 'hidden';
 
       const enterBtn = document.getElementById('btn-enter-portfolio') || document.getElementById('terminal-enter-btn');
-      if (enterBtn) enterBtn.focus();
+      if (enterBtn) {
+        setTimeout(() => enterBtn.focus(), 100);
+      }
 
       // Animate terminal lines if motion not reduced
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -493,10 +512,15 @@
 
     close(markSeen = true) {
       if (!this.overlay) return;
-      if (markSeen) storage.set('portfolio_intro_seen', 'true');
+      if (markSeen) {
+        try {
+          sessionStorage.setItem('portfolio_intro_seen', 'true');
+        } catch (e) {}
+      }
       this.overlay.classList.remove('visible');
       setTimeout(() => {
         this.overlay.setAttribute('hidden', '');
+        this.overlay.style.display = 'none';
         document.body.style.overflow = '';
         if (this.lastFocus && typeof this.lastFocus.focus === 'function') {
           this.lastFocus.focus();
