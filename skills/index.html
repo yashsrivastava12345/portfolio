@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Skills &amp; Architecture | Yash Srivastava</title>
+  
+  <meta name="description" content="Technical proficiencies and architecture skills of Yash Srivastava — Python, PyQt6, Embedded Linux, Raspberry Pi, Django, OpenCV, and relational databases.">
+  <link rel="canonical" href="https://yashsrivastava.dev/skills/">
+
+  <!-- Immediate Theme & Palette Initialization -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-palette', p);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yashsrivastava.dev/skills/">
+  <meta property="og:title" content="Technical Skills &amp; Architecture | Yash Srivastava">
+  <meta property="og:description" content="Structured technical competencies with real-world application context across Python, embedded systems, and enterprise backends.">
+  <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
+        <span class="brand-prompt">&gt;_</span>
+        <span class="brand-name">YASH SRIVASTAVA</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../skills/" class="nav-link active">Skills</a></li>
+          <li><a href="../projects/" class="nav-link">Projects</a></li>
+          <li><a href="../experience/" class="nav-link">Experience</a></li>
+          <li><a href="../resume/" class="nav-link">Resume</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-controls">
+          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
+            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
+            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
+            <span class="ctrl-label">Dark</span>
+          </button>
+
+          <div class="palette-dropdown" id="palette-dropdown-container">
+            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
+              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
+              <span class="ctrl-label">Palette</span>
+            </button>
+            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
+              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
+              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
+              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
+              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
+              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
+              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+            </div>
+          </div>
+
+          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
+            <span class="matrix-status-dot"></span>
+            <span class="ctrl-label">Matrix: OFF</span>
+          </button>
+        </div>
+
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Page Hero & Breadcrumbs -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">Skills</span>
+        </nav>
+        <span class="section-tag">// Engineering Capabilities</span>
+        <h1 class="section-title">Technical <span class="text-gradient">Proficiencies</span></h1>
+        <p class="section-subtitle">
+          Organized by domain, emphasizing real-world engineering usage rather than arbitrary percentages.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Categorized Breakdown -->
+    <section style="padding: 60px 0 100px;">
+      <div class="container">
+        
+        <div class="skills-detail-grid">
+
+          <!-- Category 1: Languages -->
+          <div class="skill-detail-card">
+            <h2 class="skill-detail-title">
+              <span style="color: var(--accent);">&#128187;</span> Programming Languages
+            </h2>
+            <div class="skill-detail-list">
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">Python 3</div>
+                <div class="skill-tech-desc">Core development language used for PyQt6 touchscreen GUIs, asynchronous I2C telemetry, OpenCV pipelines, and Django enterprise backends.</div>
+                <div style="margin-top: 6px;"><a href="../projects/tecar/" style="font-size: 0.82rem; font-family: var(--font-mono);">&rarr; See TECAR Case Study</a></div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">C / C++ (Foundational)</div>
+                <div class="skill-tech-desc">Microcontroller firmware interfaces, hardware register concepts, and low-level serial communication fundamentals.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">SQL</div>
+                <div class="skill-tech-desc">Database schema design, foreign key constraints, session logging queries, and performance index creation in SQLite and MySQL.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">JavaScript (ES6+)</div>
+                <div class="skill-tech-desc">Clean client-side DOM scripting, modal focus management, custom Canvas rendering, and responsive WebP delivery without framework overhead.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Frameworks & GUI Systems -->
+          <div class="skill-detail-card">
+            <h2 class="skill-detail-title">
+              <span style="color: var(--accent);">&#128421;</span> Frameworks &amp; GUI Systems
+            </h2>
+            <div class="skill-detail-list">
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">PyQt6 / Qt Designer</div>
+                <div class="skill-tech-desc">Custom touch widgets, clinical high-contrast stylesheets (QSS), spinbox controllers, keypad input dialogs, and non-blocking worker threads.</div>
+                <div style="margin-top: 6px;"><a href="../projects/laser-lumino-pro/" style="font-size: 0.82rem; font-family: var(--font-mono);">&rarr; See Lumino Pro Case Study</a></div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">Django</div>
+                <div class="skill-tech-desc">Full-stack web application development, ORM relational models, administrative dashboards, authentication, and inventory tracking logic.</div>
+                <div style="margin-top: 6px;"><a href="../projects/django-ims/" style="font-size: 0.82rem; font-family: var(--font-mono);">&rarr; See Django IMS Case Study</a></div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">HTML5 &amp; CSS3</div>
+                <div class="skill-tech-desc">Semantic document trees, WCAG AA accessibility, responsive CSS Grid / Flexbox, CSS custom properties, and reduced-motion support.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Embedded & Hardware Integration -->
+          <div class="skill-detail-card">
+            <h2 class="skill-detail-title">
+              <span style="color: var(--accent);">&#9881;</span> Embedded Linux &amp; Hardware
+            </h2>
+            <div class="skill-detail-list">
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">Raspberry Pi (CM5 / Pi 4)</div>
+                <div class="skill-tech-desc">Operating system configuration on Raspberry Pi OS, headless setup, boot splash customization, and direct display driver interfacing.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">Linux systemd Kiosk Automation</div>
+                <div class="skill-tech-desc">Dedicated systemd service daemons to automatically launch PyQt6 applications into full-screen X11/Wayland kiosks on boot with auto-restart policies.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">I2C, SPI &amp; Serial Protocols</div>
+                <div class="skill-tech-desc">Bus communication interfacing ADS1115 analog-to-digital converters, MLX90614 infrared temperature sensors, and peripheral chips.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">GPIO &amp; Hardware Safety Monitoring</div>
+                <div class="skill-tech-desc">Interrupt-driven monitoring of physical footswitch triggers and emergency stop cutoffs to immediately assert software disable states.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 4: Computer Vision & AI -->
+          <div class="skill-detail-card">
+            <h2 class="skill-detail-title">
+              <span style="color: var(--accent);">&#128065;</span> Computer Vision &amp; AI
+            </h2>
+            <div class="skill-detail-list">
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">OpenCV (cv2)</div>
+                <div class="skill-tech-desc">Real-time webcam and camera module frame processing, color space transformations, adaptive thresholding, and contour analysis.</div>
+                <div style="margin-top: 6px;"><a href="../projects/cv-ocr-projects/" style="font-size: 0.82rem; font-family: var(--font-mono);">&rarr; See Vision &amp; OCR Case Study</a></div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">Optical Character Recognition (OCR)</div>
+                <div class="skill-tech-desc">Document parsing pipelines using Otsu thresholding and morphological operations to clean low-contrast text before classification.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">NumPy</div>
+                <div class="skill-tech-desc">Multi-dimensional matrix operations for image array slicing, sensor telemetry calculations, and data normalization.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 5: Databases & Storage -->
+          <div class="skill-detail-card">
+            <h2 class="skill-detail-title">
+              <span style="color: var(--accent);">&#128452;</span> Databases &amp; Storage
+            </h2>
+            <div class="skill-detail-list">
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">SQLite3</div>
+                <div class="skill-tech-desc">Zero-configuration, lightweight relational database embedded directly inside clinical kiosks for audit logging and treatment histories.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">MySQL</div>
+                <div class="skill-tech-desc">Enterprise relational database used in conjunction with Django for warehouse stock tables, user authentication, and transaction tracking.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">JSON Data Modeling</div>
+                <div class="skill-tech-desc">Structured catalog schemas, configuration files, and REST API payload serialization.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 6: DevOps, Tools & Workflows -->
+          <div class="skill-detail-card">
+            <h2 class="skill-detail-title">
+              <span style="color: var(--accent);">&#128736;</span> Tools &amp; Engineering Workflows
+            </h2>
+            <div class="skill-detail-list">
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">Git &amp; GitHub</div>
+                <div class="skill-tech-desc">Branch management, structured commits, pull request workflows, and deployment automation.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">Linux Command Line &amp; SSH</div>
+                <div class="skill-tech-desc">Remote headless device configuration, SCP artifact deployment, bash scripting, journalctl log inspection, and network diagnostics.</div>
+              </div>
+
+              <div class="skill-detail-item">
+                <div class="skill-tech-name">Cloudflare Pages &amp; Edge Headers</div>
+                <div class="skill-tech-desc">Static web deployment, custom CSP security headers, caching rules, and DNS routing.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Continuous Learning Section -->
+        <div style="margin-top: 60px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 36px;">
+          <span class="section-tag">// Continuous Development</span>
+          <h2 style="font-size: 1.4rem; color: var(--text-highlight); margin-bottom: 14px;">Currently Exploring &amp; Expanding</h2>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">
+            Technologies and engineering disciplines actively being integrated into current personal research:
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+            <div style="padding: 16px; background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); margin-bottom: 6px;">Edge AI Inference</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Deploying optimized vision models on Raspberry Pi for real-time video stream detection.</p>
+            </div>
+            <div style="padding: 16px; background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); margin-bottom: 6px;">Custom Embedded Linux</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Exploring Yocto Project builds, read-only overlay filesystems, and device tree overlays.</p>
+            </div>
+            <div style="padding: 16px; background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); margin-bottom: 6px;">Modern Web Architecture</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Deepening TypeScript knowledge, Next.js, and RESTful microservices connected to Python backends.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 48px;">
+          <a href="../projects/" class="btn btn-primary">
+            <span>See Technologies Applied in Projects</span>
+            <span class="btn-arrow">&rarr;</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="brand-prompt">&gt;_</span>
+          <span class="brand-name">YASH SRIVASTAVA</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; line-height: 1.6;">
+          Software Engineer specializing in Python, PyQt6, embedded Linux, and hardware-connected touch kiosks.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
+          <li><a href="../about/" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
+          <li><a href="../skills/" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
+          <li><a href="../projects/" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
+          <li><a href="../experience/" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
+          <li><a href="../resume/" style="color: var(--text-secondary); font-size: 0.88rem;">Resume</a></li>
+          <li><a href="../contact/" style="color: var(--text-secondary); font-size: 0.88rem;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">GitHub &nearr;</a></li>
+          <li><a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">LinkedIn &nearr;</a></li>
+          <li><a href="mailto:yashsrivastava015@gmail.com" style="color: var(--text-secondary); font-size: 0.88rem;">yashsrivastava015@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: 0.82rem; font-family: var(--font-mono);">
+      <p>&copy; 2026 Yash Srivastava. Engineered with pure HTML5, CSS3 &amp; Vanilla JS.</p>
+      <p>Obsidian Dark &bull; 6 Curated Palettes &bull; Zero Framework Bloat</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/settings.js"></script>
+</body>
+</html>

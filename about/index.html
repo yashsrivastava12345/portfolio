@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Yash Srivastava | Systems Software Engineer</title>
+  
+  <meta name="description" content="Learn about Yash Srivastava — Software Engineer based in Ghaziabad, India. Background, engineering philosophy, education, and development approach.">
+  <link rel="canonical" href="https://yashsrivastava.dev/about/">
+
+  <!-- Immediate Theme & Palette Initialization -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-palette', p);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://yashsrivastava.dev/about/">
+  <meta property="og:title" content="About Yash Srivastava | Software Engineer">
+  <meta property="og:description" content="Background, engineering philosophy, and lab snapshots of Yash Srivastava.">
+  <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
+        <span class="brand-prompt">&gt;_</span>
+        <span class="brand-name">YASH SRIVASTAVA</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../about/" class="nav-link active">About</a></li>
+          <li><a href="../skills/" class="nav-link">Skills</a></li>
+          <li><a href="../projects/" class="nav-link">Projects</a></li>
+          <li><a href="../experience/" class="nav-link">Experience</a></li>
+          <li><a href="../resume/" class="nav-link">Resume</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-controls">
+          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
+            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
+            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
+            <span class="ctrl-label">Dark</span>
+          </button>
+
+          <div class="palette-dropdown" id="palette-dropdown-container">
+            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
+              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
+              <span class="ctrl-label">Palette</span>
+            </button>
+            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
+              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
+              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
+              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
+              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
+              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
+              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+            </div>
+          </div>
+
+          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
+            <span class="matrix-status-dot"></span>
+            <span class="ctrl-label">Matrix: OFF</span>
+          </button>
+        </div>
+
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Page Hero & Breadcrumbs -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">About</span>
+        </nav>
+        <span class="section-tag">// Professional Profile</span>
+        <h1 class="section-title">About <span class="text-gradient">Yash Srivastava</span></h1>
+        <p class="section-subtitle">
+          Software Engineer dedicated to building tactile user interfaces, embedded Linux deployments, and solid technical foundations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Detailed Background & Portrait -->
+    <section style="padding: 70px 0;">
+      <div class="container">
+        <div class="about-grid" style="display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: start;">
+          
+          <!-- Left Column: Portrait & Highlights -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; padding: 16px; text-align: center;">
+              <img src="../images/profile/yash-profile.webp" alt="Yash Srivastava portrait photograph" style="border-radius: var(--radius-sm); width: 100%; height: auto; max-height: 400px; object-fit: cover;" width="400" height="480">
+              <div style="margin-top: 16px; text-align: left;">
+                <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-highlight);">Yash Srivastava</h2>
+                <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); margin-bottom: 8px;">Software Engineer</p>
+                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Ghaziabad, Uttar Pradesh, India</p>
+              </div>
+            </div>
+
+            <!-- Quick Specs Card -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px;">
+              <h3 style="font-size: 0.95rem; font-family: var(--font-mono); text-transform: uppercase; color: var(--text-highlight); margin-bottom: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">Quick Facts</h3>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--text-secondary);">
+                <li><strong>Degree:</strong> B.Tech (2021&ndash;2025)</li>
+                <li><strong>Institution:</strong> UCER Prayagraj</li>
+                <li><strong>Primary Stack:</strong> Python, PyQt6, Linux</li>
+                <li><strong>Secondary:</strong> Django, SQLite, OpenCV</li>
+                <li><strong>Languages:</strong> English, Hindi</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column: Narrative & Engineering Approach -->
+          <div style="display: flex; flex-direction: column; gap: 32px;">
+            <div>
+              <h2 style="font-size: 1.6rem; color: var(--text-highlight); margin-bottom: 16px;">The Intersection of Hardware and Code</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 16px;">
+                I am a software engineer with a distinct passion for physical systems. While many developers focus solely on browser-based software, I have dedicated substantial time to understanding how software interacts with actual microcontrollers, sensors, analog-to-digital converters, and industrial touchscreens.
+              </p>
+              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 16px;">
+                At <strong>Curves and Contours LLP</strong>, I engineer full-screen graphical applications in PyQt6 that run on Raspberry Pi Compute Modules inside physical medical therapy units. These machines require high-contrast clinical themes, touch keypad validation, safety cutoff monitoring, and continuous systemd service automation so the device operates as a trustworthy dedicated appliance.
+              </p>
+              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+                Previously, at <strong>uCertify</strong>, I participated in structured technical content ingestion pipelines, verifying digital educational courseware against strict validation criteria. During an internship at <strong>Hindustan Aeronautics Limited (HAL)</strong> in Kanpur, I analyzed aircraft instrumentation, avionics communication architectures, and explored applied computer vision.
+              </p>
+            </div>
+
+            <!-- Engineering Philosophy -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent); border-radius: var(--radius-md); padding: 28px;">
+              <h3 style="font-size: 1.2rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 12px;">Engineering Philosophy</h3>
+              <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 12px;">
+                <strong>1. Resilience over Hype:</strong> I prioritize predictable error boundaries, defensive parameter validation, and robust system recovery over fragile bleeding-edge frameworks.
+              </p>
+              <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 12px;">
+                <strong>2. The Appliance Experience:</strong> When software runs on a dedicated kiosk or embedded display, it must feel like an appliance—no visible operating system crashes, no accidental minimize shortcuts, and clean boot-up directly into the workflow.
+              </p>
+              <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary);">
+                <strong>3. Transparent Attribution:</strong> I communicate exactly what I built, the challenges faced, and the real hardware constraints involved, avoiding inflated or fabricated claims.
+              </p>
+            </div>
+
+            <!-- Areas of Interest -->
+            <div>
+              <h3 style="font-size: 1.3rem; color: var(--text-highlight); margin-bottom: 16px;">Areas of Deep Technical Interest</h3>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+                  <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); margin-bottom: 6px;">Embedded Linux Kiosks</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Building tamper-resistant, full-screen graphical applications using PyQt6, X11/Wayland kiosk shells, and systemd services.</p>
+                </div>
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+                  <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); margin-bottom: 6px;">Sensor Bus Telemetry</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">I2C and SPI peripheral communication, ADS1115 ADC data sampling, and thermal safety interlock logic.</p>
+                </div>
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+                  <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); margin-bottom: 6px;">Edge AI &amp; Vision</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Exploring lightweight computer vision models with OpenCV and OCR algorithms optimized for single-board computers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lab & Workstation Snapshots Gallery -->
+    <section style="padding: 70px 0; background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Engineering Gallery</span>
+          <h2 class="section-title">Snapshots from the <span class="text-gradient">Lab</span></h2>
+          <p class="section-subtitle">
+            Visual glimpses into development workstations, touchscreen GUI testing, and hardware test benches.
+          </p>
+        </div>
+
+        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px;">
+          
+          <div class="gallery-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+            <img src="../images/snapshots-engineering-lab/workstation-embedded-lab-800.webp" alt="Development workstation setup with test equipment and circuit testing" style="width: 100%; height: 220px; object-fit: cover;" width="800" height="450" loading="lazy">
+            <div style="padding: 16px;">
+              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-highlight); margin-bottom: 4px;">Workstation &amp; Embedded Lab</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">Development workstation and hardware testing bench</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+            <img src="../images/snapshots-engineering-lab/medical-device-gui-testing-800.webp" alt="Touchscreen monitor testing medical device graphical user interface" style="width: 100%; height: 220px; object-fit: cover;" width="800" height="450" loading="lazy">
+            <div style="padding: 16px;">
+              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-highlight); margin-bottom: 4px;">Medical Device GUI Testing</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">Evaluating touch response and clinical sensor feedback</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+            <img src="../images/snapshots-engineering-lab/sensor-hardware-engineering-800.webp" alt="Circuit prototyping breadboard with connected sensors and wiring" style="width: 100%; height: 220px; object-fit: cover;" width="800" height="450" loading="lazy">
+            <div style="padding: 16px;">
+              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-highlight); margin-bottom: 4px;">Sensor &amp; Hardware Bench</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">Prototyping ADC signal lines and sensor buses</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+            <img src="../images/snapshots-engineering-lab/ucertify-ingest-role-800.webp" alt="Office collaboration during technical content operations" style="width: 100%; height: 220px; object-fit: cover;" width="800" height="450" loading="lazy">
+            <div style="padding: 16px;">
+              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-highlight); margin-bottom: 4px;">uCertify &mdash; Content Ingestion</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">Structured content ingestion operations and team collaboration</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 60px 0; border-top: 1px solid var(--border-subtle); text-align: center;">
+      <div class="container" style="max-width: 600px;">
+        <h2 style="font-size: 1.5rem; color: var(--text-highlight); margin-bottom: 16px;">Want to see what I have built?</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem;">
+          Explore detailed architectural breakdowns and technical case studies across medical and enterprise projects.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="../projects/" class="btn btn-primary">
+            <span>Explore Projects</span>
+            <span class="btn-arrow">&rarr;</span>
+          </a>
+          <a href="../contact/" class="btn btn-secondary">
+            <span>Contact Yash</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="brand-prompt">&gt;_</span>
+          <span class="brand-name">YASH SRIVASTAVA</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; line-height: 1.6;">
+          Software Engineer specializing in Python, PyQt6, embedded Linux, and hardware-connected touch kiosks.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
+          <li><a href="../about/" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
+          <li><a href="../skills/" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
+          <li><a href="../projects/" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
+          <li><a href="../experience/" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
+          <li><a href="../resume/" style="color: var(--text-secondary); font-size: 0.88rem;">Resume</a></li>
+          <li><a href="../contact/" style="color: var(--text-secondary); font-size: 0.88rem;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">GitHub &nearr;</a></li>
+          <li><a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">LinkedIn &nearr;</a></li>
+          <li><a href="mailto:yashsrivastava015@gmail.com" style="color: var(--text-secondary); font-size: 0.88rem;">yashsrivastava015@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: 0.82rem; font-family: var(--font-mono);">
+      <p>&copy; 2026 Yash Srivastava. Engineered with pure HTML5, CSS3 &amp; Vanilla JS.</p>
+      <p>Obsidian Dark &bull; 6 Curated Palettes &bull; Zero Framework Bloat</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/settings.js"></script>
+</body>
+</html>

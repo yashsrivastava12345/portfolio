@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Yash Srivastava | Software Engineer</title>
+  
+  <meta name="description" content="Get in touch with Yash Srivastava for software engineering roles, embedded kiosk development, technical consulting, or collaborations.">
+  <link rel="canonical" href="https://yashsrivastava.dev/contact/">
+
+  <!-- Immediate Theme & Palette Initialization -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-palette', p);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yashsrivastava.dev/contact/">
+  <meta property="og:title" content="Contact Yash Srivastava | Software Engineer">
+  <meta property="og:description" content="Reach out to Yash Srivastava for software engineering opportunities, embedded systems, and development inquiries.">
+  <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
+        <span class="brand-prompt">&gt;_</span>
+        <span class="brand-name">YASH SRIVASTAVA</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../skills/" class="nav-link">Skills</a></li>
+          <li><a href="../projects/" class="nav-link">Projects</a></li>
+          <li><a href="../experience/" class="nav-link">Experience</a></li>
+          <li><a href="../resume/" class="nav-link">Resume</a></li>
+          <li><a href="index.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-controls">
+          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
+            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
+            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
+            <span class="ctrl-label">Dark</span>
+          </button>
+
+          <div class="palette-dropdown" id="palette-dropdown-container">
+            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
+              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
+              <span class="ctrl-label">Palette</span>
+            </button>
+            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
+              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
+              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
+              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
+              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
+              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
+              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+            </div>
+          </div>
+
+          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
+            <span class="matrix-status-dot"></span>
+            <span class="ctrl-label">Matrix: OFF</span>
+          </button>
+        </div>
+
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">Contact</span>
+        </nav>
+        <span class="section-tag">// Communication Channels</span>
+        <h1 class="section-title">Let's <span class="text-gradient">Connect</span></h1>
+        <p class="section-subtitle">
+          Open to full-time software engineering roles, embedded touchscreen projects, and technical collaborations.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact" style="padding-top: 30px;">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <!-- Contact Info & Availability Column -->
+          <div class="contact-info-col">
+            
+            <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 24px;">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+                <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent);"></span>
+                <h2 style="font-size: 1.15rem; color: var(--text-highlight); margin: 0; font-family: var(--font-mono);">Availability Status</h2>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+                I am currently open to <strong>full-time software engineering opportunities</strong>, embedded Python/PyQt development roles, and selective technical consultations.
+              </p>
+              
+              <div style="font-size: 0.88rem; color: var(--text-muted); font-family: var(--font-mono); display: flex; flex-direction: column; gap: 8px;">
+                <div><strong style="color: var(--text-secondary);">Location:</strong> Prayagraj, UP, India (IST / UTC+5:30)</div>
+                <div><strong style="color: var(--text-secondary);">Response Window:</strong> Within 24&ndash;48 hours</div>
+                <div><strong style="color: var(--text-secondary);">Work Mode:</strong> Remote &bull; Hybrid &bull; On-site</div>
+              </div>
+            </div>
+
+            <div class="contact-info-list">
+              <a href="mailto:yashsrivastava015@gmail.com" class="contact-item" aria-label="Send direct email to yashsrivastava015@gmail.com">
+                <div class="contact-icon" aria-hidden="true">&#9993;</div>
+                <div>
+                  <div class="contact-label">Direct Email</div>
+                  <div class="contact-val">yashsrivastava015@gmail.com</div>
+                </div>
+              </a>
+
+              <a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="Visit Yash Srivastava LinkedIn Profile">
+                <div class="contact-icon" aria-hidden="true">&#128279;</div>
+                <div>
+                  <div class="contact-label">LinkedIn Profile</div>
+                  <div class="contact-val">in/yash-srivastava-363363220 &nearr;</div>
+                </div>
+              </a>
+
+              <a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="Visit Yash Srivastava GitHub Profile">
+                <div class="contact-icon" aria-hidden="true">&#128421;</div>
+                <div>
+                  <div class="contact-label">GitHub Repository</div>
+                  <div class="contact-val">github.com/yashsrivastava12345 &nearr;</div>
+                </div>
+              </a>
+            </div>
+
+            <div style="margin-top: 24px; padding: 20px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+              <h3 style="font-size: 0.95rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 6px;">Need an Immediate Resume?</h3>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.5;">
+                You can review my printable engineering resume or download the official PDF directly.
+              </p>
+              <a href="../resume/" class="btn btn-secondary" style="font-size: 0.82rem; padding: 6px 14px;">
+                <span>View Resume &rarr;</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Direct Form Column -->
+          <div class="contact-form-col">
+            <div class="contact-form-card">
+              <div class="contact-form-header">
+                <h2 class="contact-form-title">Send a Direct Message</h2>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 6px;">
+                  Leave your details and project context below. I'll get back to you promptly.
+                </p>
+              </div>
+
+              <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" id="web3forms-access-key" value="b9e91e79-13f6-41b8-b7de-59ac8c6ed126">
+                
+                <!-- Honeypot Field for anti-bot filtering -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
+                
+                <!-- Metadata -->
+                <input type="hidden" name="subject" value="Portfolio Message via yashsrivastava.dev">
+                <input type="hidden" name="from_name" value="yashsrivastava.dev Contact Form">
+
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Full Name *</label>
+                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Alex Morgan" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Email Address *</label>
+                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. alex@company.com" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-message" class="form-label">Message / Inquiry *</label>
+                  <textarea id="contact-message" name="message" class="form-textarea" placeholder="Tell me about the engineering opportunity, project specifications, or collaboration ideas..." required rows="5"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 14px;">
+                  <span>Send Message</span>
+                  <span aria-hidden="true">&#9993;</span>
+                </button>
+
+                <div id="form-status-msg" class="form-status-msg" role="status" aria-live="polite"></div>
+
+                <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 16px; line-height: 1.4;">
+                  Privacy note: Messages are transmitted directly via encrypted HTTPS to my inbox. No marketing lists or tracking cookies.
+                </p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="brand-prompt">&gt;_</span>
+          <span class="brand-name">YASH SRIVASTAVA</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; line-height: 1.6;">
+          Software Engineer specializing in Python, PyQt6, embedded Linux, and hardware-connected touch kiosks.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
+          <li><a href="../about/" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
+          <li><a href="../skills/" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
+          <li><a href="../projects/" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
+          <li><a href="../experience/" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
+          <li><a href="../resume/" style="color: var(--text-secondary); font-size: 0.88rem;">Resume</a></li>
+          <li><a href="index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">GitHub &nearr;</a></li>
+          <li><a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">LinkedIn &nearr;</a></li>
+          <li><a href="mailto:yashsrivastava015@gmail.com" style="color: var(--text-secondary); font-size: 0.88rem;">yashsrivastava015@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: 0.82rem; font-family: var(--font-mono);">
+      <p>&copy; 2026 Yash Srivastava. Engineered with pure HTML5, CSS3 &amp; Vanilla JS.</p>
+      <p>Obsidian Dark &bull; 6 Curated Palettes &bull; Zero Framework Bloat</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/settings.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Django IMS / CIMS Enterprise System Case Study | Yash Srivastava</title>
+  
+  <meta name="description" content="Engineering case study for IMS / CIMS — Python Django enterprise inventory and management information system with QR tracking and role-based permissions.">
+  <link rel="canonical" href="https://yashsrivastava.dev/projects/django-ims/">
+
+  <!-- Immediate Theme & Palette Initialization -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-palette', p);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yashsrivastava.dev/projects/django-ims/">
+  <meta property="og:title" content="Django IMS / CIMS Enterprise System Case Study | Yash Srivastava">
+  <meta property="og:description" content="Enterprise inventory and management system engineered with Python, Django, QR code tracking, and relational database schemas.">
+  <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="../../index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
+        <span class="brand-prompt">&gt;_</span>
+        <span class="brand-name">YASH SRIVASTAVA</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../about/" class="nav-link">About</a></li>
+          <li><a href="../../skills/" class="nav-link">Skills</a></li>
+          <li><a href="../index.html" class="nav-link active">Projects</a></li>
+          <li><a href="../../experience/" class="nav-link">Experience</a></li>
+          <li><a href="../../resume/" class="nav-link">Resume</a></li>
+          <li><a href="../../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-controls">
+          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
+            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
+            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
+            <span class="ctrl-label">Dark</span>
+          </button>
+
+          <div class="palette-dropdown" id="palette-dropdown-container">
+            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
+              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
+              <span class="ctrl-label">Palette</span>
+            </button>
+            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
+              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
+              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
+              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
+              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
+              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
+              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+            </div>
+          </div>
+
+          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
+            <span class="matrix-status-dot"></span>
+            <span class="ctrl-label">Matrix: OFF</span>
+          </button>
+        </div>
+
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span class="separator">/</span>
+          <a href="../index.html">Projects</a>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">Django IMS / CIMS</span>
+        </nav>
+        <span class="section-tag">// Enterprise Software Case Study</span>
+        <h1 class="section-title">IMS / CIMS &mdash; <span class="text-gradient">Inventory &amp; Management</span></h1>
+        <p class="section-subtitle">
+          Enterprise Inventory &amp; Management Information System with QR Code Tracking
+        </p>
+
+        <div class="case-study-meta-bar">
+          <span class="meta-pill meta-pill-accent">&#127970; In Active Development</span>
+          <span class="meta-pill">Domain: Enterprise Web Platform</span>
+          <span class="meta-pill">Framework: Python &bull; Django</span>
+          <span class="meta-pill">Database: SQLite / MySQL</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-study-body">
+      <div class="container">
+        <div class="case-study-grid">
+          
+          <div class="case-study-main">
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">Project Overview</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 16px;">
+                Manufacturing, engineering assembly, and warehouse operations require strict tracking of hardware components, raw materials, sub-assemblies, and tools across multiple stages of quality control.
+              </p>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary);">
+                IMS / CIMS is an internal web-based enterprise management system built using Python and Django. It centralizes real-time inventory records, automates QR code and serial number generation for physical parts, manages departmental handoffs, and enforces role-based access security across technicians, warehouse personnel, and administrators.
+              </p>
+            </div>
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">The Engineering Problem</h2>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 16px;">
+                Spreadsheet-based and disconnected tracking workflows present critical vulnerabilities:
+              </p>
+              <ul class="feature-checklist" style="margin-bottom: 20px;">
+                <li>Component counts drift due to unlogged stock withdrawals and manual data entry errors.</li>
+                <li>Physical items on warehouse shelves lack quick digital identification, slowing down assembly picking.</li>
+                <li>Quality inspection approvals lack an immutable digital paper trail.</li>
+                <li>Different departments require strictly scoped permissions (e.g., technicians should not be able to modify procurement pricing).</li>
+              </ul>
+
+              <h2 class="case-study-card-title" style="margin-top: 32px;">The Solution Built</h2>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary);">
+                Engineered a normalized relational data model in Django ORM with atomic transactions. Integrated automated QR code generation libraries (<code>qrcode</code>), real-time stock threshold alerts, CSV/PDF inventory report exporters, and Django's robust authentication layer.
+              </p>
+            </div>
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">System Architecture</h2>
+              <div style="background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 24px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); line-height: 1.7; overflow-x: auto;">
+Client Web Interface (Responsive HTML5 / CSS3 / JavaScript)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+Django Authentication &amp; RBAC Layer (Permission Verification)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+Inventory Business Logic Engine (Stock Reorder Alerts &bull; Batch Movements)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+QR Code Pipeline (Automatic SVG/PNG Label Generation &bull; Scanner Ingest)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+Relational Database Layer (Django ORM &bull; SQLite Development / MySQL Production)
+              </div>
+            </div>
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">Key Capabilities</h2>
+              <ul class="feature-checklist">
+                <li><strong>Live Inventory Dashboard:</strong> Real-time overview of total item quantities, low-stock notifications, and pending orders.</li>
+                <li><strong>Dynamic QR Code Generation:</strong> Automatically assigns unique alphanumeric serials and QR codes printable directly onto part bins.</li>
+                <li><strong>Role-Based Access Control (RBAC):</strong> Granular permissions for Administrators, Warehouse Managers, Quality Officers, and Technicians.</li>
+                <li><strong>Quality Inspection Routing:</strong> Built-in inspection status transitions (Pending &rarr; Passed &rarr; Rejected) before items enter general stock.</li>
+                <li><strong>Movement Audit Trail:</strong> Logs every stock intake, transfer, checkout, and scrap event with user IDs and timestamps.</li>
+                <li><strong>Export &amp; Reporting:</strong> Generates CSV spreadsheets and PDF summaries for periodic management audits.</li>
+              </ul>
+            </div>
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">Key Technical Challenges</h2>
+              <div class="challenge-list">
+                <div class="challenge-item">
+                  <div class="challenge-title">1. Preventing Concurrent Stock Overdraws</div>
+                  <div class="challenge-text">When multiple warehouse technicians checked out identical components simultaneously, race conditions risked negative inventory. Solved by wrapping stock transactions in Django <code>select_for_update()</code> database locks inside atomic blocks.</div>
+                </div>
+                <div class="challenge-item">
+                  <div class="challenge-title">2. Efficient Scalable QR Generation</div>
+                  <div class="challenge-text">Rendering QR codes on-the-fly for thousands of catalog items created processing overhead. Optimized by generating and caching vector SVG assets upon component registration.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="case-study-sidebar">
+            
+            <div class="case-study-card">
+              <h3 style="font-size: 1.05rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 16px;">Technologies Used</h3>
+              <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="project-tag-pill">Python 3</span>
+                <span class="project-tag-pill">Django Web Framework</span>
+                <span class="project-tag-pill">Django ORM</span>
+                <span class="project-tag-pill">SQLite / MySQL</span>
+                <span class="project-tag-pill">QR Code Generation</span>
+                <span class="project-tag-pill">HTML5 / CSS3</span>
+                <span class="project-tag-pill">JavaScript</span>
+                <span class="project-tag-pill">RBAC Security</span>
+              </div>
+            </div>
+
+            <div class="case-study-card">
+              <h3 style="font-size: 1.05rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 16px;">My Contribution</h3>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+                Architected the relational database schema and Django ORM models; built the QR generation and barcode scan intake pipeline; implemented atomic stock modification methods with concurrency locks; and designed the responsive web dashboard.
+              </p>
+            </div>
+
+            <div class="case-study-card">
+              <h3 style="font-size: 1.05rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 16px;">Repository &amp; Status</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+                Internal enterprise software platform currently under active development. Code samples and database schemas are available for review during technical discussions.
+              </p>
+              <a href="../../contact/" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+                <span>Inquire About System</span>
+              </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 10px;">
+              <a href="../index.html" style="font-size: 0.9rem; font-family: var(--font-mono); color: var(--accent);">&larr; Back to All Projects</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../../index.html" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="brand-prompt">&gt;_</span>
+          <span class="brand-name">YASH SRIVASTAVA</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; line-height: 1.6;">
+          Software Engineer specializing in Python, PyQt6, embedded Linux, and hardware-connected touch kiosks.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="../../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
+          <li><a href="../../about/" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
+          <li><a href="../../skills/" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
+          <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
+          <li><a href="../../experience/" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
+          <li><a href="../../resume/" style="color: var(--text-secondary); font-size: 0.88rem;">Resume</a></li>
+          <li><a href="../../contact/" style="color: var(--text-secondary); font-size: 0.88rem;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">GitHub &nearr;</a></li>
+          <li><a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">LinkedIn &nearr;</a></li>
+          <li><a href="mailto:yashsrivastava015@gmail.com" style="color: var(--text-secondary); font-size: 0.88rem;">yashsrivastava015@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: 0.82rem; font-family: var(--font-mono);">
+      <p>&copy; 2026 Yash Srivastava. Engineered with pure HTML5, CSS3 &amp; Vanilla JS.</p>
+      <p>Obsidian Dark &bull; 6 Curated Palettes &bull; Zero Framework Bloat</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/settings.js"></script>
+</body>
+</html>

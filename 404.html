@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" data-palette="emerald">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — Page Not Found | Yash Srivastava Portfolio</title>
+  <title>404 — Page Not Found | Yash Srivastava</title>
   <meta name="robots" content="noindex, follow">
 
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <!-- Immediate Theme & Palette Initialization -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-palette', p);
+      } catch (e) {}
+    })();
+  </script>
 
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,53 +35,41 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 40px 24px;
+      padding: 60px 24px 40px;
       text-align: center;
       position: relative;
       z-index: 1;
     }
 
     .error-card {
-      max-width: 680px;
+      max-width: 640px;
       width: 100%;
       background: var(--bg-card);
-      border: 1px solid var(--border-card-hover);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
       padding: 40px 32px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), var(--shadow-glow-cyan);
+      box-shadow: var(--shadow-md);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
     }
 
-    .error-image-wrap {
-      max-width: 320px;
-      margin: 0 auto 24px;
-    }
-
-    .error-image-wrap img {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 10px 25px rgba(0, 229, 255, 0.3));
-    }
-
     .error-code {
       font-family: var(--font-mono);
-      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-size: clamp(3rem, 7vw, 5rem);
       font-weight: 800;
-      color: var(--accent-cyan);
+      color: var(--accent);
       line-height: 1;
       margin-bottom: 8px;
-      text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
     }
 
     .error-heading {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       margin-bottom: 16px;
-      color: #ffffff;
+      color: var(--text-highlight);
     }
 
     .error-terminal {
-      background: #090d13;
+      background: var(--bg-primary);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 16px 20px;
@@ -82,7 +82,7 @@
     }
 
     .error-terminal .prompt {
-      color: var(--accent-green);
+      color: var(--accent);
     }
 
     .error-terminal .err {
@@ -91,38 +91,74 @@
   </style>
 </head>
 <body>
-  <!-- Ambient Matrix Canvas Effect -->
   <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
+        <span class="brand-prompt">&gt;_</span>
+        <span class="brand-name">YASH SRIVASTAVA</span>
+      </a>
+
+      <div class="nav-actions">
+        <div class="nav-controls">
+          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
+            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
+            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
+            <span class="ctrl-label">Dark</span>
+          </button>
+
+          <div class="palette-dropdown" id="palette-dropdown-container">
+            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
+              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
+              <span class="ctrl-label">Palette</span>
+            </button>
+            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
+              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
+              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
+              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
+              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
+              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
+              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+            </div>
+          </div>
+
+          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
+            <span class="matrix-status-dot"></span>
+            <span class="ctrl-label">Matrix: OFF</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <div class="error-wrapper">
     <div class="error-card">
-      <div class="error-image-wrap">
-        <img src="/images/error-404.webp" alt="Terminal illustration representing 404 page not found" width="320" height="250" loading="eager">
-      </div>
-
       <div class="error-code">404</div>
       <h1 class="error-heading">RESOURCE NOT FOUND</h1>
 
       <div class="error-terminal">
-        <div><span class="prompt">$</span> ping destination_route</div>
-        <div>[!] Packet transmission failed: requested path is not available (404)</div>
-        <div>[!] Diagnostics: The page may have moved, been renamed, or is temporarily offline.</div>
+        <div><span class="prompt">$</span> ping requested_route</div>
+        <div><span class="err">[!] HTTP 404:</span> Destination path does not exist or has been restructured.</div>
+        <div>[i] Multi-page migration complete. All resources routed under structured namespaces.</div>
         <div><span class="prompt">$</span> exec recovery_sequence --route=/</div>
       </div>
 
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="/" class="btn btn-primary">
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-primary">
           <span>Return Home</span>
-          <span aria-hidden="true">↵</span>
+          <span aria-hidden="true">&rarr;</span>
         </a>
-        <a href="/#contact" class="btn btn-secondary">
-          <span>Contact Me</span>
-          <span aria-hidden="true">✉</span>
+        <a href="projects/" class="btn btn-secondary">
+          <span>Explore Projects</span>
+        </a>
+        <a href="contact/" class="btn btn-secondary">
+          <span>Contact Yash</span>
         </a>
       </div>
     </div>
   </div>
 
-  <script src="/assets/js/matrix.js" defer></script>
+  <script src="assets/js/settings.js"></script>
 </body>
 </html>

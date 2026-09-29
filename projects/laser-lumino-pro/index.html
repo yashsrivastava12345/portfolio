@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laser (Lumino Pro) Platform Case Study | Yash Srivastava</title>
+  
+  <meta name="description" content="Engineering case study for Laser (Lumino Pro) medical laser therapy kiosk on Raspberry Pi OS with PyQt6, PIN security authentication, and protocol management.">
+  <link rel="canonical" href="https://yashsrivastava.dev/projects/laser-lumino-pro/">
+
+  <!-- Immediate Theme & Palette Initialization -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-palette', p);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yashsrivastava.dev/projects/laser-lumino-pro/">
+  <meta property="og:title" content="Laser (Lumino Pro) Platform Case Study | Yash Srivastava">
+  <meta property="og:description" content="Dedicated medical laser kiosk software running on Raspberry Pi OS with PyQt6, PIN access lock, and treatment protocol libraries.">
+  <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="../../index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
+        <span class="brand-prompt">&gt;_</span>
+        <span class="brand-name">YASH SRIVASTAVA</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../about/" class="nav-link">About</a></li>
+          <li><a href="../../skills/" class="nav-link">Skills</a></li>
+          <li><a href="../index.html" class="nav-link active">Projects</a></li>
+          <li><a href="../../experience/" class="nav-link">Experience</a></li>
+          <li><a href="../../resume/" class="nav-link">Resume</a></li>
+          <li><a href="../../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-controls">
+          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
+            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
+            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
+            <span class="ctrl-label">Dark</span>
+          </button>
+
+          <div class="palette-dropdown" id="palette-dropdown-container">
+            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
+              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
+              <span class="ctrl-label">Palette</span>
+            </button>
+            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
+              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
+              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
+              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
+              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
+              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
+              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+            </div>
+          </div>
+
+          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
+            <span class="matrix-status-dot"></span>
+            <span class="ctrl-label">Matrix: OFF</span>
+          </button>
+        </div>
+
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span class="separator">/</span>
+          <a href="../index.html">Projects</a>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">Laser (Lumino Pro)</span>
+        </nav>
+        <span class="section-tag">// Medical Kiosk Case Study</span>
+        <h1 class="section-title">Laser (Lumino Pro) &mdash; <span class="text-gradient">Therapy Platform</span></h1>
+        <p class="section-subtitle">
+          Dedicated Full-Screen Kiosk Laser Therapy Management Platform on Raspberry Pi
+        </p>
+
+        <div class="case-study-meta-bar">
+          <span class="meta-pill meta-pill-accent">&#9788; In Active Development</span>
+          <span class="meta-pill">Domain: Medical Laser Technology</span>
+          <span class="meta-pill">OS: Raspberry Pi OS (Linux)</span>
+          <span class="meta-pill">UI: PyQt6 Kiosk Shell</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-study-body">
+      <div class="container">
+        <div class="case-study-grid">
+          
+          <div class="case-study-main">
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">Project Overview</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 16px;">
+                Medical laser therapy devices require strict authorization to prevent accidental laser radiation emission, consistent treatment repeatability across acute and chronic patient conditions, and an appliance-grade user interface that launches directly without exposing operating system clutter.
+              </p>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary);">
+                Lumino Pro was built as a dedicated kiosk platform running on Raspberry Pi OS. It delivers a clinical touchscreen interface with PIN-code security barriers, structured therapy presets, pulse frequency modulation controllers, GPIO emergency shutoff monitoring, and session auditing in SQLite.
+              </p>
+            </div>
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">The Engineering Problem</h2>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 16px;">
+                Clinical laser therapy introduces unique safety and workflow challenges:
+              </p>
+              <ul class="feature-checklist" style="margin-bottom: 20px;">
+                <li>Unauthorized users must be physically and digitally prevented from firing laser emitters without clinician authentication.</li>
+                <li>Therapists need preset wavelength and pulse repetition protocols for varied clinical conditions (pain management, wound healing, deep tissue rehabilitation).</li>
+                <li>The hardware emergency interlock must instantly cut laser firing relays if safety enclosures are compromised.</li>
+                <li>The application must automatically start upon unit power-on and recover gracefully if unexpected exceptions occur.</li>
+              </ul>
+
+              <h2 class="case-study-card-title" style="margin-top: 32px;">The Solution Built</h2>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary);">
+                Developed a full-screen PyQt6 touch kiosk application deployed via Linux systemd. Built a custom virtual PIN keypad modal for access validation, an extensible therapy protocol management engine, automated laser duration countdowns, and treatment auditing.
+              </p>
+            </div>
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">System Architecture</h2>
+              <div style="background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 24px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); line-height: 1.7; overflow-x: auto;">
+Appliance Kiosk Shell (PyQt6 / Raspberry Pi OS systemd user daemon)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+Clinician PIN Authentication Layer (Security Barrier &bull; Virtual Keypad)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+Therapy Protocol Engine (Acute / Chronic Presets &bull; Pulse Frequency Modulation)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+Hardware Safety Interlock (GPIO Monitoring &bull; Emergency Stop State)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+Session Audit Trail (SQLite Persistence &bull; Energy Delivered &amp; Timestamps)
+              </div>
+            </div>
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">Key Capabilities</h2>
+              <ul class="feature-checklist">
+                <li><strong>Appliance Kiosk Experience:</strong> Full-screen PyQt6 shell with no visible desktop shortcuts, taskbars, or window chrome.</li>
+                <li><strong>Role-Protected PIN Gate:</strong> Custom virtual on-screen keypad requiring valid practitioner credentials to unlock laser controls.</li>
+                <li><strong>Comprehensive Protocol Presets:</strong> Pre-programmed dosage and timing templates for acute pain, chronic inflammation, and rehabilitation.</li>
+                <li><strong>Timer &amp; Pulse Frequency Control:</strong> High-precision treatment countdown with audio-visual notifications upon completion.</li>
+                <li><strong>Hardware Interlock Supervisor:</strong> Monitors physical safety cutoffs through Raspberry Pi GPIO lines.</li>
+                <li><strong>Session History Auditing:</strong> Records treatment duration, energy dosage, and timestamp to a local SQLite database.</li>
+              </ul>
+            </div>
+
+            <div class="case-study-card">
+              <h2 class="case-study-card-title">Key Technical Challenges</h2>
+              <div class="challenge-list">
+                <div class="challenge-item">
+                  <div class="challenge-title">1. Preventing Underlying Linux Shell Access</div>
+                  <div class="challenge-text">Operators could theoretically trigger escape shortcuts to access the underlying desktop. Hardened the X11 session configuration, disabled virtual terminal switching (Ctrl+Alt+F1), and configured systemd with <code>Restart=always</code>.</div>
+                </div>
+                <div class="challenge-item">
+                  <div class="challenge-title">2. Strict Clinical Validation Boundaries</div>
+                  <div class="challenge-text">Built dual-layer input validation ensuring laser power outputs and timer durations cannot exceed pre-configured regulatory and clinical safety envelopes.</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: var(--radius-md); padding: 20px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+              <strong>Disclaimer:</strong> Built as a software and embedded interface platform. Does not claim medical device clinical certification or regulatory approval.
+            </div>
+
+          </div>
+
+          <div class="case-study-sidebar">
+            
+            <div class="case-study-card">
+              <h3 style="font-size: 1.05rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 16px;">Technologies Used</h3>
+              <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="project-tag-pill">Python 3</span>
+                <span class="project-tag-pill">PyQt6 / QSS</span>
+                <span class="project-tag-pill">Raspberry Pi</span>
+                <span class="project-tag-pill">Raspberry Pi OS</span>
+                <span class="project-tag-pill">systemd Kiosk</span>
+                <span class="project-tag-pill">SQLite3</span>
+                <span class="project-tag-pill">GPIO Safety</span>
+                <span class="project-tag-pill">Touchscreen Cal</span>
+              </div>
+            </div>
+
+            <div class="case-study-card">
+              <h3 style="font-size: 1.05rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 16px;">My Contribution</h3>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+                Engineered the PyQt6 kiosk interface and on-screen PIN authentication modal; architected the protocol preset database and timer management; authored systemd auto-start deployment scripts; and integrated GPIO interlock triggers.
+              </p>
+            </div>
+
+            <div class="case-study-card">
+              <h3 style="font-size: 1.05rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 16px;">Repository &amp; Status</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+                Proprietary medical laser technology platform. Architecture specifications and code samples are available for review during technical discussions.
+              </p>
+              <a href="../../contact/" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+                <span>Inquire About Platform</span>
+              </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 10px;">
+              <a href="../index.html" style="font-size: 0.9rem; font-family: var(--font-mono); color: var(--accent);">&larr; Back to All Projects</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../../index.html" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="brand-prompt">&gt;_</span>
+          <span class="brand-name">YASH SRIVASTAVA</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; line-height: 1.6;">
+          Software Engineer specializing in Python, PyQt6, embedded Linux, and hardware-connected touch kiosks.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="../../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
+          <li><a href="../../about/" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
+          <li><a href="../../skills/" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
+          <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
+          <li><a href="../../experience/" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
+          <li><a href="../../resume/" style="color: var(--text-secondary); font-size: 0.88rem;">Resume</a></li>
+          <li><a href="../../contact/" style="color: var(--text-secondary); font-size: 0.88rem;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">GitHub &nearr;</a></li>
+          <li><a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">LinkedIn &nearr;</a></li>
+          <li><a href="mailto:yashsrivastava015@gmail.com" style="color: var(--text-secondary); font-size: 0.88rem;">yashsrivastava015@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: 0.82rem; font-family: var(--font-mono);">
+      <p>&copy; 2026 Yash Srivastava. Engineered with pure HTML5, CSS3 &amp; Vanilla JS.</p>
+      <p>Obsidian Dark &bull; 6 Curated Palettes &bull; Zero Framework Bloat</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/settings.js"></script>
+</body>
+</html>

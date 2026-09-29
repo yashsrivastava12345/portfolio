@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Resume | Yash Srivastava | Software Engineer</title>
+  
+  <meta name="description" content="Official engineering resume of Yash Srivastava — Software Engineer specializing in Python, PyQt6 touchscreen kiosks, embedded Linux hardware integration, and full-stack systems.">
+  <link rel="canonical" href="https://yashsrivastava.dev/resume/">
+
+  <!-- Immediate Theme & Palette Initialization -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-palette', p);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yashsrivastava.dev/resume/">
+  <meta property="og:title" content="Engineering Resume | Yash Srivastava">
+  <meta property="og:description" content="Recruiter-friendly resume view with direct PDF download for Yash Srivastava, Software Engineer.">
+  <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
+        <span class="brand-prompt">&gt;_</span>
+        <span class="brand-name">YASH SRIVASTAVA</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../skills/" class="nav-link">Skills</a></li>
+          <li><a href="../projects/" class="nav-link">Projects</a></li>
+          <li><a href="../experience/" class="nav-link">Experience</a></li>
+          <li><a href="index.html" class="nav-link active">Resume</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-controls">
+          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
+            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
+            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
+            <span class="ctrl-label">Dark</span>
+          </button>
+
+          <div class="palette-dropdown" id="palette-dropdown-container">
+            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
+              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
+              <span class="ctrl-label">Palette</span>
+            </button>
+            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
+              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
+              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
+              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
+              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
+              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
+              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+            </div>
+          </div>
+
+          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
+            <span class="matrix-status-dot"></span>
+            <span class="ctrl-label">Matrix: OFF</span>
+          </button>
+        </div>
+
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">Resume</span>
+        </nav>
+        <span class="section-tag">// Curriculum Vitae</span>
+        <h1 class="section-title">Engineering <span class="text-gradient">Resume</span></h1>
+        <p class="section-subtitle">
+          Recruiter-ready technical profile detailing work history, embedded kiosk systems, software engineering skills, and verified projects.
+        </p>
+
+        <!-- Action bar -->
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px;">
+          <a href="../assets/Yash_Srivastava_Resume.pdf" class="btn btn-primary" download="Yash_Srivastava_Resume.pdf" title="Download Official PDF Resume">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Official PDF</span>
+          </a>
+          <button type="button" class="btn btn-secondary btn-print" onclick="window.print()" title="Print Resume">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print View</span>
+          </button>
+          <a href="../contact/" class="btn btn-secondary">
+            <span>Contact Yash &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Document View -->
+    <section style="padding: 40px 0 80px;">
+      <div class="container">
+        
+        <article class="resume-paper" id="resume-document">
+          
+          <!-- Resume Header Block -->
+          <div class="resume-header-block">
+            <div>
+              <h2 style="font-size: 2rem; color: var(--text-highlight); margin-bottom: 6px;">Yash Srivastava</h2>
+              <div style="font-family: var(--font-mono); font-size: 1.05rem; color: var(--accent); margin-bottom: 8px;">
+                Software Engineer &bull; Python, Embedded Touch Kiosks &amp; Full-Stack Systems
+              </div>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">
+                Prayagraj, Uttar Pradesh, India
+              </p>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px; text-align: right;">
+              <div>Email: <a href="mailto:yashsrivastava015@gmail.com" style="color: var(--accent);">yashsrivastava015@gmail.com</a></div>
+              <div>LinkedIn: <a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">in/yash-srivastava-363363220</a></div>
+              <div>GitHub: <a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">github.com/yashsrivastava12345</a></div>
+            </div>
+          </div>
+
+          <!-- Professional Summary -->
+          <div class="resume-section">
+            <h3 class="resume-section-title">Professional Summary</h3>
+            <p style="color: var(--text-secondary); line-height: 1.65; font-size: 0.95rem;">
+              Software Engineer specializing in Python, PyQt6 touchscreen applications, and embedded Linux systems. Proven experience developing full-screen touch control software for commercial clinical physiotherapy and medical laser platforms. Background includes aerospace industrial training at Hindustan Aeronautics Limited (HAL) and software development internship at uCertify. Adept at bridging software with physical hardware, including I2C/SPI sensor acquisition (ADCs, infrared thermometry), safety interlocks, and SQLite databases.
+            </p>
+          </div>
+
+          <!-- Technical Skills -->
+          <div class="resume-section">
+            <h3 class="resume-section-title">Technical Skills</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; font-size: 0.9rem;">
+              <div>
+                <strong style="color: var(--text-highlight); display: block; margin-bottom: 4px; font-family: var(--font-mono);">Languages &amp; Core:</strong>
+                <span style="color: var(--text-secondary);">Python 3, C/C++ (Embedded fundamentals), JavaScript (ES6+), SQL, HTML5, CSS3</span>
+              </div>
+              <div>
+                <strong style="color: var(--text-highlight); display: block; margin-bottom: 4px; font-family: var(--font-mono);">Frameworks &amp; GUIs:</strong>
+                <span style="color: var(--text-secondary);">PyQt6, Qt GUI Framework, Django Web Framework, Django ORM</span>
+              </div>
+              <div>
+                <strong style="color: var(--text-highlight); display: block; margin-bottom: 4px; font-family: var(--font-mono);">Embedded &amp; Hardware:</strong>
+                <span style="color: var(--text-secondary);">Raspberry Pi OS, I2C &amp; SPI Buses, ADS1115 16-Bit ADC, MLX90614 Contactless IR, GPIO Interlocks, Systemd</span>
+              </div>
+              <div>
+                <strong style="color: var(--text-highlight); display: block; margin-bottom: 4px; font-family: var(--font-mono);">Data &amp; Computer Vision:</strong>
+                <span style="color: var(--text-secondary);">OpenCV, NumPy, Pytesseract OCR, SQLite3, MySQL, Relational Database Modeling</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work Experience -->
+          <div class="resume-section">
+            <h3 class="resume-section-title">Work Experience</h3>
+
+            <!-- Role 1 -->
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div>
+                  <span class="resume-role">Software Engineer</span> &mdash; <span class="resume-company">Curves and Contours LLP</span>
+                </div>
+                <span class="resume-dates">2024 &mdash; Present</span>
+              </div>
+              <ul class="resume-bullets">
+                <li>Engineered full-screen touch control software for commercial medical physical therapy kiosks, leading development for the <strong>TECAR Therapy</strong> and <strong>Laser Lumino Pro</strong> platforms.</li>
+                <li>Designed custom PyQt6 user interface components including rotary dials, dual-frequency mode toggles, and multi-stage countdown timers with audio cues.</li>
+                <li>Built an asynchronous, non-blocking hardware abstraction layer in Python polling ADS1115 16-bit ADCs and MLX90614 infrared contactless patient skin temperature sensors over I2C/SPI serial buses.</li>
+                <li>Programmed software safety cutoff monitors linked to physical GPIO footswitches, immediately terminating PWM energy output on release.</li>
+                <li>Structured SQLite databases to persist clinician therapy presets, operational logs, and patient treatment parameters.</li>
+                <li>Configured headless Raspberry Pi OS kiosk deployments with systemd services for automated startup, error recovery, and desktop lockdown.</li>
+              </ul>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div>
+                  <span class="resume-role">Software Development Intern</span> &mdash; <span class="resume-company">uCertify</span>
+                </div>
+                <span class="resume-dates">Aug 2024 &mdash; Apr 2025</span>
+              </div>
+              <ul class="resume-bullets">
+                <li>Contributed to web educational platform development, authoring modular components and data-checking logic.</li>
+                <li>Collaborated in agile development sprints, participated in code reviews, and resolved software bugs across multiple release cycles.</li>
+                <li>Gained practical industry experience in structured software engineering, relational database schemas, and team-based version control workflows.</li>
+              </ul>
+            </div>
+
+            <!-- Role 3 -->
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div>
+                  <span class="resume-role">Engineering Intern</span> &mdash; <span class="resume-company">Hindustan Aeronautics Limited (HAL)</span>
+                </div>
+                <span class="resume-dates">July 2024</span>
+              </div>
+              <ul class="resume-bullets">
+                <li>Completed technical industrial training at HAL's Avionics division, examining high-reliability embedded software and computing architectures for defense aircraft.</li>
+                <li>Studied military avionics safety standards, fault-tolerant design redundancy, and hardware verification procedures.</li>
+                <li>Analyzed real-time telemetry protocols and mission-critical documentation requirements.</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Featured Projects -->
+          <div class="resume-section">
+            <h3 class="resume-section-title">Key Projects &amp; Implementations</h3>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div>
+                  <span class="resume-role">TECAR Therapy Touch Control Software</span>
+                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(Python, PyQt6, Raspberry Pi OS, I2C/SPI, SQLite)</span>
+                </div>
+                <span class="resume-dates">Medical Technology</span>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
+                Touchscreen medical therapy software managing Capacitive and Resistive RF modalities with live impedance feedback, contactless skin temperature monitoring, and footswitch safety cutoffs.
+              </p>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div>
+                  <span class="resume-role">Laser (Lumino Pro) Multi-Screen Therapy Platform</span>
+                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(Python, PyQt6, Linux Kiosk, Hardware Safety)</span>
+                </div>
+                <span class="resume-dates">Medical Technology</span>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
+                Touch kiosk interface for therapeutic clinical laser platforms with dual-screen workflows, automated protocol timers, and safety interlock verification.
+              </p>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div>
+                  <span class="resume-role">IMS / CIMS &mdash; Inventory &amp; Management Information System</span>
+                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(Python, Django, MySQL, QR Tracking, RBAC)</span>
+                </div>
+                <span class="resume-dates">Enterprise Software</span>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
+                Enterprise management web application for warehouse stock management, dynamic QR code generation, quality control routing, and role-based access control.
+              </p>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div>
+                  <span class="resume-role">Volant Technologies &mdash; Clinical Product Platform</span>
+                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(HTML5, CSS3, JavaScript, JSON Architecture, WebP)</span>
+                </div>
+                <span class="resume-dates">Commercial Web Platform</span>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
+                Responsive medical equipment catalog website organizing specialized physiotherapy hardware with structured JSON schemas and optimized media delivery.
+              </p>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div>
+                  <span class="resume-role">Computer Vision &amp; OCR Image Processing Modules</span>
+                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(Python 3, OpenCV, NumPy, Pytesseract)</span>
+                </div>
+                <span class="resume-dates">AI / Computer Vision</span>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
+                Practical image preprocessing and recognition pipelines implementing Otsu adaptive thresholding, morphological noise suppression, deskewing, and facial landmark detection.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Education -->
+          <div class="resume-section">
+            <h3 class="resume-section-title">Education</h3>
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div>
+                  <span class="resume-role">Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</span>
+                </div>
+                <span class="resume-dates">2021 &mdash; 2025</span>
+              </div>
+              <div class="resume-company" style="margin-bottom: 4px;">
+                United College of Engineering and Research (UCER), Prayagraj &bull; AKTU
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5;">
+                Key Coursework: Operating Systems, Computer Networks, Database Management Systems, Data Structures &amp; Algorithms, Object-Oriented Software Engineering, Computer System Architecture.
+              </p>
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="brand-prompt">&gt;_</span>
+          <span class="brand-name">YASH SRIVASTAVA</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; line-height: 1.6;">
+          Software Engineer specializing in Python, PyQt6, embedded Linux, and hardware-connected touch kiosks.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
+          <li><a href="../about/" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
+          <li><a href="../skills/" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
+          <li><a href="../projects/" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
+          <li><a href="../experience/" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
+          <li><a href="index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Resume</a></li>
+          <li><a href="../contact/" style="color: var(--text-secondary); font-size: 0.88rem;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">GitHub &nearr;</a></li>
+          <li><a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">LinkedIn &nearr;</a></li>
+          <li><a href="mailto:yashsrivastava015@gmail.com" style="color: var(--text-secondary); font-size: 0.88rem;">yashsrivastava015@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: 0.82rem; font-family: var(--font-mono);">
+      <p>&copy; 2026 Yash Srivastava. Engineered with pure HTML5, CSS3 &amp; Vanilla JS.</p>
+      <p>Obsidian Dark &bull; 6 Curated Palettes &bull; Zero Framework Bloat</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/settings.js"></script>
+</body>
+</html>

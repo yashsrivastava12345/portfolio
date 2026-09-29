@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Projects Portfolio | Yash Srivastava</title>
+  
+  <meta name="description" content="Explore software engineering projects by Yash Srivastava — medical therapy touchscreen interfaces, embedded Linux kiosks, Django enterprise systems, and computer vision.">
+  <link rel="canonical" href="https://yashsrivastava.dev/projects/">
+
+  <!-- Immediate Theme & Palette Initialization -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-palette', p);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yashsrivastava.dev/projects/">
+  <meta property="og:title" content="Engineering Projects Portfolio | Yash Srivastava">
+  <meta property="og:description" content="Complete portfolio of medical device software, embedded Linux kiosks, and enterprise web platforms.">
+  <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
+        <span class="brand-prompt">&gt;_</span>
+        <span class="brand-name">YASH SRIVASTAVA</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../skills/" class="nav-link">Skills</a></li>
+          <li><a href="../projects/" class="nav-link active">Projects</a></li>
+          <li><a href="../experience/" class="nav-link">Experience</a></li>
+          <li><a href="../resume/" class="nav-link">Resume</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-controls">
+          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
+            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
+            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
+            <span class="ctrl-label">Dark</span>
+          </button>
+
+          <div class="palette-dropdown" id="palette-dropdown-container">
+            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
+              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
+              <span class="ctrl-label">Palette</span>
+            </button>
+            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
+              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
+              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
+              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
+              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
+              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
+              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+            </div>
+          </div>
+
+          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
+            <span class="matrix-status-dot"></span>
+            <span class="ctrl-label">Matrix: OFF</span>
+          </button>
+        </div>
+
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Page Hero & Breadcrumbs -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">Projects</span>
+        </nav>
+        <span class="section-tag">// Portfolio Catalogue</span>
+        <h1 class="section-title">Engineering <span class="text-gradient">Projects</span></h1>
+        <p class="section-subtitle">
+          In-depth technical case studies across medical therapy kiosks, enterprise management, and computer vision.
+        </p>
+
+        <!-- Category Filter Pills -->
+        <div class="project-filters" role="group" aria-label="Project Category Filter" style="display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap;">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All (5)</button>
+          <button type="button" class="filter-btn" data-filter="medical" aria-pressed="false">Medical Technology (3)</button>
+          <button type="button" class="filter-btn" data-filter="enterprise" aria-pressed="false">Enterprise Systems (1)</button>
+          <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">AI &amp; Computer Vision (1)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <section style="padding: 60px 0 100px;">
+      <div class="container">
+        <div class="projects-grid" id="projects-catalogue-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px;">
+
+          <!-- Project 1: TECAR -->
+          <article class="project-card project-card-tecar" data-category="medical">
+            <div class="project-card-header">
+              <div class="project-visual-badge">
+                <span class="project-badge-icon">&#9889;</span>
+                <span class="project-badge-text">RF &amp; SENSOR INTERFACE</span>
+              </div>
+              <span class="project-status-badge status-active">Active Prototype</span>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title" style="font-size: 1.25rem;">TECAR — Medical Therapy Control Software</h2>
+              <p class="project-subtitle" style="font-size: 0.85rem; color: var(--accent); margin-bottom: 12px; font-family: var(--font-mono);">
+                Raspberry Pi &bull; PyQt6 &bull; I2C ADC &bull; Thermal Interlock
+              </p>
+              <p class="project-desc">
+                A touch-screen control application for capacitive &amp; resistive physical therapy equipment running on a Raspberry Pi, allowing clinicians to set therapy parameters, monitor live sensor feedback, and enforce safety cutoffs.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag-pill">Python</span>
+                <span class="project-tag-pill">PyQt6</span>
+                <span class="project-tag-pill">Raspberry Pi</span>
+                <span class="project-tag-pill">I2C / ADS1115</span>
+                <span class="project-tag-pill">GPIO Safety</span>
+                <span class="project-tag-pill">systemd Kiosk</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="tecar/" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <span>Read Full Case Study</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Laser Lumino Pro -->
+          <article class="project-card project-card-laser" data-category="medical">
+            <div class="project-card-header">
+              <div class="project-visual-badge">
+                <span class="project-badge-icon">&#9788;</span>
+                <span class="project-badge-text">LASER KIOSK &amp; PROTOCOLS</span>
+              </div>
+              <span class="project-status-badge status-active">In Active Development</span>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title" style="font-size: 1.25rem;">Laser (Lumino Pro) — Medical Laser Therapy Software</h2>
+              <p class="project-subtitle" style="font-size: 0.85rem; color: var(--accent); margin-bottom: 12px; font-family: var(--font-mono);">
+                Raspberry Pi OS &bull; PIN Lock &bull; systemd &bull; Protocol Library
+              </p>
+              <p class="project-desc">
+                A dedicated full-screen touchscreen kiosk application running on Raspberry Pi for operating clinical laser therapy equipment, featuring clinician PIN authorization, treatment protocol management, and session auditing.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag-pill">Python</span>
+                <span class="project-tag-pill">PyQt6</span>
+                <span class="project-tag-pill">systemd Kiosk</span>
+                <span class="project-tag-pill">Security PIN</span>
+                <span class="project-tag-pill">SQLite</span>
+                <span class="project-tag-pill">Emergency Cutoff</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="laser-lumino-pro/" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <span>Read Full Case Study</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3: Django IMS -->
+          <article class="project-card project-card-enterprise" data-category="enterprise">
+            <div class="project-card-header">
+              <div class="project-visual-badge">
+                <span class="project-badge-icon">&#127970;</span>
+                <span class="project-badge-text">ENTERPRISE ORM &amp; QR</span>
+              </div>
+              <span class="project-status-badge status-active">In Development</span>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title" style="font-size: 1.25rem;">IMS / CIMS — Inventory &amp; Management System</h2>
+              <p class="project-subtitle" style="font-size: 0.85rem; color: var(--accent); margin-bottom: 12px; font-family: var(--font-mono);">
+                Python &bull; Django &bull; Relational Database &bull; QR Tracking
+              </p>
+              <p class="project-desc">
+                A web-based internal management platform built with Python and Django to centralize warehouse stock levels, track components using serial and QR codes, and coordinate quality inspections across departments.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag-pill">Python</span>
+                <span class="project-tag-pill">Django</span>
+                <span class="project-tag-pill">SQLite / MySQL</span>
+                <span class="project-tag-pill">QR Generation</span>
+                <span class="project-tag-pill">Role Auth</span>
+                <span class="project-tag-pill">Audit Trail</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="django-ims/" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <span>Read Full Case Study</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 4: Volant Platform -->
+          <article class="project-card" data-category="medical">
+            <div class="project-card-header">
+              <div class="project-visual-badge">
+                <span class="project-badge-icon">&#127760;</span>
+                <span class="project-badge-text">MEDICAL CATALOG</span>
+              </div>
+              <span class="project-status-badge status-completed">Completed Client Platform</span>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title" style="font-size: 1.25rem;">Volant Technologies — Medical Platform</h2>
+              <p class="project-subtitle" style="font-size: 0.85rem; color: var(--accent); margin-bottom: 12px; font-family: var(--font-mono);">
+                JavaScript &bull; HTML5 &bull; CSS3 &bull; WebP Pipeline &bull; JSON
+              </p>
+              <p class="project-desc">
+                A clean product showcase and technical catalog website for a medical equipment provider, organizing clinical physiotherapy devices into structured categories with responsive WebP visuals.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag-pill">JavaScript</span>
+                <span class="project-tag-pill">HTML5</span>
+                <span class="project-tag-pill">CSS3</span>
+                <span class="project-tag-pill">WebP Optimization</span>
+                <span class="project-tag-pill">JSON Modeling</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="volant-technologies/" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <span>Read Full Case Study</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 5: Computer Vision & OCR -->
+          <article class="project-card" data-category="ai">
+            <div class="project-card-header">
+              <div class="project-visual-badge">
+                <span class="project-badge-icon">&#128065;</span>
+                <span class="project-badge-text">OPENCV &amp; OCR</span>
+              </div>
+              <span class="project-status-badge status-completed">Completed Prototypes</span>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title" style="font-size: 1.25rem;">Computer Vision &amp; OCR Projects</h2>
+              <p class="project-subtitle" style="font-size: 0.85rem; color: var(--accent); margin-bottom: 12px; font-family: var(--font-mono);">
+                Python &bull; OpenCV &bull; Image Processing &bull; Tesseract OCR
+              </p>
+              <p class="project-desc">
+                A collection of practical computer vision and text recognition modules built with Python and OpenCV for facial feature detection, edge processing, and document text extraction.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag-pill">Python</span>
+                <span class="project-tag-pill">OpenCV</span>
+                <span class="project-tag-pill">OCR (pytesseract)</span>
+                <span class="project-tag-pill">NumPy</span>
+                <span class="project-tag-pill">Adaptive Filters</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="cv-ocr-projects/" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <span>Read Full Case Study</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="brand-prompt">&gt;_</span>
+          <span class="brand-name">YASH SRIVASTAVA</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; line-height: 1.6;">
+          Software Engineer specializing in Python, PyQt6, embedded Linux, and hardware-connected touch kiosks.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
+          <li><a href="../about/" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
+          <li><a href="../skills/" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
+          <li><a href="../projects/" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
+          <li><a href="../experience/" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
+          <li><a href="../resume/" style="color: var(--text-secondary); font-size: 0.88rem;">Resume</a></li>
+          <li><a href="../contact/" style="color: var(--text-secondary); font-size: 0.88rem;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">GitHub &nearr;</a></li>
+          <li><a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">LinkedIn &nearr;</a></li>
+          <li><a href="mailto:yashsrivastava015@gmail.com" style="color: var(--text-secondary); font-size: 0.88rem;">yashsrivastava015@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: 0.82rem; font-family: var(--font-mono);">
+      <p>&copy; 2026 Yash Srivastava. Engineered with pure HTML5, CSS3 &amp; Vanilla JS.</p>
+      <p>Obsidian Dark &bull; 6 Curated Palettes &bull; Zero Framework Bloat</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/settings.js"></script>
+  <script>
+    // Inline category filter for projects catalogue
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        const cat = btn.getAttribute('data-filter');
+        document.querySelectorAll('#projects-catalogue-grid article').forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (cat === 'all' || cardCat === cat) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

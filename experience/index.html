@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience & Career Journey | Yash Srivastava</title>
+  
+  <meta name="description" content="Professional engineering experience, industrial internships at HAL and uCertify, and medical kiosk software development by Yash Srivastava.">
+  <link rel="canonical" href="https://yashsrivastava.dev/experience/">
+
+  <!-- Immediate Theme & Palette Initialization -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-palette', p);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yashsrivastava.dev/experience/">
+  <meta property="og:title" content="Experience & Career Journey | Yash Srivastava">
+  <meta property="og:description" content="Engineering track record spanning medical touch kiosks, embedded Python software, aerospace training at HAL, and web development.">
+  <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
+        <span class="brand-prompt">&gt;_</span>
+        <span class="brand-name">YASH SRIVASTAVA</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../skills/" class="nav-link">Skills</a></li>
+          <li><a href="../projects/" class="nav-link">Projects</a></li>
+          <li><a href="index.html" class="nav-link active">Experience</a></li>
+          <li><a href="../resume/" class="nav-link">Resume</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-controls">
+          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
+            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
+            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
+            <span class="ctrl-label">Dark</span>
+          </button>
+
+          <div class="palette-dropdown" id="palette-dropdown-container">
+            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
+              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
+              <span class="ctrl-label">Palette</span>
+            </button>
+            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
+              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
+              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
+              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
+              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
+              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
+              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+            </div>
+          </div>
+
+          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
+            <span class="matrix-status-dot"></span>
+            <span class="ctrl-label">Matrix: OFF</span>
+          </button>
+        </div>
+
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">Experience</span>
+        </nav>
+        <span class="section-tag">// Career Journey</span>
+        <h1 class="section-title">Professional <span class="text-gradient">Experience</span></h1>
+        <p class="section-subtitle">
+          Engineering track record spanning medical touch kiosks, embedded hardware integration, aerospace industrial training, and computer science foundations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience & Education Dual Column Layout -->
+    <section class="experience-education" style="padding-top: 30px;">
+      <div class="container">
+        <div class="dual-columns-grid">
+          
+          <!-- Column 1: Industry Experience -->
+          <div class="column-wrapper">
+            <div class="column-header">
+              <span style="font-size: 1.4rem;">&#128188;</span>
+              <h2 class="column-header-title">Industry Experience</h2>
+            </div>
+
+            <!-- Role 1: Curves & Contours LLP -->
+            <div class="info-card">
+              <div class="info-card-header">
+                <div>
+                  <h3 class="info-title">Software Engineer</h3>
+                  <div class="info-subtitle">Curves and Contours LLP</div>
+                </div>
+                <span class="placeholder-pill" style="color: var(--accent); border-color: var(--accent);">2024 &mdash; Present</span>
+              </div>
+              <div class="info-body">
+                <p style="margin-bottom: 12px; font-weight: 500; color: var(--text-highlight);">
+                  Medical Electrotherapy &amp; Kiosk GUI Engineering
+                </p>
+                <ul class="info-bullets">
+                  <li><strong>Medical Kiosk Touch Applications:</strong> Designed and implemented full-screen kiosk control software for therapeutic medical equipment, including the <em>TECAR Therapy</em> and <em>Laser Lumino Pro</em> systems.</li>
+                  <li><strong>Asynchronous Hardware Layer:</strong> Built a non-blocking multi-threaded Python hardware abstraction layer polling ADS1115 16-bit ADC (impedance/delivery current) and MLX90614 infrared contactless skin temperature sensors over I2C/SPI buses.</li>
+                  <li><strong>Safety Monitoring:</strong> Implemented hardware footswitch safety cutoff monitoring with instant PWM energy cutoff and acoustic error alert generation.</li>
+                  <li><strong>Kiosk Operating System:</strong> Configured Linux kiosk systemd services on Raspberry Pi OS with auto-launch, crash restart, and headless operational recovery.</li>
+                  <li><strong>Database Presets:</strong> Structured SQLite schema to persist clinician treatment presets and operational therapy histories.</li>
+                </ul>
+                <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px;">
+                  <a href="../projects/tecar/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 6px 12px;">TECAR Case Study &rarr;</a>
+                  <a href="../projects/laser-lumino-pro/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 6px 12px;">Laser Case Study &rarr;</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Role 2: uCertify -->
+            <div class="info-card">
+              <div class="info-card-header">
+                <div>
+                  <h3 class="info-title">Software Development Intern</h3>
+                  <div class="info-subtitle">uCertify</div>
+                </div>
+                <span class="placeholder-pill">Aug 2024 &mdash; Apr 2025</span>
+              </div>
+              <div class="info-body">
+                <p style="margin-bottom: 12px; font-weight: 500; color: var(--text-highlight);">
+                  Web Platform Engineering &amp; Data Validation
+                </p>
+                <ul class="info-bullets">
+                  <li><strong>Feature Development:</strong> Collaborated with cross-functional engineering teams to implement interactive educational modules and data verification tools.</li>
+                  <li><strong>Code Quality:</strong> Participated in structured code reviews, sprint planning, and systematic bug tracking.</li>
+                  <li><strong>Data Processing:</strong> Handled structured JSON and relational database records for course assessment engines.</li>
+                </ul>
+                <div class="project-tags" style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px;">
+                  <span class="project-tag-pill">Python</span>
+                  <span class="project-tag-pill">JavaScript</span>
+                  <span class="project-tag-pill">SQL</span>
+                  <span class="project-tag-pill">Git</span>
+                  <span class="project-tag-pill">Agile</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Role 3: HAL -->
+            <div class="info-card">
+              <div class="info-card-header">
+                <div>
+                  <h3 class="info-title">Engineering Intern</h3>
+                  <div class="info-subtitle">Hindustan Aeronautics Limited (HAL)</div>
+                </div>
+                <span class="placeholder-pill">July 2024</span>
+              </div>
+              <div class="info-body">
+                <p style="margin-bottom: 12px; font-weight: 500; color: var(--text-highlight);">
+                  Avionics Division &bull; Industrial Aerospace Systems Training
+                </p>
+                <ul class="info-bullets">
+                  <li><strong>Mission-Critical Systems:</strong> Observed high-reliability avionics and embedded hardware architectures engineered for defense aircraft.</li>
+                  <li><strong>Defense Safety Standards:</strong> Studied military-grade fault-tolerant software engineering and hardware verification protocols.</li>
+                  <li><strong>Telemetry &amp; Signals:</strong> Analyzed real-time communication buses, sensor telemetry capture, and aerospace system diagnostics.</li>
+                </ul>
+                <div class="project-tags" style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px;">
+                  <span class="project-tag-pill">Embedded Avionics</span>
+                  <span class="project-tag-pill">Defense Quality Standards</span>
+                  <span class="project-tag-pill">Telemetry Protocols</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Column 2: Education & Milestones -->
+          <div class="column-wrapper">
+            <div class="column-header">
+              <span style="font-size: 1.4rem;">&#127891;</span>
+              <h2 class="column-header-title">Education &amp; Credentials</h2>
+            </div>
+
+            <!-- Education: B.Tech -->
+            <div class="info-card">
+              <div class="info-card-header">
+                <div>
+                  <h3 class="info-title">Bachelor of Technology (B.Tech)</h3>
+                  <div class="info-subtitle">Computer Science &amp; Engineering</div>
+                </div>
+                <span class="placeholder-pill" style="color: var(--accent); border-color: var(--accent);">2021 &mdash; 2025</span>
+              </div>
+              <div class="info-body">
+                <p style="color: var(--text-secondary); margin-bottom: 12px;">
+                  <strong>United College of Engineering and Research (UCER)</strong><br>
+                  Affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU)
+                </p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">
+                  Rigorous academic curriculum covering foundational and advanced computing domains:
+                </p>
+                <ul class="info-bullets">
+                  <li><strong>Core Fundamentals:</strong> Operating Systems (process scheduling, memory management, IPC), Computer Networks (TCP/IP, socket programming), Database Management Systems (relational schema design, ACID transactions).</li>
+                  <li><strong>Software Engineering:</strong> Object-Oriented Analysis &amp; Design (OOAD), Data Structures &amp; Algorithms (DSA), System Design.</li>
+                  <li><strong>Practical Projects:</strong> Prototyping computer vision pipelines, Django relational systems, and embedded Raspberry Pi hardware integrations.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Engineering Philosophy Card -->
+            <div class="info-card">
+              <div class="info-card-header">
+                <div>
+                  <h3 class="info-title">Engineering Focus</h3>
+                  <div class="info-subtitle">What I Bring to Engineering Teams</div>
+                </div>
+              </div>
+              <div class="info-body">
+                <ul class="info-bullets">
+                  <li><strong>Hardware-Aware Software:</strong> Experienced in bridging software logic with real-world physical electronics, serial buses (I2C/SPI), ADCs, and sensor buses.</li>
+                  <li><strong>High-Reliability Mindset:</strong> Medical and defense training instills a deep commitment to fail-safes, non-blocking asynchronous architectures, and defensive error handling.</li>
+                  <li><strong>End-to-End Execution:</strong> Capable of writing the embedded driver, designing the touchscreen UI, structuring the SQLite database, and packaging the systemd startup daemon.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Quick Action Box -->
+            <div class="info-card" style="background: var(--bg-surface); border-color: var(--accent-dim);">
+              <h3 style="font-size: 1.1rem; color: var(--text-highlight); margin-bottom: 8px;">Recruiter &amp; Team Review</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                Looking for a comprehensive resume or wish to discuss software engineering roles?
+              </p>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="../resume/" class="btn btn-primary" style="font-size: 0.85rem; padding: 10px 16px;">View Full Resume</a>
+                <a href="../contact/" class="btn btn-secondary" style="font-size: 0.85rem; padding: 10px 16px;">Contact Yash</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Career Milestones Timeline -->
+    <section class="achievements" style="border-top: 1px solid var(--border-subtle); padding: 80px 0;">
+      <div class="container">
+        <div class="section-header" style="text-align: center; max-width: 650px; margin: 0 auto 50px;">
+          <span class="section-tag">// Milestones</span>
+          <h2 class="section-title">Career <span class="text-gradient">Timeline</span></h2>
+          <p class="section-subtitle">Key engineering milestones and professional progression.</p>
+        </div>
+
+        <div class="timeline">
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge">2024 &mdash; Present</span>
+              <h3 class="timeline-title">Medical Hardware &amp; Touch Kiosk Development</h3>
+              <p class="timeline-text">
+                Joined Curves and Contours LLP to lead the touch software engineering for clinical TECAR and laser therapy equipment, integrating real-time sensors and hardware safety interlocks.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge">Aug 2024 &mdash; Apr 2025</span>
+              <h3 class="timeline-title">Software Development Internship at uCertify</h3>
+              <p class="timeline-text">
+                Engineered web platform components, participated in enterprise agile sprints, and strengthened relational data workflows and testing practices.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge">July 2024</span>
+              <h3 class="timeline-title">Avionics Division Training at HAL</h3>
+              <p class="timeline-text">
+                Selected for industrial technical training at Hindustan Aeronautics Limited, studying defense-grade embedded computing systems, telemetry, and fault-tolerant architecture.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge">2021 &mdash; 2025</span>
+              <h3 class="timeline-title">B.Tech in Computer Science &amp; Engineering</h3>
+              <p class="timeline-text">
+                Completed undergraduate engineering degree at United College of Engineering and Research (UCER), focusing on algorithms, system design, and practical software engineering.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="brand-prompt">&gt;_</span>
+          <span class="brand-name">YASH SRIVASTAVA</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; line-height: 1.6;">
+          Software Engineer specializing in Python, PyQt6, embedded Linux, and hardware-connected touch kiosks.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
+          <li><a href="../about/" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
+          <li><a href="../skills/" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
+          <li><a href="../projects/" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
+          <li><a href="index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
+          <li><a href="../resume/" style="color: var(--text-secondary); font-size: 0.88rem;">Resume</a></li>
+          <li><a href="../contact/" style="color: var(--text-secondary); font-size: 0.88rem;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-group">
+        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">GitHub &nearr;</a></li>
+          <li><a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">LinkedIn &nearr;</a></li>
+          <li><a href="mailto:yashsrivastava015@gmail.com" style="color: var(--text-secondary); font-size: 0.88rem;">yashsrivastava015@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: 0.82rem; font-family: var(--font-mono);">
+      <p>&copy; 2026 Yash Srivastava. Engineered with pure HTML5, CSS3 &amp; Vanilla JS.</p>
+      <p>Obsidian Dark &bull; 6 Curated Palettes &bull; Zero Framework Bloat</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/settings.js"></script>
+</body>
+</html>
