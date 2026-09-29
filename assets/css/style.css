@@ -405,11 +405,22 @@ body::after {
   z-index: -2;
   opacity: 0;
   pointer-events: none;
+  /* Use will-change to prevent flicker from compositing layer changes */
+  will-change: opacity;
+  /* GPU-composited layer — prevents repaint fights with body background */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
   transition: opacity var(--transition-normal);
 }
 
 #matrixCanvas.active {
   opacity: 0.45;
+}
+
+/* Light theme: use multiply blend to avoid dark-overlay flicker */
+[data-theme="light"] #matrixCanvas.active {
+  opacity: 0.18;
+  mix-blend-mode: multiply;
 }
 
 /* Typography Helpers */

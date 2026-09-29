@@ -79,6 +79,11 @@ class MatrixRain {
     this.ctx.setTransform(1, 0, 0, 1, 0, 0);
     this.ctx.scale(dpr, dpr);
 
+    // Pre-fill canvas with theme background to prevent first-frame flicker
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    this.ctx.fillStyle = isLight ? '#f8fafc' : '#070a0e';
+    this.ctx.fillRect(0, 0, width, height);
+
     this.columns = Math.floor(width / this.fontSize);
     
     // Initialize or resize drops array
@@ -121,6 +126,23 @@ class MatrixRain {
         this.toggle();
       });
     }
+
+    // Watch for theme changes — re-fill canvas immediately to prevent flicker
+    // when user switches theme while Matrix FX is active
+    const themeObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme' && this.isActive && this.ctx) {
+          const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+          const width = window.innerWidth;
+          const height = window.innerHeight;
+          // Immediately paint over the canvas with the new theme background
+          // so the old-theme trail color doesn't flash
+          this.ctx.fillStyle = isLight ? '#f8fafc' : '#070a0e';
+          this.ctx.fillRect(0, 0, width, height);
+        }
+      });
+    });
+    themeObserver.observe(document.documentElement, { attributes: true });
   }
 
   toggle() {
@@ -181,8 +203,14 @@ class MatrixRain {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
+    // Use theme-aware trail color to prevent flicker on light backgrounds
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const trailColor = isLight
+      ? 'rgba(248, 250, 252, 0.25)' // light bg fade — matches #f8fafc
+      : 'rgba(8, 12, 16, 0.15)';    // dark bg fade — matches #070a0e
+
     // Semi-transparent overlay for smooth trails
-    this.ctx.fillStyle = 'rgba(8, 12, 16, 0.15)';
+    this.ctx.fillStyle = trailColor;
     this.ctx.fillRect(0, 0, width, height);
 
     this.ctx.font = `${this.fontSize}px 'JetBrains Mono', 'Courier New', monospace`;
@@ -205,13 +233,23 @@ class MatrixRain {
       const xPos = i * this.fontSize;
       const yPos = y * this.fontSize;
 
-      // Color gradation
-      if (Math.random() > 0.85) {
-        this.ctx.fillStyle = '#67e8f9'; // Cyan
-      } else if (Math.random() > 0.6) {
-        this.ctx.fillStyle = '#00ff66'; // Green
+      // Color gradation — darker tones for light mode legibility
+      if (isLight) {
+        if (Math.random() > 0.85) {
+          this.ctx.fillStyle = '#0369a1'; // accessible ocean cyan
+        } else if (Math.random() > 0.6) {
+          this.ctx.fillStyle = '#059669'; // accessible emerald
+        } else {
+          this.ctx.fillStyle = 'rgba(5, 150, 105, 0.6)'; // muted emerald
+        }
       } else {
-        this.ctx.fillStyle = 'rgba(0, 229, 153, 0.55)'; // Deep cyber green
+        if (Math.random() > 0.85) {
+          this.ctx.fillStyle = '#67e8f9'; // Cyan
+        } else if (Math.random() > 0.6) {
+          this.ctx.fillStyle = '#00ff66'; // Green
+        } else {
+          this.ctx.fillStyle = 'rgba(0, 229, 153, 0.55)'; // Deep cyber green
+        }
       }
 
       this.ctx.fillText(char, xPos, yPos);
