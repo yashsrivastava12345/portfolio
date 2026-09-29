@@ -3,26 +3,19 @@
  * YASH SRIVASTAVA — DEVELOPER PORTFOLIO PROJECT DATA & PHOTO CONFIGURATION
  * ============================================================================
  * 
- * PHOTO MANAGEMENT INSTRUCTIONS:
- * ----------------------------------------------------------------------------
- * // Replace this image with Yash's actual profile photograph:
- * Main Solo Profile Photo: images/profile/yash-profile.webp
- * - Recommended specs: 800x1000px (4:5 portrait) or 1:1 square.
- * - Supported formats: JPG, PNG, WebP (WebP preferred for production).
- * - Meaningful alt text: "Yash Srivastava"
- * 
- * // Add additional personal photographs to this directory:
- * Personal Gallery Directory: images/snapshots-engineering-lab/ and images/ucertify/
- * - Slot 01: images/snapshots-engineering-lab/Workstation & Embedded Lab.webp (Workstation & Embedded Lab)
- * - Slot 02: images/ucertify/uCertify — Ingest Role.webp (uCertify — Ingest Role)
- * - Slot 03: images/snapshots-engineering-lab/Medical Device GUI Testing.webp (Medical Device GUI Testing)
- * - Slot 04: images/snapshots-engineering-lab/Sensor & Hardware Engineering.webp (Sensor & Hardware Engineering)
- * ----------------------------------------------------------------------------
+ * PHOTO REGISTRY:
+ * - Profile: images/profile/yash-profile.webp
+ * - Lab Snapshots: images/snapshots-engineering-lab/
+ *   - workstation-embedded-lab.webp
+ *   - ucertify-ingest-role.webp
+ *   - medical-device-gui-testing.webp
+ *   - sensor-hardware-engineering.webp
  * 
  * RULES FOR PROJECT DATA:
- * - Accurate representation only based on verified specifications.
- * - No fabricated statistics, clients, awards, or dates.
- * - TECAR and Laser (Lumino Pro) are maintained as two completely separate projects.
+ * - Accurate technical representation based on verified specifications.
+ * - No fabricated statistics, clients, awards, or URLs.
+ * - TECAR and Laser (Lumino Pro) maintained as two distinct projects.
+ * - All technical claims qualified accurately.
  */
 
 // Personal photo registry for dynamic gallery & lightbox loading
@@ -30,41 +23,46 @@ const personalPhotos = [
   {
     id: "profile-main",
     src: "images/profile/yash-profile.webp",
-    alt: "Yash Srivastava",
+    thumb: "images/profile/yash-profile.webp",
+    alt: "Yash Srivastava portrait photograph",
     title: "Yash Srivastava — Profile Portrait",
-    caption: "",
+    caption: "Early-Career Software Engineer & Systems Developer",
     category: "profile"
   },
   {
     id: "photo-01",
-    src: "images/snapshots-engineering-lab/Workstation & Embedded Lab.webp",
-    alt: "Yash Srivastava workstation and embedded lab setup with Raspberry Pi CM5",
+    src: "images/snapshots-engineering-lab/workstation-embedded-lab.webp",
+    thumb: "images/snapshots-engineering-lab/workstation-embedded-lab-800.webp",
+    alt: "Electronics workbench setup with circuit boards, testing instruments, and development terminal",
     title: "Workstation & Embedded Lab",
-    caption: "",
+    caption: "Development workstation and embedded testing bench",
     category: "gallery"
   },
   {
     id: "photo-02",
-    src: "images/ucertify/uCertify — Ingest Role.webp",
-    alt: "Yash Srivastava — Ingest Role at uCertify",
+    src: "images/snapshots-engineering-lab/ucertify-ingest-role.webp",
+    thumb: "images/snapshots-engineering-lab/ucertify-ingest-role-800.webp",
+    alt: "Team members gathered at uCertify office environment during content ingestion operations",
     title: "uCertify — Ingest Role",
-    caption: "",
+    caption: "Technical content ingestion workflows and team collaboration at uCertify",
     category: "gallery"
   },
   {
     id: "photo-03",
-    src: "images/snapshots-engineering-lab/Medical Device GUI Testing.webp",
-    alt: "Yash Srivastava testing medical therapy GUI and touchscreen controls",
+    src: "images/snapshots-engineering-lab/medical-device-gui-testing.webp",
+    thumb: "images/snapshots-engineering-lab/medical-device-gui-testing-800.webp",
+    alt: "Touchscreen monitor displaying graphical user interface for medical therapy software testing",
     title: "Medical Device GUI Testing",
-    caption: "",
+    caption: "Testing touch-first graphical interface and sensor displays",
     category: "gallery"
   },
   {
     id: "photo-04",
-    src: "images/snapshots-engineering-lab/Sensor & Hardware Engineering.webp",
-    alt: "Yash Srivastava working with sensor circuits and microcontroller test bench",
+    src: "images/snapshots-engineering-lab/sensor-hardware-engineering.webp",
+    thumb: "images/snapshots-engineering-lab/sensor-hardware-engineering-800.webp",
+    alt: "Hardware prototyping breadboard with connected sensors, wiring, and microcontroller modules",
     title: "Sensor & Hardware Engineering",
-    caption: "",
+    caption: "Prototyping sensor acquisition circuitry and serial communication buses",
     category: "gallery"
   }
 ];
@@ -85,10 +83,12 @@ const projectsData = [
       badge: "⚡ RF & SENSOR INTERFACE",
       icon: "⚡"
     },
-    shortDescription: "A Raspberry Pi-based software interface for controlling and managing TECAR therapy workflows through a touch-first graphical interface, integrating real-time sensor measurements and safety interlocks.",
+    plainSummary: "A touch-screen control application for physical therapy equipment running on a Raspberry Pi, allowing clinicians to set therapy parameters, monitor live sensor feedback, and enforce safety cutoffs.",
+    shortDescription: "A Raspberry Pi-based software interface for controlling and managing TECAR therapy workflows through a touch-first graphical interface, integrating real-time sensor measurements and safety interlock monitoring.",
     image: "images/projects/AIwallpaper20250202040324316.webp",
     status: "Active Engineering Project",
     statusType: "active",
+    outcome: "Active Prototype / Testing",
     featured: true,
     tags: [
       "Python",
@@ -101,19 +101,19 @@ const projectsData = [
       "SQLite",
       "Timers",
       "Audio Feedback",
-      "Footswitch Integration",
-      "ADS1115",
-      "MLX90614",
-      "PCA9685"
+      "Footswitch Monitoring",
+      "ADS1115 ADC",
+      "MLX90614 IR Sensor",
+      "PCA9685 PWM"
     ],
-    overview: "A full-screen touch control software application engineered for physical therapy equipment. The application manages Capacitive and Resistive Energy Transfer (TECAR) modalities, coordinates precise multi-phase therapy countdown timers, reads continuous electrode impedance and contactless infrared patient temperature, and enforces safety interlocks through hardware footswitch verification.",
+    overview: "A full-screen touch control software application engineered for physical therapy equipment. The application manages Capacitive and Resistive Energy Transfer (TECAR) modalities, coordinates multi-phase therapy countdown timers, reads continuous electrode impedance and contactless infrared patient temperature, and software-monitors safety interlocks through hardware footswitch verification.",
     architecture: {
       steps: [
         { title: "Touch UI Layer (PyQt6)", desc: "Touchscreen interface with virtual rotary dials, dual CAP/RES mode switches, and custom numerical keypad." },
         { title: "Therapy & Protocol Manager", desc: "Coordinates therapy modalities, timer countdowns, security locks, and clinician session presets in SQLite." },
         { title: "Hardware Abstraction Layer (HAL)", desc: "Multi-threaded driver layer polling analog sensors asynchronously via I2C and SPI, preventing GUI thread blocking." },
         { title: "Sensors & Signal Acquisition", desc: "ADS1115 16-bit ADC reading electrode delivery current/impedance, and MLX90614 contactless IR patient temperature." },
-        { title: "Physical Hardware & Safety Interlocks", desc: "Hardware footswitch verification with instant millisecond energy shut-off, PCA9685 PWM modulation, and acoustic alerts." }
+        { title: "Physical Hardware & Safety Monitoring", desc: "Software monitoring of hardware footswitch cutoff triggers, PCA9685 PWM modulation, and acoustic alerts." }
       ],
       flowDiagram: `Touch UI (PyQt6: Virtual Dials, Keypad, CAP/RES Mode)
     ↓
@@ -123,17 +123,17 @@ Hardware Abstraction Layer (Asynchronous Threading / Signals)
     ↓
 Sensors (ADS1115 16-Bit ADC, MLX90614 IR Temp, PCA9685 PWM)
     ↓
-Safety Interlocks (GPIO Footswitch Cutoff & Acoustic Feedback)`
+Safety Monitoring (GPIO Footswitch Listener & Acoustic Feedback)`
     },
     details: {
-      problem: "Medical electrotherapy equipment requires a high-reliability, responsive touch interface that operates safely without desktop interruptions. The operator needs instant tactile control over power intensity, real-time feedback on electrode contact impedance, patient skin temperature monitoring to prevent thermal discomfort, and fail-safe cutoff mechanisms that immediately halt power when the operator steps off the footswitch.",
-      solution: "Engineered a touch-first PyQt6 application running on Raspberry Pi. Built complete therapy workflows, asynchronous hardware communication drivers for ADC and temperature sensors over I2C, persistent SQLite protocol profiles, and instant hardware footswitch interlock monitoring.",
+      problem: "Medical electrotherapy equipment requires a high-reliability, responsive touch interface that operates safely without desktop interruptions. The operator needs tactile control over power intensity, real-time feedback on electrode contact impedance, patient skin temperature monitoring to prevent thermal discomfort, and fail-safe cutoff mechanisms that immediately halt power modulation when the operator steps off the footswitch.",
+      solution: "Engineered a touch-first PyQt6 application running on Raspberry Pi. Built complete therapy workflows, asynchronous hardware communication drivers for ADC and temperature sensors over I2C, persistent SQLite protocol profiles, and continuous GPIO footswitch interlock monitoring.",
       keyFeatures: [
         "Touch-first graphical interface with virtual rotary dials and numerical keypad",
         "Dual Capacitive (CAP) and Resistive (RES) therapy mode configuration workflows",
         "Real-time electrode impedance and current monitoring via ADS1115 16-bit ADC over I2C",
         "Contactless patient temperature sensing using MLX90614 infrared sensor to prevent overheating",
-        "Hardware footswitch safety interlock with instant energy shut-off and audio warning cues",
+        "Software monitoring of hardware footswitch safety interlock with instant energy shut-off and audio warning cues",
         "Persistent SQLite protocol storage for clinician presets and treatment histories",
         "Treatment session countdown timers with phase indicators and auditory completion tones",
         "Raspberry Pi OS deployment with auto-starting kiosk mode and robust error recovery"
@@ -150,19 +150,19 @@ Safety Interlocks (GPIO Footswitch Cutoff & Acoustic Feedback)`
         "SQLite3 Database",
         "Linux Audio Feedback Subsystem"
       ],
-      myContribution: "Designed and implemented the touch-first PyQt6 GUI components; developed custom virtual keypad and dial widgets; integrated hardware abstraction scripts for ADS1115 ADC and MLX90614 temperature sensors over I2C; wired and programmed the GPIO footswitch safety cutoff logic; and structured SQLite storage for therapy protocol persistence.",
-      hardwareIntegration: "Direct embedded integration on Raspberry Pi using I2C bus 1 for sensor communication. ADS1115 ADC samples analog voltages corresponding to electrode delivery current and impedance feedback. MLX90614 communicates over SMBus/I2C to sample non-contact skin temperature in real time. GPIO pins are wired with hardware debouncing to monitor the therapist's foot pedal switch. All sensor acquisition runs in dedicated Python background threads, dispatching Qt signals to maintain a fluid 60 FPS graphical interface without latency.",
+      myContribution: "Designed and implemented the touch-first PyQt6 GUI components; developed custom virtual keypad and dial widgets; integrated hardware abstraction scripts for ADS1115 ADC and MLX90614 temperature sensors over I2C; programmed GPIO footswitch safety cutoff monitoring; and structured SQLite storage for therapy protocol persistence.",
+      hardwareIntegration: "Direct embedded integration on Raspberry Pi using I2C bus 1 for sensor communication. ADS1115 ADC samples analog voltages corresponding to electrode delivery current and impedance feedback. MLX90614 communicates over SMBus/I2C to sample non-contact skin temperature in real time. GPIO pins are wired with hardware debouncing to monitor the therapist's foot pedal switch. All sensor acquisition runs in dedicated Python background threads, dispatching Qt signals to maintain a responsive graphical interface.",
       challenges: [
         {
-          challenge: "High-frequency ADC and temperature sensor polling causing GUI stutter on embedded Raspberry Pi.",
+          challenge: "High-frequency ADC and temperature sensor polling causing GUI stutter on embedded Raspberry Pi hardware.",
           mitigation: "Decoupled hardware I/O into a dedicated QThread worker loop with thread-safe Qt Signals, preventing sensor bus latency from impacting touch interaction."
         },
         {
-          challenge: "Fail-safe hardware interlock requirements during sudden power cut or footswitch release.",
-          mitigation: "Engineered hardware interrupt-driven GPIO listeners that instantly drop power modulation within milliseconds of pedal release and cleanly persist session state."
+          challenge: "Reliable interlock responsiveness during sudden operator foot pedal release.",
+          mitigation: "Configured GPIO edge-detection listeners to immediately halt software power modulation and trigger visual/acoustic warnings upon footswitch release."
         }
       ],
-      currentStatus: "Active medical technology engineering project. Interface, sensor drivers, and therapy workflows developed and tested on Raspberry Pi embedded hardware.",
+      currentStatus: "Active engineering prototype. Touch interface, sensor drivers, and therapy workflows developed and tested on Raspberry Pi test bench.",
       futureImprovements: "Dynamic real-time impedance graphing on-screen, multi-language clinician localization, and automated USB export for treatment logs.",
       disclaimer: "Engineered as software and embedded interface platform. Does not claim medical certification or regulatory approval."
     },
@@ -188,10 +188,12 @@ Safety Interlocks (GPIO Footswitch Cutoff & Acoustic Feedback)`
       badge: "🔆 LASER KIOSK & PROTOCOLS",
       icon: "🔆"
     },
+    plainSummary: "A dedicated full-screen touchscreen kiosk application running on Raspberry Pi for operating clinical laser therapy equipment, featuring clinician PIN authorization, treatment protocol libraries, and session auditing.",
     shortDescription: "A dedicated medical laser therapy software platform running on Raspberry Pi, featuring a full-screen kiosk interface, secure multi-user PIN access, protocol management, timer controls, and treatment history.",
     image: "images/projects/AIwallpaper20250202040324316.webp",
     status: "Active Embedded Project",
     statusType: "active",
+    outcome: "In Active Development",
     featured: true,
     tags: [
       "Python",
@@ -204,21 +206,20 @@ Safety Interlocks (GPIO Footswitch Cutoff & Acoustic Feedback)`
       "Settings",
       "History",
       "Timer",
-      "Password/Lock",
+      "PIN / Lock",
       "GPIO",
       "SQLite",
       "systemd",
-      "Raspberry Pi OS",
-      "Deployment"
+      "Raspberry Pi OS"
     ],
-    overview: "A specialized software solution for clinical medical laser systems. Built as a tamper-resistant kiosk application for Raspberry Pi OS, Lumino Pro provides clinicians with secure multi-level password authentication, structured therapy protocol selection across acute and chronic conditions, precise dosage and pulse frequency timing, hardware emergency interlocks, and persistent session auditing.",
+    overview: "A specialized software solution for clinical medical laser systems. Built as a tamper-resistant kiosk application for Raspberry Pi OS, Lumino Pro provides clinicians with secure multi-level PIN authentication, structured therapy protocol selection across acute and chronic conditions, precise dosage and pulse frequency timing, hardware emergency interlock monitoring, and session auditing.",
     architecture: {
       steps: [
         { title: "Kiosk UI Shell (PyQt6)", desc: "Full-screen appliance-style interface with high-contrast clinical theme, virtual keypad, and therapy controls." },
         { title: "Security & PIN Authentication", desc: "Multi-tier password/PIN barrier preventing unauthorized laser emission or tampering with calibration." },
         { title: "Laser Protocol & Waveform Engine", desc: "Preset protocols for acute, chronic, and rehabilitation therapy with configurable pulse frequency and duration." },
-        { title: "GPIO Emergency & Interlock Handler", desc: "Monitors emergency shutoff switch and hardware interlock loop, immediately asserting laser disable state." },
-        { title: "Audit Trail & SQLite Persistence", desc: "Logs patient treatment sessions, joules delivered, duration, and operator IDs into an encrypted SQLite database." }
+        { title: "GPIO Emergency & Interlock Handler", desc: "Monitors emergency shutoff switch and hardware interlock line, asserting software disable state upon trigger." },
+        { title: "Audit Trail & SQLite Persistence", desc: "Logs patient treatment sessions, joules delivered, duration, and operator IDs into a local SQLite database." }
       ],
       flowDiagram: `Appliance Kiosk Shell (PyQt6 / Raspberry Pi OS systemd)
     ↓
@@ -231,17 +232,17 @@ Hardware Interlock & Emergency Cutoff (GPIO Monitoring)
 Session History & Audit Trail (SQLite Treatment Database)`
     },
     details: {
-      problem: "Medical laser therapy systems require foolproof operational safety, tamper-resistant access to prevent unauthorized emission, repeatable protocol delivery for clinical consistency, and an uninterrupted appliance-style kiosk experience that boots instantly without desktop exposure.",
-      solution: "Engineered a dedicated full-screen PyQt6 kiosk platform deployed on Raspberry Pi OS. Features a secure PIN authorization gate, intuitive therapy protocol library, treatment history auditing, GPIO emergency interlocks, and systemd kiosk automation with automatic restart policies.",
+      problem: "Medical laser therapy systems require operational safety, tamper-resistant access to prevent unauthorized emission, repeatable protocol delivery for clinical consistency, and an uninterrupted appliance-style kiosk experience that boots directly without desktop exposure.",
+      solution: "Engineered a dedicated full-screen PyQt6 kiosk platform deployed on Raspberry Pi OS. Features a secure PIN authorization gate, intuitive therapy protocol library, treatment history auditing, GPIO emergency shutoff monitoring, and systemd kiosk automation with automatic restart policies.",
       keyFeatures: [
         "Appliance-style full-screen kiosk interface eliminating desktop overhead and accidental minimization",
         "Multi-level security lock and PIN pad modal requiring clinician authorization prior to laser activation",
         "Therapy protocol management system with presets for acute pain, chronic rehabilitation, and tissue repair",
         "Precise laser timer and pulse frequency control with real-time countdown alerts",
         "Clinician settings panel for system calibration, sound levels, screen brightness, and user permissions",
-        "Comprehensive treatment history logging recording energy delivered, duration, and session timestamps",
-        "Hardware/software emergency interlock listening to GPIO cutoff triggers",
-        "Linux systemd kiosk daemon enabling instant auto-boot on startup and crash self-recovery"
+        "Treatment history logging recording energy delivered, duration, and session timestamps",
+        "Software monitoring of hardware emergency interlock triggers via GPIO",
+        "Linux systemd kiosk daemon enabling auto-boot on startup and process recovery"
       ],
       technologies: [
         "Python 3",
@@ -255,19 +256,19 @@ Session History & Audit Trail (SQLite Treatment Database)`
         "Headless Remote Deployment (SSH/SCP)"
       ],
       myContribution: "Engineered the full-screen touch-optimized kiosk GUI in PyQt6; implemented role-protected security lock and pinpad access controls; designed the structured protocol management engine with editable dosage/wavelength presets; authored systemd kiosk deployment scripts for automated boot on Raspberry Pi OS; and integrated treatment history auditing in SQLite.",
-      hardwareIntegration: "Deployed on Raspberry Pi embedded platform with custom systemd service configuration that launches the application directly into X11/Wayland kiosk mode without displaying a desktop environment. Raspberry Pi GPIO pins are utilized for hardware emergency stop switches, interlock beam enable signals, and status indicators. Includes automatic restart policies and custom Plymouth boot splash screen for a professional medical appliance experience.",
+      hardwareIntegration: "Deployed on Raspberry Pi embedded platform with custom systemd service configuration that launches the application directly into X11/Wayland kiosk mode without displaying a desktop environment. Raspberry Pi GPIO pins are utilized to monitor hardware emergency stop switches, interlock beam enable signals, and status indicators. Includes automatic restart policies and custom Plymouth boot splash screen for an appliance-style experience.",
       challenges: [
         {
           challenge: "Ensuring foolproof kiosk security and preventing clinical operators from accessing the underlying Linux shell.",
-          mitigation: "Configured dedicated systemd user service with restricted window manager settings, disabled desktop shortcuts/consoles, and trapped all unhandled Qt exceptions."
+          mitigation: "Configured dedicated systemd user service with restricted window manager settings, disabled desktop shortcuts/consoles, and trapped unhandled Qt exceptions."
         },
         {
           challenge: "Strict parameter validation to prevent excessive laser duration or dosage settings.",
-          mitigation: "Built dual-stage validation in both UI spinbox controllers and the underlying protocol SQLite engine, preventing values exceeding safety thresholds."
+          mitigation: "Built dual-stage validation in UI spinbox controllers and the protocol engine, preventing values exceeding safety thresholds."
         }
       ],
       currentStatus: "Dedicated medical laser therapy software project in active development. Kiosk shell, security authentication, protocol engine, and deployment scripts established.",
-      futureImprovements: "Integration with optical barcode/RFID badge scanners for instant clinician login, remote diagnostics reporting over local network, and custom protocol cloud sync.",
+      futureImprovements: "Integration with optical barcode/RFID badge scanners for clinician login, remote diagnostics reporting over local network, and custom protocol backup.",
       disclaimer: "Engineered as software and embedded interface platform. Does not claim medical certification or regulatory approval."
     },
     links: {
@@ -282,8 +283,8 @@ Session History & Audit Trail (SQLite Treatment Database)`
   // ==========================================================================
   {
     id: "django-ims",
-    title: "IMS / CIMS",
-    subtitle: "Inventory & Management Information System",
+    title: "IMS / CIMS — Inventory & Management System",
+    subtitle: "Enterprise Inventory & Management Information System with QR Tracking",
     category: "enterprise",
     categoryLabel: "Django | Enterprise Software | Database",
     cardTheme: "enterprise",
@@ -292,10 +293,12 @@ Session History & Audit Trail (SQLite Treatment Database)`
       badge: "🏢 ENTERPRISE ORM & QR",
       icon: "🏢"
     },
+    plainSummary: "A web-based internal management platform built with Python and Django to centralize warehouse stock levels, track components using serial and QR codes, and coordinate quality inspections across departments.",
     shortDescription: "A comprehensive enterprise-grade inventory and management information system engineered with Python and Django, featuring QR/serial tracking and role-based workflows.",
     image: "images/projects/AIwallpaper20250202040324316.webp",
     status: "In Development",
     statusType: "active",
+    outcome: "In Development",
     featured: true,
     tags: [
       "Python",
@@ -313,7 +316,7 @@ Session History & Audit Trail (SQLite Treatment Database)`
         { title: "Service & Inventory Engine", desc: "Django ORM coordinating inventory stock levels, batches, and service workflows." },
         { title: "QR / Serial Tracking Layer", desc: "Automated QR code generation and serial tracking across dispatch and receiving." },
         { title: "Quality Control & Issue Mgmt", desc: "Dedicated modules for inspection logging, issue reporting, and escalation workflows." },
-        { title: "Audit Logging & Reporting", desc: "Immutable system activity logging, audit trails, and inventory movement analytics." }
+        { title: "Audit Logging & Reporting", desc: "Structured system activity logging, audit trails, and inventory movement analytics." }
       ],
       flowDiagram: `User Request (Role-Based)
     ↓
@@ -348,30 +351,31 @@ Audit Logs & Dynamic Reporting`
         "Role-Based Access Control (RBAC)"
       ],
       myContribution: "Architecting the Django data models, designing role-based view permissions, implementing QR code generation and lookup mechanisms, and developing module workflows for inventory management and audit logging.",
-      hardwareIntegration: "Integration with physical handheld barcode/QR optical scanners via standard HID USB and serial inputs for warehouse dispatch verification.",
+      hardwareIntegration: "Supports physical handheld barcode and QR optical scanners via standard USB HID keyboard-wedge input for rapid warehouse dispatch verification.",
       challenges: [
         {
           challenge: "Ensuring database transaction integrity during bulk inventory transfers.",
           mitigation: "Leveraged Django atomic database transactions (transaction.atomic) to guarantee consistent state updates across inventory items and audit logs."
         }
       ],
-      currentStatus: "Enterprise-style management system currently under active development. Core modules and role workflows being refined.",
-      futureImprovements: "Barcode scanner API integration, automated PDF invoice/dispatch generation, and real-time stock alert notifications."
+      currentStatus: "Enterprise-style management system currently under active development. Core modules and role workflows established.",
+      futureImprovements: "Automated PDF invoice/dispatch generation, expanded scanner integration protocols, and real-time low-stock threshold alerts.",
+      disclaimer: "Internal enterprise software system currently in engineering."
     },
     links: {
       github: "",
       demo: "",
-      note: "Enterprise internal software system currently being engineered."
+      note: "Internal enterprise software system currently under active development."
     }
   },
 
   // ==========================================================================
-  // PROJECT 5: Volant Technologies — Medical Equipment Product Platform
+  // PROJECT 4: Volant Technologies — Medical Equipment Product Platform
   // ==========================================================================
   {
     id: "volant-technologies",
-    title: "Volant Technologies",
-    subtitle: "Medical Equipment Product Platform",
+    title: "Volant Technologies — Medical Platform",
+    subtitle: "Medical Equipment Product & Catalog Platform",
     category: "medical",
     categoryLabel: "Web Development | Medical Technology",
     cardTheme: "volant",
@@ -380,10 +384,12 @@ Audit Logs & Dynamic Reporting`
       badge: "🌐 MEDICAL CATALOG",
       icon: "🌐"
     },
+    plainSummary: "A clean product showcase and technical catalog website for a medical equipment provider, organizing clinical physiotherapy devices into structured categories with responsive WebP visuals.",
     shortDescription: "A dedicated product showcase platform for physiotherapy and advanced medical technology equipment, featuring structured JSON catalogs and high-performance WebP media delivery.",
     image: "images/projects/AIwallpaper20250202040324316.webp",
     status: "Completed / Active",
     statusType: "completed",
+    outcome: "Completed Client Platform",
     featured: true,
     tags: [
       "JavaScript",
@@ -433,7 +439,7 @@ Inquiry & Location Integration`
       hardwareIntegration: "Client-side web platform engineered for responsive viewing across medical tablet kiosks, desktop workstations, and mobile devices.",
       challenges: [
         {
-          challenge: "Displaying extensive medical equipment lines without overwhelming page load speed.",
+          challenge: "Displaying extensive medical equipment lines without compromising page load speed.",
           mitigation: "Converted image assets to modern WebP format and implemented efficient client-side rendering from structured JSON data."
         }
       ],
@@ -443,17 +449,17 @@ Inquiry & Location Integration`
     links: {
       github: "",
       demo: "",
-      note: "Commercial medical device catalog platform."
+      note: "Commercial medical device catalog platform — proprietary client deployment."
     }
   },
 
   // ==========================================================================
-  // PROJECT 6: Computer Vision & OCR Projects
+  // PROJECT 5: Computer Vision & OCR Projects
   // ==========================================================================
   {
     id: "cv-ocr-projects",
     title: "Computer Vision & OCR Projects",
-    subtitle: "Image Processing & Recognition Systems",
+    subtitle: "Image Processing & Recognition Systems in Python",
     category: "ai",
     categoryLabel: "Computer Vision | Python | AI/ML",
     cardTheme: "cv",
@@ -462,10 +468,12 @@ Inquiry & Location Integration`
       badge: "👁 OPENCV & OCR",
       icon: "👁"
     },
+    plainSummary: "A collection of practical computer vision and text recognition modules built with Python and OpenCV for facial feature detection, edge processing, and document text extraction.",
     shortDescription: "Practical computer vision and optical character recognition implementations in Python, covering face recognition, text extraction, and digital image processing pipelines.",
     image: "images/projects/AIwallpaper20250202040324316.webp",
     status: "Completed Implementations",
     statusType: "completed",
+    outcome: "Completed Prototypes",
     featured: false,
     tags: [
       "Python",
@@ -473,7 +481,8 @@ Inquiry & Location Integration`
       "OCR",
       "Face Recognition",
       "Image Processing",
-      "OpenCV"
+      "OpenCV",
+      "NumPy"
     ],
     overview: "A suite of practical computer vision and optical character recognition modules built with Python and OpenCV for automated feature detection, facial analysis, and document parsing.",
     architecture: {
@@ -505,12 +514,12 @@ Structured Data Output`
       technologies: [
         "Python 3",
         "OpenCV",
-        "OCR Libraries",
+        "OCR Libraries (pytesseract)",
         "NumPy",
         "Image Processing Algorithms"
       ],
       myContribution: "Authored Python processing scripts, tuned image filters for optimal character clarity, and tested recognition algorithms under diverse lighting conditions.",
-      hardwareIntegration: "Compatible with standard USB webcams, Raspberry Pi Camera Module v3, and CSI/MIPI camera interfaces.",
+      hardwareIntegration: "Tested with standard USB webcams and Raspberry Pi Camera Module interfaces for video frame ingestion.",
       challenges: [
         {
           challenge: "Handling noisy or low-contrast text in OCR pipelines.",
@@ -523,7 +532,7 @@ Structured Data Output`
     links: {
       github: "",
       demo: "",
-      note: "Practical exploratory engineering repositories in Python."
+      note: "Exploratory Python repositories — code samples and demonstrations available upon request."
     }
   }
 ];

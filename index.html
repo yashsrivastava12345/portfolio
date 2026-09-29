@@ -3,33 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
   <!-- Primary Meta Tags -->
-  <title>Yash Srivastava | Software Engineer | Python, AI, Full-Stack & Embedded Systems</title>
-  <meta name="title" content="Yash Srivastava | Software Engineer | Python, AI, Full-Stack & Embedded Systems">
-  <meta name="description" content="Portfolio of Yash Srivastava — Software Engineer building practical software systems across Python, PyQt6, Django, React, Next.js, AI/ML, Raspberry Pi, and Medical Technology.">
-  <meta name="keywords" content="Yash Srivastava, Software Engineer, Python Developer, PyQt6 Developer, AI Developer, Django Developer, React Developer, Raspberry Pi Developer, Embedded Systems, Medical Technology Software, Computer Vision, OCR, AI Applications, Ghaziabad">
+  <title>Yash Srivastava | Software Engineer | Python, PyQt6, Django &amp; Embedded Systems</title>
+  <meta name="title" content="Yash Srivastava | Software Engineer | Python, PyQt6, Django &amp; Embedded Systems">
+  <meta name="description" content="Portfolio of Yash Srivastava — Software Engineer building practical systems across Python, PyQt6, Django, embedded Linux, and medical technology.">
   <meta name="author" content="Yash Srivastava">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yashsrivastava.dev/">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yashsrivastava.dev/">
-  <meta property="og:title" content="Yash Srivastava | Software Engineer Portfolio">
-  <meta property="og:description" content="Software Engineer building practical software systems across AI, web development, embedded hardware, medical technology and intelligent automation.">
-  <meta property="og:image" content="images/projects/AIwallpaper20250202040324316.webp">
+  <meta property="og:title" content="Yash Srivastava | Software Engineer">
+  <meta property="og:description" content="Systems software engineer specializing in Python, PyQt6, Django, embedded Linux, and medical technology interfaces.">
+  <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Yash Srivastava - Software Engineer Portfolio Banner">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yashsrivastava.dev/">
+  <meta name="twitter:title" content="Yash Srivastava | Software Engineer">
+  <meta name="twitter:description" content="Systems software engineer specializing in Python, PyQt6, Django, embedded Linux, and medical technology interfaces.">
+  <meta name="twitter:image" content="https://yashsrivastava.dev/images/og-image.webp">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://yashsrivastava.dev/#person",
+        "name": "Yash Srivastava",
+        "jobTitle": "Software Engineer",
+        "url": "https://yashsrivastava.dev/",
+        "image": "https://yashsrivastava.dev/images/profile/yash-profile.webp",
+        "sameAs": [
+          "https://github.com/yashsrivastava12345",
+          "https://www.linkedin.com/in/yash-srivastava-363363220/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ghaziabad",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "India"
+        },
+        "knowsAbout": [
+          "Python",
+          "PyQt6",
+          "Django",
+          "Embedded Linux",
+          "Raspberry Pi",
+          "Computer Vision",
+          "OpenCV",
+          "SQLite",
+          "I2C",
+          "SPI"
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://yashsrivastava.dev/",
+        "url": "https://yashsrivastava.dev/",
+        "name": "Yash Srivastava — Developer Portfolio",
+        "mainEntity": {
+          "@id": "https://yashsrivastava.dev/#person"
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
   
-  <!-- Preconnect Fonts -->
+  <!-- Preconnect Fonts (Inter & JetBrains Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Optimized High-Performance Canvas Matrix Layer -->
+  <!-- Skip to Main Content Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Ambient Matrix Canvas Layer -->
   <canvas id="matrixCanvas" aria-hidden="true"></canvas>
 
   <!-- Sticky Modern Navigation Bar -->
@@ -44,11 +109,12 @@
       <nav aria-label="Main Navigation">
         <ul class="nav-links" id="nav-links">
           <li><a href="#hero" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link" style="white-space: nowrap;">Meet&nbsp;Yash</a></li>
+          <li><a href="#about" class="nav-link">Meet&nbsp;Yash</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#architecture" class="nav-link">Architecture</a></li>
           <li><a href="#hardware" class="nav-link">Hardware</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#achievements" class="nav-link">Milestones</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#resume" class="nav-link">Resume</a></li>
@@ -58,12 +124,12 @@
 
       <!-- Nav Actions & Mobile Toggle -->
       <div class="nav-actions">
-        <button type="button" class="matrix-toggle" id="matrix-toggle-btn" aria-label="Toggle Matrix Canvas Animation" aria-pressed="false" title="Optional Easter Egg: Toggle Matrix Rain Animation">
+        <button type="button" class="matrix-toggle" id="matrix-toggle-btn" aria-label="Toggle Matrix Canvas Animation" aria-pressed="false" title="Toggle Matrix Rain Animation">
           <span class="matrix-status-dot"></span>
           <span class="btn-label">Matrix FX: OFF</span>
         </button>
 
-        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -78,7 +144,7 @@
   <main id="main-content">
     
     <!-- ========================================================================
-         HERO SECTION
+         HERO SECTION (Responsive: Name, Role & CTAs First on Mobile)
          ======================================================================== -->
     <section class="hero" id="hero">
       <div class="container hero-grid">
@@ -95,77 +161,54 @@
           <div class="hero-headline">
             <span>Software Engineer</span>
             <span class="divider">|</span>
-            <span>Python Developer</span>
+            <span>Python &amp; Embedded Systems</span>
             <span class="divider">|</span>
-            <span>AI &amp; Full-Stack Developer</span>
+            <span>Django Developer</span>
           </div>
 
           <p class="hero-description">
-            I build practical software systems across AI, web development, embedded hardware and medical technology.
+            I build practical, reliable software systems across Python, touch-first embedded interfaces, medical technology, and enterprise data platforms.
           </p>
 
           <div class="hero-cta-group">
             <a href="#projects" class="btn btn-primary">
               <span>View My Projects</span>
-              <span>↓</span>
+              <span aria-hidden="true">→</span>
             </a>
-            <a href="#resume" class="btn btn-secondary">
-              <span>Download Resume</span>
-              <span>📄</span>
+            <a href="assets/Yash_Srivastava_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <span>View Resume</span>
+              <span aria-hidden="true">↓</span>
             </a>
-            <a href="#contact" class="btn btn-outline-green">
+            <a href="#contact" class="btn btn-outline-cyan">
               <span>Contact Me</span>
-              <span>✉</span>
-            </a>
-            <a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <span>GitHub</span>
-              <span>↗</span>
+              <span aria-hidden="true">✉</span>
             </a>
           </div>
 
-          <!-- Technical Status Area -->
-          <div class="tech-status-wrapper">
-            <div class="tech-status-label">// Core Technical Focus</div>
-            <div class="tech-status-badges">
-              <span class="tech-badge"><span class="badge-glyph">&gt;_</span> Python</span>
-              <span class="tech-badge"><span class="badge-glyph">{ }</span> PyQt6</span>
-              <span class="tech-badge"><span class="badge-glyph">&lt;/&gt;</span> Django</span>
-              <span class="tech-badge"><span class="badge-glyph">&lt;/&gt;</span> React</span>
-              <span class="tech-badge"><span class="badge-glyph">[ ]</span> Next.js</span>
-              <span class="tech-badge"><span class="badge-glyph">&gt;_</span> AI/ML</span>
-              <span class="tech-badge"><span class="badge-glyph">{ }</span> Raspberry Pi</span>
+          <div class="hero-tags">
+            <span class="tag-label">Key Stack:</span>
+            <div class="tag-badges">
+              <span class="badge badge-accent">Python 3</span>
+              <span class="badge">PyQt6 / Qt</span>
+              <span class="badge">Django</span>
+              <span class="badge">Raspberry Pi</span>
+              <span class="badge">Embedded Linux</span>
+              <span class="badge">SQLite / MySQL</span>
+              <span class="badge">Computer Vision</span>
             </div>
           </div>
         </div>
 
-        <!-- Hero Terminal Visual Card (Elevating existing asset) -->
         <div class="hero-visual">
-          <div class="terminal-card">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span class="dot-red"></span>
-                <span class="dot-yellow"></span>
-                <span class="dot-green"></span>
-              </div>
-              <div class="terminal-title">yash@workstation: ~/portfolio</div>
-              <div class="terminal-badge">LIVE_NODE</div>
-            </div>
-
-            <div class="terminal-image-container">
-              <img src="images/projects/AIwallpaper20250202040324316.webp" onerror="this.onerror=null;this.src='images/projects/AIwallpaper20250202040324316.png';" alt="Developer at workstation coding on a laptop" loading="eager">
-            </div>
-
-            <div class="terminal-body">
-              <div class="terminal-row">
-                <span class="terminal-prompt">$</span>
-                <span class="terminal-cmd">./system_status.sh --verbose</span>
-              </div>
-              <div class="terminal-output">
-                STATUS: <span class="val-green">READY_TO_BUILD</span><br>
-                DISCIPLINE: <span class="val-cyan">Software + AI + Embedded</span><br>
-                LOCATION: <span class="val-cyan">Ghaziabad, UP, India</span><br>
-                ARCH: <span class="val-green">Raspberry Pi CM5 / Web / Cloud</span>
-              </div>
+          <div class="workstation-illustration-wrapper">
+            <div class="hud-corner hud-tl" aria-hidden="true"></div>
+            <div class="hud-corner hud-tr" aria-hidden="true"></div>
+            <div class="hud-corner hud-bl" aria-hidden="true"></div>
+            <div class="hud-corner hud-br" aria-hidden="true"></div>
+            <img src="images/projects/AIwallpaper20250202040324316.webp" alt="Technical workstation illustration representing developer workspace" class="workstation-img" width="560" height="460" fetchpriority="high">
+            <div class="hud-status-badge">
+              <span class="hud-dot" aria-hidden="true"></span>
+              <span>DEV_WORKSTATION // ACTIVE</span>
             </div>
           </div>
         </div>
@@ -181,53 +224,53 @@
           <span class="section-tag">Core Competencies</span>
           <h2 class="section-title">What I <span class="text-gradient">Build &amp; Engineer</span></h2>
           <p class="section-subtitle">
-            Bridging abstract algorithms, modern web applications, and physical embedded hardware into reliable working products.
+            Bridging software algorithms, database systems, and physical embedded hardware into reliable working products.
           </p>
         </div>
 
         <div class="capabilities-grid">
           <!-- Capability 1 -->
           <div class="capability-card">
-            <div class="capability-icon">🧠</div>
-            <h3 class="capability-title">AI Applications</h3>
+            <div class="capability-icon" aria-hidden="true">🩺</div>
+            <h3 class="capability-title">Medical Technology Software</h3>
             <p class="capability-desc">
-              Building AI-powered applications using modern APIs, multimodal vision models, and applied machine-learning concepts for real-world tasks.
+              Building touch-first software interfaces, operational workflows, and real-time sensor monitoring for therapy equipment and clinical kiosks.
             </p>
           </div>
 
           <!-- Capability 2 -->
           <div class="capability-card">
-            <div class="capability-icon">⚡</div>
-            <h3 class="capability-title">Full-Stack Applications</h3>
+            <div class="capability-icon" aria-hidden="true">📟</div>
+            <h3 class="capability-title">Embedded Systems &amp; Linux</h3>
             <p class="capability-desc">
-              Developing complete, responsive web applications leveraging React, Next.js, TypeScript, Tailwind CSS, and Python Django backends.
+              Configuring Raspberry Pi platforms, serial communication buses (I2C, SPI), GPIO interlocks, ADC converters, and systemd kiosk automation.
             </p>
           </div>
 
           <!-- Capability 3 -->
           <div class="capability-card">
-            <div class="capability-icon">🩺</div>
-            <h3 class="capability-title">Medical Technology</h3>
+            <div class="capability-icon" aria-hidden="true">🏢</div>
+            <h3 class="capability-title">Enterprise Django Systems</h3>
             <p class="capability-desc">
-              Building touch-first software interfaces, safe operational workflows, and real-time sensor control for real-world clinical and therapy hardware.
+              Designing database-driven inventory and management platforms with serial/QR tracking, audit logs, and granular role-based permissions.
             </p>
           </div>
 
           <!-- Capability 4 -->
           <div class="capability-card">
-            <div class="capability-icon">📟</div>
-            <h3 class="capability-title">Embedded Systems</h3>
+            <div class="capability-icon" aria-hidden="true">⚡</div>
+            <h3 class="capability-title">Desktop GUI Engineering</h3>
             <p class="capability-desc">
-              Working directly with Raspberry Pi CM5, hardware buses (I2C, SPI), GPIO, ADC converters, temperature sensors, and kiosk Linux systems.
+              Creating responsive PyQt6 applications featuring custom virtual dials, pinpads, asynchronous background workers, and SQLite storage.
             </p>
           </div>
 
           <!-- Capability 5 -->
           <div class="capability-card">
-            <div class="capability-icon">🏢</div>
-            <h3 class="capability-title">Enterprise Systems</h3>
+            <div class="capability-icon" aria-hidden="true">👁</div>
+            <h3 class="capability-title">Computer Vision &amp; OCR</h3>
             <p class="capability-desc">
-              Designing database-driven management, quality control, and inventory platforms with QR/serial tracking and granular role-based permissions.
+              Developing practical image processing scripts, facial feature extraction routines, and scanned document OCR parsing pipelines in Python.
             </p>
           </div>
         </div>
@@ -244,77 +287,70 @@
           <span class="section-tag">// Behind the Code</span>
           <h2 class="section-title">Meet&nbsp;<span class="text-gradient">Yash</span></h2>
           <p class="section-subtitle">
-            Software engineer, developer and technology enthusiast building practical systems across AI, web, embedded hardware and medical technology.
+            Software engineer building practical systems across Python, desktop GUIs, embedded hardware, and enterprise web applications.
           </p>
         </div>
 
-        <!-- Main Solo Profile Photo + Personal Introduction & Identity Grid -->
+        <!-- Solo Profile Photo Presentation -->
         <div class="meet-yash-profile-grid">
-          <!-- Left: Solo Profile Photograph -->
-          <!-- Profile photograph: images/profile/yash-profile.webp -->
-          <div class="profile-photo-card" id="main-profile-photo-card" title="Click to view full photo">
-            <div class="cyber-corner-tl"></div>
-            <div class="cyber-corner-tr"></div>
-            <div class="cyber-corner-bl"></div>
-            <div class="cyber-corner-br"></div>
-
-            <div class="profile-photo-wrapper">
-              <img src="images/profile/yash-profile.webp" alt="Yash Srivastava — Software Engineer" class="profile-photo-img" loading="eager" onerror="if(this.src.indexOf('.webp')!==-1){this.src='images/profile/yash-profile.png';}">
-            </div>
-
-            <div class="photo-status-badge">
-              <div class="photo-status-indicator">
-                <span class="pulse-dot"></span>
-                <span>YASH SRIVASTAVA</span>
+          <!-- Left Column: Portrait Card -->
+          <div class="profile-photo-column">
+            <div class="profile-photo-card" id="main-profile-photo-card" role="button" tabindex="0" aria-label="View Yash Srivastava portrait in fullscreen lightbox" title="Click to open portrait in lightbox">
+              <div class="profile-photo-wrapper">
+                <div class="corner-bracket cb-tl" aria-hidden="true"></div>
+                <div class="corner-bracket cb-tr" aria-hidden="true"></div>
+                <div class="corner-bracket cb-bl" aria-hidden="true"></div>
+                <div class="corner-bracket cb-br" aria-hidden="true"></div>
+                <img src="images/profile/yash-profile.webp" alt="Yash Srivastava portrait photograph" class="profile-photo-img" width="340" height="510" loading="eager">
               </div>
-              <span style="color: var(--accent-cyan); font-weight: 600;">ACTIVE // DEV</span>
+              <div class="profile-photo-badge">
+                <span class="badge-status-dot" aria-hidden="true"></span>
+                <span>YASH SRIVASTAVA // SYSTEMS DEV</span>
+              </div>
             </div>
           </div>
 
-          <!-- Right: Short Introduction & Personal Identity Terminal Card -->
-          <div class="profile-intro-content">
-            <div>
-              <h3 class="profile-intro-heading">Engineering Systems from Code to Circuitry</h3>
-              <p class="profile-intro-text" style="margin-top: 12px;">
-                I'm Yash Srivastava, an early-career software engineer focused on building practical software across Python, AI, full-stack development, embedded systems and medical technology.
-              </p>
-              <p class="profile-intro-text" style="margin-top: 10px; font-size: 0.95rem;">
-                My work bridges applied machine learning, computer vision, embedded Raspberry Pi platforms, and scalable databases. I specialize in turning complex real-world requirements into clean, resilient software systems.
-              </p>
-            </div>
+          <!-- Right Column: Personal Narrative & Terminal Identity -->
+          <div class="profile-narrative-column">
+            <h3 class="narrative-heading">
+              Practical Engineering Across Hardware &amp; Software
+            </h3>
+            
+            <p class="narrative-lead">
+              I am a Software Engineer based in Ghaziabad, Uttar Pradesh, specializing in Python application development, embedded Linux platforms (Raspberry Pi), and touch-first desktop user interfaces.
+            </p>
 
-            <!-- Focus Spectrum Badges -->
-            <div>
-              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--accent-green); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.05em;">
-                // Key Technical Areas
-              </div>
-              <div class="profile-focus-pills">
-                <span class="focus-pill">Python</span>
-                <span class="focus-pill">AI/ML</span>
-                <span class="focus-pill">PyQt6</span>
-                <span class="focus-pill">Django</span>
-                <span class="focus-pill">React</span>
-                <span class="focus-pill">Next.js</span>
-                <span class="focus-pill">Raspberry Pi</span>
-                <span class="focus-pill">Computer Vision</span>
-                <span class="focus-pill">Embedded Systems</span>
+            <p class="narrative-body">
+              My engineering work is rooted in practical execution: writing asynchronous sensor acquisition loops over I2C/SPI buses, building touch-optimized PyQt6 clinical control panels, configuring hardened Linux kiosk environments with systemd daemons, and developing multi-tier Django inventory systems.
+            </p>
+
+            <!-- [CONTENT_REVIEW_REQUIRED: Reconcile current employer and employment relationship (Curves and Contours LLP vs Volant Technology) with resume and LinkedIn] -->
+            <div class="key-focus-areas">
+              <div class="focus-title">Primary Engineering Focus:</div>
+              <div class="focus-pills">
+                <span class="focus-pill">Python 3</span>
+                <span class="focus-pill">PyQt6 / Desktop GUIs</span>
+                <span class="focus-pill">Raspberry Pi (CM5 / 4)</span>
+                <span class="focus-pill">Django &amp; Relational ORM</span>
+                <span class="focus-pill">I2C / SPI Sensor Buses</span>
+                <span class="focus-pill">Embedded Linux (systemd)</span>
               </div>
             </div>
 
             <!-- Personal Identity Card ($ whoami) -->
             <div class="identity-terminal-card">
               <div class="identity-terminal-header">
-                <div class="terminal-dots">
+                <div class="terminal-dots" aria-hidden="true">
                   <span class="dot-red"></span>
                   <span class="dot-yellow"></span>
                   <span class="dot-green"></span>
                 </div>
                 <div>whoami --profile</div>
-                <div style="color: var(--accent-green);">LIVE_NODE</div>
+                <div style="color: var(--accent-green);">ONLINE</div>
               </div>
               <div class="identity-terminal-body">
                 <div class="terminal-prompt-line">
-                  <span>$</span>
+                  <span aria-hidden="true">$</span>
                   <span>whoami</span>
                 </div>
                 <div class="identity-row">
@@ -327,15 +363,11 @@
                 </div>
                 <div class="identity-row">
                   <span class="identity-key">FOCUS</span>
-                  <span class="identity-val highlight-cyan">: Python / AI / Full-Stack</span>
+                  <span class="identity-val highlight-cyan">: Python / PyQt6 / Django</span>
                 </div>
                 <div class="identity-row">
                   <span class="identity-key">SYSTEMS</span>
-                  <span class="identity-val">: Raspberry Pi / Embedded</span>
-                </div>
-                <div class="identity-row">
-                  <span class="identity-key">DOMAIN</span>
-                  <span class="identity-val">: Medical Technology</span>
+                  <span class="identity-val">: Raspberry Pi / Embedded Linux</span>
                 </div>
                 <div class="identity-row">
                   <span class="identity-key">LOCATION</span>
@@ -343,154 +375,101 @@
                 </div>
                 <div class="identity-row">
                   <span class="identity-key">STATUS</span>
-                  <span class="identity-val highlight-green">: Building &amp; Learning</span>
+                  <span class="identity-val highlight-green">: Available for Opportunities</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Personal Photo Gallery (Requirement 5) -->
+        <!-- Personal Photo Gallery -->
         <div class="personal-gallery-section">
           <div class="gallery-section-header">
             <div>
               <h3 class="gallery-section-title">
-                <span>📸</span>
+                <span aria-hidden="true">📸</span>
                 <span>Snapshots &amp; Engineering Lab</span>
               </h3>
               <p class="gallery-section-subtitle">// Workbenches, collaborative sessions &amp; embedded hardware testing</p>
             </div>
-            <button type="button" class="gallery-lightbox-btn" id="gallery-lightbox-trigger" title="Click to view Snapshots &amp; Engineering Lab in lightbox" style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-cyan); background: var(--bg-surface); padding: 5px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: border-color var(--transition-fast), box-shadow var(--transition-fast);">
+            <button type="button" class="gallery-lightbox-btn" id="gallery-lightbox-trigger" aria-label="Open Snapshots &amp; Engineering Lab in fullscreen lightbox" title="Click to view Snapshots in lightbox">
               <span>Click to view in lightbox</span>
-              <span>🔍</span>
+              <span aria-hidden="true">🔍</span>
             </button>
           </div>
 
           <div class="personal-gallery-grid">
             <!-- Gallery Card 01 -->
-            <!-- Personal photograph slot 01: images/snapshots-engineering-lab/Workstation & Embedded Lab.webp -->
-            <div class="personal-gallery-card" data-index="1" title="Click to view full photo">
+            <button type="button" class="personal-gallery-card" data-index="1" aria-label="View Workstation and Embedded Lab photograph in lightbox">
               <div class="gallery-card-media">
-                <img src="images/snapshots-engineering-lab/Workstation &amp; Embedded Lab.webp" alt="Workstation and embedded lab setup with Raspberry Pi CM5" class="gallery-card-img" loading="lazy">
+                <img src="images/snapshots-engineering-lab/workstation-embedded-lab-800.webp" srcset="images/snapshots-engineering-lab/workstation-embedded-lab-800.webp 800w, images/snapshots-engineering-lab/workstation-embedded-lab.webp 1600w" sizes="(max-width: 768px) 100vw, 400px" alt="Electronics workbench with circuit boards, testing meters, and development terminal" class="gallery-card-img" width="800" height="800" loading="lazy">
                 <div class="gallery-card-overlay">
-                  <div class="gallery-expand-icon">🔍</div>
+                  <div class="gallery-expand-icon" aria-hidden="true">🔍</div>
                 </div>
               </div>
               <div class="gallery-card-footer">
                 <div class="gallery-card-title">Workstation &amp; Embedded Lab</div>
               </div>
-            </div>
+            </button>
 
             <!-- Gallery Card 02 -->
-            <!-- Personal photograph slot 02: images/ucertify/uCertify — Ingest Role.webp -->
-            <div class="personal-gallery-card" data-index="2" title="Click to view full photo">
+            <!-- [CONFIDENTIALITY_REVIEW_REQUIRED: Confirm employer/colleague consent for group workplace photograph] -->
+            <button type="button" class="personal-gallery-card" data-index="2" aria-label="View uCertify Ingest Role team photograph in lightbox">
               <div class="gallery-card-media">
-                <img src="images/ucertify/uCertify — Ingest Role.webp" alt="Yash Srivastava — Ingest Role at uCertify" class="gallery-card-img" loading="lazy">
+                <img src="images/snapshots-engineering-lab/ucertify-ingest-role-800.webp" srcset="images/snapshots-engineering-lab/ucertify-ingest-role-800.webp 800w, images/snapshots-engineering-lab/ucertify-ingest-role.webp 1600w" sizes="(max-width: 768px) 100vw, 400px" alt="Team members at uCertify office collaborating on content ingestion operations" class="gallery-card-img" width="800" height="764" loading="lazy">
                 <div class="gallery-card-overlay">
-                  <div class="gallery-expand-icon">🔍</div>
+                  <div class="gallery-expand-icon" aria-hidden="true">🔍</div>
                 </div>
               </div>
               <div class="gallery-card-footer">
                 <div class="gallery-card-title">uCertify — Ingest Role</div>
               </div>
-            </div>
+            </button>
 
             <!-- Gallery Card 03 -->
-            <!-- Personal photograph slot 03: images/snapshots-engineering-lab/Medical Device GUI Testing.webp -->
-            <div class="personal-gallery-card" data-index="3" title="Click to view full photo">
+            <button type="button" class="personal-gallery-card" data-index="3" aria-label="View Medical Device GUI Testing photograph in lightbox">
               <div class="gallery-card-media">
-                <img src="images/snapshots-engineering-lab/Medical Device GUI Testing.webp" alt="Medical therapy software GUI testing and touchscreen calibration" class="gallery-card-img" loading="lazy">
+                <img src="images/snapshots-engineering-lab/medical-device-gui-testing-800.webp" srcset="images/snapshots-engineering-lab/medical-device-gui-testing-800.webp 800w, images/snapshots-engineering-lab/medical-device-gui-testing.webp 1600w" sizes="(max-width: 768px) 100vw, 400px" alt="Touchscreen display showing graphical interface during medical therapy software testing" class="gallery-card-img" width="800" height="450" loading="lazy">
                 <div class="gallery-card-overlay">
-                  <div class="gallery-expand-icon">🔍</div>
+                  <div class="gallery-expand-icon" aria-hidden="true">🔍</div>
                 </div>
               </div>
               <div class="gallery-card-footer">
                 <div class="gallery-card-title">Medical Device GUI Testing</div>
               </div>
-            </div>
+            </button>
 
             <!-- Gallery Card 04 -->
-            <!-- Personal photograph slot 04: images/snapshots-engineering-lab/Sensor & Hardware Engineering.webp -->
-            <div class="personal-gallery-card" data-index="4" title="Click to view full photo">
+            <button type="button" class="personal-gallery-card" data-index="4" aria-label="View Sensor and Hardware Engineering photograph in lightbox">
               <div class="gallery-card-media">
-                <img src="images/snapshots-engineering-lab/Sensor &amp; Hardware Engineering.webp" alt="Sensor circuits and microcontroller test bench" class="gallery-card-img" loading="lazy">
+                <img src="images/snapshots-engineering-lab/sensor-hardware-engineering-800.webp" srcset="images/snapshots-engineering-lab/sensor-hardware-engineering-800.webp 800w, images/snapshots-engineering-lab/sensor-hardware-engineering.webp 1600w" sizes="(max-width: 768px) 100vw, 400px" alt="Sensor hardware prototyping breadboard with connected wiring and microcontroller modules" class="gallery-card-img" width="800" height="450" loading="lazy">
                 <div class="gallery-card-overlay">
-                  <div class="gallery-expand-icon">🔍</div>
+                  <div class="gallery-expand-icon" aria-hidden="true">🔍</div>
                 </div>
               </div>
               <div class="gallery-card-footer">
                 <div class="gallery-card-title">Sensor &amp; Hardware Engineering</div>
               </div>
-            </div>
+            </button>
           </div>
         </div>
 
-        <!-- Preserved Multi-Disciplinary Engineering Philosophy & Spec Cards -->
-        <div class="about-grid" style="margin-top: 50px;">
-          <div class="about-content">
-            <h3 style="font-size: 1.4rem; margin-bottom: 14px;">Multi-Disciplinary Engineering Philosophy</h3>
-            <p style="margin-bottom: 14px;">
-              I am an early-career software developer and B.Tech graduate passionate about engineering real-world systems. Rather than staying confined to purely academic exercises or isolated frontends, I thrive on converting ambiguous, real-world requirements into robust, working software.
-            </p>
-            <p style="margin-bottom: 16px;">
-              My practical development spans <strong>software engineering, AI/ML, web applications, computer vision, embedded systems, Raspberry Pi, medical technology, databases, automation, and hardware/software integration</strong>. I believe great engineering happens where digital logic directly impacts real-world processes.
-            </p>
-
-            <div class="about-highlight-box">
-              "My objective is simple: Build practical, resilient systems where intelligent software and physical hardware operate in complete harmony."
-            </div>
-
-            <!-- Quick Facts -->
-            <div class="quick-facts" style="margin-top: 24px;">
-              <div class="quick-fact-item">
-                <div class="quick-fact-label">Academic Status</div>
-                <div class="quick-fact-value">B.Tech Graduate</div>
-              </div>
-              <div class="quick-fact-item">
-                <div class="quick-fact-label">Location</div>
-                <div class="quick-fact-value">Ghaziabad, UP, India</div>
-              </div>
-              <div class="quick-fact-item">
-                <div class="quick-fact-label">Primary Languages</div>
-                <div class="quick-fact-value">Python, TypeScript, JS</div>
-              </div>
-              <div class="quick-fact-item">
-                <div class="quick-fact-label">Engineering Focus</div>
-                <div class="quick-fact-value">Full-Stack &amp; Embedded</div>
-              </div>
-            </div>
+        <!-- Quick Facts Strip -->
+        <div class="quick-facts">
+          <div class="fact-card">
+            <span class="fact-icon" aria-hidden="true">🎓</span>
+            <div class="fact-title">B.Tech in Information Technology</div>
+            <div class="fact-desc">United College of Engineering and Research (UCER), Prayagraj (2020 – 2024)</div>
           </div>
-
-          <div class="about-cards-sidebar">
-            <div class="about-spec-card">
-              <div class="spec-header">
-                <span class="spec-icon">⚙</span>
-                <h3 class="spec-title">Hardware Meets Software</h3>
-              </div>
-              <p class="spec-text">
-                Comfortable reading hardware pinouts, configuring Linux systemd daemons, communicating over I2C/SPI buses, and debugging GPIO signals alongside application code.
-              </p>
-            </div>
-
-            <div class="about-spec-card">
-              <div class="spec-header">
-                <span class="spec-icon">🛡</span>
-                <h3 class="spec-title">Production Reliability</h3>
-              </div>
-              <p class="spec-text">
-                Experience designing for unattended kiosk boot, failure-safe state persistence in SQLite/MySQL, and intuitive safety interlocks for clinical hardware.
-              </p>
-            </div>
-
-            <div class="about-spec-card">
-              <div class="spec-header">
-                <span class="spec-icon">🚀</span>
-                <h3 class="spec-title">Agile Problem Solving</h3>
-              </div>
-              <p class="spec-text">
-                Proven ability to rapidly design and engineer software solutions under rigorous criteria, bridging technical specifications with high-quality, production-ready deliverables.
-              </p>
-            </div>
+          <div class="fact-card">
+            <span class="fact-icon" aria-hidden="true">📍</span>
+            <div class="fact-title">Location &amp; Work Model</div>
+            <div class="fact-desc">Ghaziabad, Uttar Pradesh, India · Open to On-Site, Hybrid, and Remote Roles</div>
+          </div>
+          <div class="fact-card">
+            <span class="fact-icon" aria-hidden="true">⚡</span>
+            <div class="fact-title">Systems Engineering Focus</div>
+            <div class="fact-desc">Python GUI design, I2C/SPI sensor acquisition, and Linux kiosk automation</div>
           </div>
         </div>
       </div>
@@ -502,108 +481,118 @@
     <section class="skills" id="skills">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Capabilities Spectrum</span>
-          <h2 class="section-title">Technical <span class="text-gradient">Skills &amp; Tooling</span></h2>
+          <span class="section-tag">Proficiencies</span>
+          <h2 class="section-title">Technical <span class="text-gradient">Skill Stack</span></h2>
           <p class="section-subtitle">
-            A categorized breakdown of programming languages, frameworks, hardware interfaces, databases, and engineering tools I actively use.
+            Demonstrated tools, frameworks, and technologies applied across software development, embedded systems, and database workflows.
           </p>
         </div>
 
         <div class="skills-grid">
-          <!-- Programming -->
+          <!-- Group 1: Programming Languages -->
           <div class="skill-category-card">
             <div class="skill-category-header">
-              <div class="skill-category-icon">💻</div>
-              <h3 class="skill-category-title">Programming</h3>
+              <span class="skill-icon" aria-hidden="true">💻</span>
+              <h3 class="skill-category-title">Programming Languages</h3>
             </div>
             <div class="skill-items-container">
-              <span class="skill-pill">Python</span>
-              <span class="skill-pill">Java</span>
-              <span class="skill-pill">JavaScript</span>
-              <span class="skill-pill">TypeScript</span>
-              <span class="skill-pill">HTML5</span>
-              <span class="skill-pill">CSS3</span>
+              <span class="skill-pill">Python 3 (Primary)</span>
+              <span class="skill-pill">JavaScript (ES6+)</span>
               <span class="skill-pill">SQL</span>
+              <span class="skill-pill">HTML5 &amp; CSS3</span>
+              <span class="skill-pill">C / C++ (Foundations)</span>
             </div>
           </div>
 
-          <!-- Frameworks & Libraries -->
+          <!-- Group 2: Frameworks & GUI Toolkits -->
           <div class="skill-category-card">
             <div class="skill-category-header">
-              <div class="skill-category-icon">📦</div>
-              <h3 class="skill-category-title">Frameworks &amp; Libraries</h3>
+              <span class="skill-icon" aria-hidden="true">🖥</span>
+              <h3 class="skill-category-title">Frameworks &amp; GUI Toolkits</h3>
             </div>
             <div class="skill-items-container">
+              <span class="skill-pill">PyQt6 / Qt GUI</span>
               <span class="skill-pill">Django</span>
-              <span class="skill-pill">React</span>
-              <span class="skill-pill">Next.js</span>
-              <span class="skill-pill">PyQt6</span>
-              <span class="skill-pill">PySide6</span>
+              <span class="skill-pill">Django ORM</span>
+              <span class="skill-pill">Flask (REST APIs)</span>
               <span class="skill-pill">Tkinter</span>
-              <span class="skill-pill">Tailwind CSS</span>
+              <span class="skill-pill">Bootstrap</span>
             </div>
           </div>
 
-          <!-- AI / Computer Vision -->
+          <!-- Group 3: Embedded & Hardware Integration -->
           <div class="skill-category-card">
             <div class="skill-category-header">
-              <div class="skill-category-icon">👁</div>
-              <h3 class="skill-category-title">AI &amp; Computer Vision</h3>
-            </div>
-            <div class="skill-items-container">
-              <span class="skill-pill">AI/ML</span>
-              <span class="skill-pill">OCR</span>
-              <span class="skill-pill">Computer Vision</span>
-              <span class="skill-pill">Image Classification</span>
-              <span class="skill-pill">Face Recognition</span>
-              <span class="skill-pill">Gemini / AI APIs</span>
-            </div>
-          </div>
-
-          <!-- Embedded / Hardware -->
-          <div class="skill-category-card">
-            <div class="skill-category-header">
-              <div class="skill-category-icon">🔌</div>
+              <span class="skill-icon" aria-hidden="true">📟</span>
               <h3 class="skill-category-title">Embedded &amp; Hardware</h3>
             </div>
             <div class="skill-items-container">
-              <span class="skill-pill">Raspberry Pi</span>
-              <span class="skill-pill">Raspberry Pi CM5</span>
-              <span class="skill-pill">GPIO</span>
-              <span class="skill-pill">I2C</span>
-              <span class="skill-pill">SPI</span>
-              <span class="skill-pill">PWM</span>
+              <span class="skill-pill">Raspberry Pi (CM5 / 4)</span>
+              <span class="skill-pill">Embedded Linux</span>
+              <span class="skill-pill">I2C &amp; SPI Buses</span>
+              <span class="skill-pill">GPIO Interfacing</span>
+              <span class="skill-pill">ADS1115 16-Bit ADC</span>
+              <span class="skill-pill">MLX90614 IR Sensor</span>
+              <span class="skill-pill">PCA9685 PWM</span>
             </div>
           </div>
 
-          <!-- Databases -->
+          <!-- Group 4: AI & Computer Vision -->
           <div class="skill-category-card">
             <div class="skill-category-header">
-              <div class="skill-category-icon">🗄</div>
-              <h3 class="skill-category-title">Databases &amp; ORM</h3>
+              <span class="skill-icon" aria-hidden="true">👁</span>
+              <h3 class="skill-category-title">Computer Vision &amp; OCR</h3>
             </div>
             <div class="skill-items-container">
+              <span class="skill-pill">OpenCV (cv2)</span>
+              <span class="skill-pill">OCR (pytesseract)</span>
+              <span class="skill-pill">NumPy</span>
+              <span class="skill-pill">Image Preprocessing</span>
+              <span class="skill-pill">Facial Feature Extraction</span>
+            </div>
+          </div>
+
+          <!-- Group 5: Databases & Data Modeling -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <span class="skill-icon" aria-hidden="true">🗄</span>
+              <h3 class="skill-category-title">Databases &amp; Storage</h3>
+            </div>
+            <div class="skill-items-container">
+              <span class="skill-pill">SQLite3</span>
               <span class="skill-pill">MySQL</span>
-              <span class="skill-pill">SQLite</span>
-              <span class="skill-pill">Django ORM</span>
+              <span class="skill-pill">Relational Schema Design</span>
+              <span class="skill-pill">JSON Data Modeling</span>
             </div>
           </div>
 
-          <!-- Tools & DevOps -->
+          <!-- Group 6: DevOps, Tools & Systems -->
           <div class="skill-category-card">
             <div class="skill-category-header">
-              <div class="skill-category-icon">🛠</div>
-              <h3 class="skill-category-title">Tools &amp; Environment</h3>
+              <span class="skill-icon" aria-hidden="true">🛠</span>
+              <h3 class="skill-category-title">DevOps &amp; System Tools</h3>
             </div>
             <div class="skill-items-container">
-              <span class="skill-pill">Git</span>
-              <span class="skill-pill">GitHub</span>
-              <span class="skill-pill">Linux</span>
-              <span class="skill-pill">Raspberry Pi OS</span>
-              <span class="skill-pill">WSL</span>
-              <span class="skill-pill">SSH &amp; SCP</span>
-              <span class="skill-pill">systemd Kiosk</span>
+              <span class="skill-pill">Git &amp; GitHub</span>
+              <span class="skill-pill">Linux Shell (Bash)</span>
+              <span class="skill-pill">systemd Kiosk Daemons</span>
+              <span class="skill-pill">SSH / SCP Deployment</span>
               <span class="skill-pill">VS Code</span>
+            </div>
+          </div>
+
+          <!-- Group 7: Learning & Training Courses -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <span class="skill-icon" aria-hidden="true">📚</span>
+              <h3 class="skill-category-title">Learning &amp; Training</h3>
+            </div>
+            <div class="skill-items-container">
+              <span class="skill-pill">Core Java (Training)</span>
+              <span class="skill-pill">MERN Stack (Training)</span>
+              <span class="skill-pill">Next.js / React (Exploring)</span>
+              <span class="skill-pill">TypeScript (Exploring)</span>
+              <span class="skill-pill">Edge AI Inference</span>
             </div>
           </div>
         </div>
@@ -611,158 +600,219 @@
     </section>
 
     <!-- ========================================================================
-         FEATURED PROJECTS SECTION
+         FEATURED PROJECTS SECTION (Data-Driven with Static Fallback)
          ======================================================================== -->
     <section class="projects" id="projects">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Portfolio Showcase</span>
+          <span class="section-tag">Case Studies</span>
           <h2 class="section-title">Featured <span class="text-gradient">Engineering Projects</span></h2>
           <p class="section-subtitle">
-            Real software systems, clinical device applications, and AI platforms built with genuine technical contributions.
+            Real software systems and appliances engineered with Python, PyQt6, Django, embedded Linux, and hardware interfacing.
           </p>
         </div>
 
-        <!-- Category Filters -->
-        <div class="projects-filter-bar">
-          <button type="button" class="filter-btn active" data-filter="all">All Projects (5)</button>
-          <button type="button" class="filter-btn" data-filter="medical">Medical Tech (3)</button>
-          <button type="button" class="filter-btn" data-filter="ai">AI &amp; Vision (1)</button>
-          <button type="button" class="filter-btn" data-filter="enterprise">Enterprise (1)</button>
+        <!-- Category Filter Controls with ARIA State -->
+        <div class="project-filters" role="group" aria-label="Filter Projects by Category">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">
+            <span>All Projects (5)</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="medical" aria-pressed="false">
+            <span>Medical Technology (3)</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">
+            <span>AI &amp; Vision (1)</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="enterprise" aria-pressed="false">
+            <span>Enterprise Systems (1)</span>
+          </button>
         </div>
 
         <!-- Dynamic Projects Grid (Rendered by assets/js/app.js) -->
         <div class="projects-grid" id="projects-grid">
-          <!-- Populated from projectsData in assets/js/projects-data.js -->
+          <!-- Fallback noscript listing -->
+          <noscript>
+            <div class="noscript-projects" style="padding: 24px; background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <h3>JavaScript Required for Interactive Filtering &amp; Case Study Modals</h3>
+              <p style="margin: 12px 0; color: var(--text-secondary);">Here is the summary of featured engineering projects:</p>
+              <ul style="margin-left: 20px; line-height: 1.8; color: var(--text-primary);">
+                <li><strong>TECAR — Medical Therapy Control Software:</strong> Raspberry Pi touch-first control application running PyQt6, ADS1115 ADC, and MLX90614 IR temperature sensor over I2C.</li>
+                <li><strong>Laser (Lumino Pro) — Medical Laser Therapy Software:</strong> Full-screen kiosk PyQt6 application on Raspberry Pi with clinician PIN security and protocol management.</li>
+                <li><strong>IMS / CIMS — Inventory &amp; Management System:</strong> Enterprise Django web platform tracking component serial numbers, generating QR codes, and logging inspection workflows.</li>
+                <li><strong>Volant Technologies — Medical Platform:</strong> Responsive product catalog website showcasing specialized physiotherapy technologies.</li>
+                <li><strong>Computer Vision &amp; OCR Projects:</strong> Python/OpenCV modules for facial feature extraction and document text extraction.</li>
+              </ul>
+            </div>
+          </noscript>
         </div>
       </div>
     </section>
 
     <!-- ========================================================================
-         TECHNICAL ARCHITECTURE VISUALIZATION SECTION
+         SYSTEM ARCHITECTURE DIAGRAMS (Accessible ARIA Tablist)
          ======================================================================== -->
     <section class="architecture-section" id="architecture">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">System Blueprints</span>
-          <h2 class="section-title">Technical <span class="text-gradient">Architecture Diagrams</span></h2>
+          <span class="section-tag">// Engineering Blueprints</span>
+          <h2 class="section-title">System <span class="text-gradient">Architectures</span></h2>
           <p class="section-subtitle">
-            Visual representations of data flow, hardware-software abstraction, and AI inference pipelines across major projects.
+            Detailed data flow, threading models, and hardware interfacing pipelines for flagship systems.
           </p>
         </div>
 
-        <!-- Architecture Tabs -->
-        <div class="architecture-tabs">
-          <button type="button" class="arch-tab-btn active" data-arch-target="arch-tecar">
-            TECAR Therapy Control Software
+        <!-- Tab Controls with ARIA tablist semantics -->
+        <div class="arch-tabs-list" role="tablist" aria-label="System Architecture Tabs">
+          <button type="button" class="arch-tab-btn active" role="tab" id="tab-tecar" data-arch-target="arch-tecar-showcase" aria-selected="true" aria-controls="arch-tecar-showcase" tabindex="0">
+            <span aria-hidden="true">⚡</span>
+            <span>TECAR Therapy Control Architecture</span>
           </button>
-          <button type="button" class="arch-tab-btn" data-arch-target="arch-laser">
-            Laser (Lumino Pro) Platform
+          <button type="button" class="arch-tab-btn" role="tab" id="tab-laser" data-arch-target="arch-laser-showcase" aria-selected="false" aria-controls="arch-laser-showcase" tabindex="-1">
+            <span aria-hidden="true">🔆</span>
+            <span>Laser Lumino Pro Kiosk Architecture</span>
           </button>
         </div>
 
-        <!-- Showcase 1: TECAR Medical Device -->
-        <div class="arch-showcase" id="arch-tecar">
-          <div class="arch-header">
-            <div>
-              <span class="project-meta-category">Medical Technology / Embedded Linux</span>
-              <h3 class="arch-title">TECAR — Medical Therapy &amp; Sensor Interface Architecture</h3>
-            </div>
-            <span class="project-status-badge status-active">Active Engineering Project</span>
-          </div>
-
-          <div class="arch-flow-pipeline">
-            <div class="arch-step-node">
-              <div class="arch-step-num">01</div>
+        <!-- Showcase 1: TECAR Architecture -->
+        <div class="arch-showcase" id="arch-tecar-showcase" role="tabpanel" aria-labelledby="tab-tecar" tabindex="0">
+          <div class="arch-card">
+            <div class="arch-header">
               <div>
-                <div class="arch-step-title">Touchscreen User Interface (PyQt6)</div>
-                <div class="arch-step-desc">Full-screen touch GUI featuring Capacitive/Resistive mode switches, virtual rotary dials, and countdown timers.</div>
+                <span class="project-meta-category">Medical Technology | Hardware Integration</span>
+                <h3 class="arch-title">TECAR Capacitive &amp; Resistive Therapy System</h3>
+                <div class="arch-subtitle">Multi-Threaded Asynchronous Sensor Loop &amp; Safety Cutoff Pipeline</div>
+              </div>
+              <span class="project-status-badge status-active">Active Prototype</span>
+            </div>
+
+            <!-- Architecture Diagram -->
+            <pre class="modal-arch-diagram">Touchscreen Display (PyQt6 Touch-First UI: Rotary Dials, Keypad, Mode Switch)
+     ↓  [Qt Signals &amp; Slots (Thread-Safe Parameter Updates)]
+Therapy &amp; Protocol Manager (State Machine / Countdown Timers / SQLite Presets)
+     ↓  [Worker Thread Task Dispatch]
+Hardware Abstraction Layer (HAL / QThread Asynchronous Worker Loop)
+     ↓  [I2C Bus 1 / SMBus Transactions]
+Analog Sensors &amp; Signals (ADS1115 16-Bit ADC, MLX90614 Contactless IR Temp, PCA9685 PWM)
+     ↓  [Continuous Edge-Detection Monitoring]
+Safety Interlocks (GPIO Footswitch Monitoring with Software Power Cutoff &amp; Audio Feedback)</pre>
+
+            <!-- Architectural Breakdown Steps -->
+            <div class="arch-steps-grid">
+              <div class="arch-step-node">
+                <div class="arch-step-num">01</div>
+                <div>
+                  <div class="arch-step-title">Touchscreen GUI (PyQt6)</div>
+                  <div class="arch-step-desc">Custom touch widgets, numerical input pads, and real-time parameter dials running on Qt event loop.</div>
+                </div>
+              </div>
+
+              <div class="arch-step-node">
+                <div class="arch-step-num">02</div>
+                <div>
+                  <div class="arch-step-title">Protocol State Engine</div>
+                  <div class="arch-step-desc">Coordinates dual CAP/RES therapy modalities, countdown phases, and session presets stored in SQLite.</div>
+                </div>
+              </div>
+
+              <div class="arch-step-node">
+                <div class="arch-step-num">03</div>
+                <div>
+                  <div class="arch-step-title">Hardware Abstraction Layer</div>
+                  <div class="arch-step-desc">Dedicated background QThread polling I2C sensors asynchronously without blocking the UI thread.</div>
+                </div>
+              </div>
+
+              <div class="arch-step-node">
+                <div class="arch-step-num">04</div>
+                <div>
+                  <div class="arch-step-title">Sensors &amp; Signal Processing</div>
+                  <div class="arch-step-desc">ADS1115 16-bit ADC samples current/impedance; MLX90614 reads contactless skin temperature.</div>
+                </div>
+              </div>
+
+              <div class="arch-step-node">
+                <div class="arch-step-num">05</div>
+                <div>
+                  <div class="arch-step-title">Safety Cutoff Monitoring</div>
+                  <div class="arch-step-desc">GPIO edge detection monitors physical footswitch triggers, immediately stopping power modulation upon pedal release.</div>
+                </div>
               </div>
             </div>
 
-            <div class="arch-step-node">
-              <div class="arch-step-num">02</div>
-              <div>
-                <div class="arch-step-title">Therapy &amp; Protocol Manager (Python)</div>
-                <div class="arch-step-desc">State engine coordinating mode transitions, SQLite preset parameters, session timer countdowns, and safety interlocks.</div>
-              </div>
-            </div>
-
-            <div class="arch-step-node">
-              <div class="arch-step-num">03</div>
-              <div>
-                <div class="arch-step-title">Hardware Abstraction Layer (HAL)</div>
-                <div class="arch-step-desc">Multi-threaded QThread driver layer polling analog sensors asynchronously via I2C, SPI, and GPIO, avoiding GUI stutter.</div>
-              </div>
-            </div>
-
-            <div class="arch-step-node">
-              <div class="arch-step-num">04</div>
-              <div>
-                <div class="arch-step-title">Sensors &amp; Analog Conversion</div>
-                <div class="arch-step-desc">ADS1115 (16-bit ADC measuring electrode current/impedance) and MLX90614 (contactless infrared patient skin temperature).</div>
-              </div>
-            </div>
-
-            <div class="arch-step-node">
-              <div class="arch-step-num">05</div>
-              <div>
-                <div class="arch-step-title">Power Modulation &amp; Safety Cutoff</div>
-                <div class="arch-step-desc">PCA9685 PWM modulation, hardware GPIO footswitch verification with millisecond cutoff, and acoustic alarm feedback.</div>
-              </div>
+            <div class="modal-disclaimer-badge">
+              <span aria-hidden="true">🛡</span> Engineered as software and embedded interface platform. Does not claim medical certification or regulatory approval.
             </div>
           </div>
         </div>
 
-        <!-- Showcase 2: Laser (Lumino Pro) -->
-        <div class="arch-showcase" id="arch-laser" style="display: none;">
-          <div class="arch-header">
-            <div>
-              <span class="project-meta-category">Medical Technology / Embedded Linux</span>
-              <h3 class="arch-title">Laser (Lumino Pro) — Appliance Kiosk Architecture</h3>
-            </div>
-            <span class="project-status-badge status-active">Active Embedded Project</span>
-          </div>
-
-          <div class="arch-flow-pipeline">
-            <div class="arch-step-node">
-              <div class="arch-step-num">01</div>
+        <!-- Showcase 2: Laser Lumino Pro Architecture -->
+        <div class="arch-showcase" id="arch-laser-showcase" role="tabpanel" aria-labelledby="tab-laser" tabindex="0" style="display: none;" hidden>
+          <div class="arch-card">
+            <div class="arch-header">
               <div>
-                <div class="arch-step-title">Full-Screen Appliance Kiosk UI (PyQt6)</div>
-                <div class="arch-step-desc">Tamper-resistant touch GUI operating directly without desktop overhead on Raspberry Pi OS.</div>
+                <span class="project-meta-category">Embedded Linux | Kiosk Automation</span>
+                <h3 class="arch-title">Laser Lumino Pro Appliance Platform</h3>
+                <div class="arch-subtitle">Dedicated Kiosk Shell, Security Gate &amp; Protocol Delivery</div>
+              </div>
+              <span class="project-status-badge status-active">In Active Development</span>
+            </div>
+
+            <pre class="modal-arch-diagram">Linux Boot Loader (Plymouth Medical Splash Screen)
+     ↓
+Raspberry Pi OS systemd Kiosk Service (Direct-to-X11/Wayland PyQt6 Launch)
+     ↓
+Security &amp; PIN Authentication Layer (Clinician PIN Gate)
+     ↓
+Laser Protocol Management Engine (Condition Presets: Acute, Chronic, Rehab)
+     ↓
+GPIO Safety Interlock Monitoring (Emergency Cutoff Listener)
+     ↓
+SQLite Relational Storage (Treatment Sessions &amp; Audit Trail)</pre>
+
+            <div class="arch-steps-grid">
+              <div class="arch-step-node">
+                <div class="arch-step-num">01</div>
+                <div>
+                  <div class="arch-step-title">Linux systemd Kiosk Daemon</div>
+                  <div class="arch-step-desc">Autostarts full-screen Qt interface on boot without desktop overhead, with automatic crash recovery.</div>
+                </div>
+              </div>
+
+              <div class="arch-step-node">
+                <div class="arch-step-num">02</div>
+                <div>
+                  <div class="arch-step-title">Clinician PIN Authentication</div>
+                  <div class="arch-step-desc">Virtual keypad modal requiring authorized clinician PIN before laser emission is enabled.</div>
+                </div>
+              </div>
+
+              <div class="arch-step-node">
+                <div class="arch-step-num">03</div>
+                <div>
+                  <div class="arch-step-title">Therapy Protocol Engine</div>
+                  <div class="arch-step-desc">Structured condition presets with configurable frequency, duty cycle, and session timers.</div>
+                </div>
+              </div>
+
+              <div class="arch-step-node">
+                <div class="arch-step-num">04</div>
+                <div>
+                  <div class="arch-step-title">Emergency Cutoff Listener</div>
+                  <div class="arch-step-desc">Dedicated GPIO monitoring loop listening to hardware emergency stop button triggers.</div>
+                </div>
+              </div>
+
+              <div class="arch-step-node">
+                <div class="arch-step-num">05</div>
+                <div>
+                  <div class="arch-step-title">Session Audit Logging</div>
+                  <div class="arch-step-desc">SQLite relational storage logging delivered joules, therapy duration, and operator timestamps.</div>
+                </div>
               </div>
             </div>
 
-            <div class="arch-step-node">
-              <div class="arch-step-num">02</div>
-              <div>
-                <div class="arch-step-title">Security &amp; PIN Authentication Layer</div>
-                <div class="arch-step-desc">Multi-tier clinician authorization modal preventing unauthorized laser emission or unauthorized configuration changes.</div>
-              </div>
-            </div>
-
-            <div class="arch-step-node">
-              <div class="arch-step-num">03</div>
-              <div>
-                <div class="arch-step-title">Laser Protocol Management Engine</div>
-                <div class="arch-step-desc">Structured clinical treatment protocols across acute and chronic conditions with precise pulse frequency and dosage timing.</div>
-              </div>
-            </div>
-
-            <div class="arch-step-node">
-              <div class="arch-step-num">04</div>
-              <div>
-                <div class="arch-step-title">GPIO Emergency Interlock &amp; Shutter</div>
-                <div class="arch-step-desc">Real-time hardware monitoring of emergency cutoff switches and laser diode enable signals for clinical safety.</div>
-              </div>
-            </div>
-
-            <div class="arch-step-node">
-              <div class="arch-step-num">05</div>
-              <div>
-                <div class="arch-step-title">Session Audit Trail &amp; systemd Daemon</div>
-                <div class="arch-step-desc">Encrypted SQLite treatment history database and Linux systemd service ensuring automatic boot and crash self-recovery.</div>
-              </div>
+            <div class="modal-disclaimer-badge">
+              <span aria-hidden="true">🛡</span> Engineered as software and embedded interface platform. Does not claim medical certification or regulatory approval.
             </div>
           </div>
         </div>
@@ -770,145 +820,205 @@
     </section>
 
     <!-- ========================================================================
-         EMBEDDED & HARDWARE ENGINEERING SECTION
+         EMBEDDED & HARDWARE ENGINEERING
          ======================================================================== -->
     <section class="embedded-hardware" id="hardware">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Hardware &amp; IoT</span>
+          <span class="section-tag">// Physical Computing</span>
           <h2 class="section-title">Embedded &amp; <span class="text-gradient">Hardware Engineering</span></h2>
           <p class="section-subtitle">
-            Beyond standard web applications: hands-on experience integrating Linux microcomputers, microcontrollers, and precision sensors.
+            Configuring physical microcomputing platforms, serial bus communication, and dedicated appliance deployments.
           </p>
         </div>
 
         <div class="hardware-grid">
-          <!-- Card 1: Raspberry Pi & CM5 Ecosystem -->
-          <div class="hardware-card">
-            <h3 class="hardware-card-title">
-              <span>📟</span>
-              <span>Raspberry Pi &amp; CM5 Ecosystem</span>
-            </h3>
-            <ul class="hardware-list">
-              <li>
-                <div>
-                  <strong>Raspberry Pi CM5 Deployment:</strong> Experience flashing eMMC on Compute Module 5 boards and configuring dedicated Raspberry Pi OS images.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>systemd Kiosk Automation:</strong> Created custom systemd service units for automatic boot into full-screen Python/PyQt6 GUI applications without desktop window manager overhead.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>Custom Splash &amp; Crash Recovery:</strong> Implemented boot splash screens and automatic restart policies for continuous medical device availability.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>Remote Engineering Workflow:</strong> Proficient with SSH, SCP, WSL, and headless terminal configuration for remote testing on embedded boards.
-                </div>
-              </li>
-            </ul>
+          <div class="hardware-feature-card">
+            <div class="hw-icon" aria-hidden="true">📟</div>
+            <h3 class="hw-title">Raspberry Pi Compute Platforms</h3>
+            <p class="hw-desc">
+              Experience developing on Raspberry Pi CM5 and Raspberry Pi 4 boards running Linux, utilizing eMMC/NVMe storage, GPIO headers, and direct touchscreen integration.
+            </p>
           </div>
 
-          <!-- Card 2: Physical Protocols & Sensors -->
-          <div class="hardware-card">
-            <h3 class="hardware-card-title">
-              <span>⚡</span>
-              <span>Buses, Sensors &amp; Interlocks</span>
-            </h3>
-            <ul class="hardware-list">
-              <li>
-                <div>
-                  <strong>I2C &amp; SPI Communications:</strong> Interfacing analog-to-digital converters and multi-sensor configurations on standard embedded serial buses.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>ADS1115 16-Bit ADC:</strong> Precision analog measurement acquisition for current, voltage, and electrode feedback monitoring.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>MLX90614 Contactless IR Sensor:</strong> Medical-grade infrared temperature sensing for non-invasive real-time thermal monitoring.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>GPIO &amp; Footswitch Interlocks:</strong> Hardware safety interrupt circuits and footswitch detection preventing unintended therapy discharge.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>PWM &amp; PCA9685 Driver:</strong> Fine-grained pulse-width modulation control and waveform timing coordination.
-                </div>
-              </li>
-            </ul>
+          <div class="hardware-feature-card">
+            <div class="hw-icon" aria-hidden="true">🔌</div>
+            <h3 class="hw-title">I2C &amp; SPI Serial Communication</h3>
+            <p class="hw-desc">
+              Direct device communication with analog-to-digital converters (ADS1115), contactless temperature sensors (MLX90614), and PWM drivers (PCA9685) over hardware serial buses.
+            </p>
+          </div>
+
+          <div class="hardware-feature-card">
+            <div class="hw-icon" aria-hidden="true">🛑</div>
+            <h3 class="hw-title">Safety Interlock Monitoring</h3>
+            <p class="hw-desc">
+              Configuring debounced GPIO interrupt listeners to monitor hardware footswitches and emergency stop buttons, executing immediate software cutoff sequences.
+            </p>
+          </div>
+
+          <div class="hardware-feature-card">
+            <div class="hw-icon" aria-hidden="true">⚡</div>
+            <h3 class="hw-title">Appliance Kiosk Automation</h3>
+            <p class="hw-desc">
+              Crafting custom Linux systemd daemons, Plymouth medical boot splash screens, and windowless kiosk runtimes that boot directly into touch applications without desktop distractions.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ========================================================================
-         ACHIEVEMENTS & MILESTONES SECTION
+         SERVICES / "HOW I CAN HELP" SECTION
+         ======================================================================== -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Capabilities &amp; Services</span>
+          <h2 class="section-title">How I Can <span class="text-gradient">Help</span></h2>
+          <p class="section-subtitle">
+            Technical software services grounded in demonstrated implementations and production code.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <span class="service-icon" aria-hidden="true">🖥</span>
+            <h3 class="service-title">Python &amp; Desktop GUI Engineering</h3>
+            <p class="service-desc">
+              Designing responsive, touch-friendly desktop interfaces using PyQt6 / PySide. Building custom controls, multi-threaded worker loops, serial device communication, and local database storage with SQLite.
+            </p>
+            <div class="service-tags">
+              <span class="skill-pill">PyQt6</span>
+              <span class="skill-pill">QThread</span>
+              <span class="skill-pill">Custom Widgets</span>
+              <span class="skill-pill">Touch UX</span>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <span class="service-icon" aria-hidden="true">📟</span>
+            <h3 class="service-title">Raspberry Pi &amp; Embedded Linux Interfaces</h3>
+            <p class="service-desc">
+              Setting up dedicated single-board computer kiosks, writing Python hardware communication scripts over I2C/SPI buses, and configuring auto-restarting systemd kiosk services.
+            </p>
+            <div class="service-tags">
+              <span class="skill-pill">Raspberry Pi</span>
+              <span class="skill-pill">I2C / SPI</span>
+              <span class="skill-pill">GPIO</span>
+              <span class="skill-pill">systemd Kiosk</span>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <span class="service-icon" aria-hidden="true">🏢</span>
+            <h3 class="service-title">Full-Stack Django &amp; Database Systems</h3>
+            <p class="service-desc">
+              Architecting internal business platforms, inventory databases, serial/QR code tracking systems, and role-based permissions with Django and MySQL/SQLite.
+            </p>
+            <div class="service-tags">
+              <span class="skill-pill">Django</span>
+              <span class="skill-pill">MySQL / SQLite</span>
+              <span class="skill-pill">QR Tracking</span>
+              <span class="skill-pill">Role-Based Auth</span>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <span class="service-icon" aria-hidden="true">👁</span>
+            <h3 class="service-title">Computer Vision &amp; OCR Automation</h3>
+            <p class="service-desc">
+              Building practical Python automation pipelines with OpenCV and OCR libraries for document digitization, threshold filtering, edge detection, and facial feature extraction.
+            </p>
+            <div class="service-tags">
+              <span class="skill-pill">OpenCV</span>
+              <span class="skill-pill">pytesseract OCR</span>
+              <span class="skill-pill">Image Processing</span>
+              <span class="skill-pill">Python Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Availability Card -->
+        <div class="availability-card">
+          <div class="availability-badge">
+            <span class="pulse-indicator" aria-hidden="true"></span>
+            <span>CURRENT AVAILABILITY</span>
+          </div>
+          <div style="flex: 1; font-size: 0.94rem; color: var(--text-primary); line-height: 1.5;">
+            <!-- [OWNER INPUT REQUIRED: Verify exact availability statement] -->
+            Open to full-time Software Engineer positions, on-site/remote roles, and select freelance technical development projects. Typical response time within 24 hours.
+          </div>
+          <a href="#contact" class="btn btn-primary btn-sm">
+            <span>Get in Touch</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         KEY MILESTONES & ENGINEERING PROGRESS
          ======================================================================== -->
     <section class="achievements" id="achievements">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Track Record</span>
-          <h2 class="section-title">Achievements &amp; <span class="text-gradient">Milestones</span></h2>
+          <span class="section-tag">// Milestones</span>
+          <h2 class="section-title">Key <span class="text-gradient">Engineering Milestones</span></h2>
           <p class="section-subtitle">
-            Verified milestones representing real engineering progress, hackathon advancements, and software deployments.
+            Progress milestones across medical software interfaces, technical content ingestion, and embedded systems development.
           </p>
         </div>
 
         <div class="timeline">
           <!-- Milestone 1 -->
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <span class="timeline-badge">Medical Technology</span>
-              <h3 class="timeline-title">TECAR &amp; Lumino Pro Touch-First Systems Development</h3>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2025 – Present</span>
+              <h3 class="timeline-title">Medical Technology &amp; Embedded Linux Engineering</h3>
               <p class="timeline-text">
-                Engineered full-screen PyQt6 touch interfaces and hardware interface drivers for Raspberry Pi-based medical electrotherapy (TECAR) and laser platforms, achieving seamless integration between UI controls and physical sensor acquisition.
+                Designed and built full-screen touch control software for TECAR therapy and Lumino Pro laser systems on Raspberry Pi OS. Implemented asynchronous I2C sensor acquisition (ADS1115 ADC, MLX90614 IR temperature), footswitch GPIO safety monitoring, and systemd kiosk automation.
               </p>
             </div>
           </div>
 
           <!-- Milestone 2 -->
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <span class="timeline-badge">Embedded Systems</span>
-              <h3 class="timeline-title">Raspberry Pi CM5 Custom OS &amp; Kiosk Deployment</h3>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">August 2024 – April 2025</span>
+              <h3 class="timeline-title">Technical Content Ingestion at uCertify</h3>
               <p class="timeline-text">
-                Created and validated custom Raspberry Pi OS deployment workflows on Compute Module 5, configuring automated systemd startup services, custom splash screens, and crash resilience for production hardware.
+                Converted instructional textbooks, technical courseware, and learning assets from PDF, EPUB, and Word formats into uCertify's structured platform format, maintaining high verification accuracy.
               </p>
             </div>
           </div>
 
           <!-- Milestone 3 -->
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <span class="timeline-badge">Professional Role</span>
-              <h3 class="timeline-title">Ingest Role at uCertify</h3>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">July 2024</span>
+              <h3 class="timeline-title">Aeronautics Division Internship at HAL</h3>
               <p class="timeline-text">
-                Successfully served in the Ingest role at uCertify, converting educational books and course materials from <strong>.pdf, .epub, and Word document formats</strong> into uCertify's official website and interactive platform readable format with verified structural fidelity and QA compliance.
+                Completed an engineering internship at Hindustan Aeronautics Limited (HAL) in the Transport Aircraft Division, Kanpur, developing Python-based computer vision prototypes.
               </p>
             </div>
           </div>
 
           <!-- Milestone 4 -->
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <span class="timeline-badge">Engineering Foundation</span>
-              <h3 class="timeline-title">B.Tech Engineering Qualification</h3>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2020 – 2024</span>
+              <h3 class="timeline-title">B.Tech Degree in Information Technology</h3>
               <p class="timeline-text">
-                Graduated with a Bachelor of Technology degree, grounding multidisciplinary practical development across Python, embedded systems, databases, and full-stack web applications.
+                Earned Bachelor of Technology from United College of Engineering and Research (UCER), Prayagraj, building foundational capabilities in algorithms, relational databases, software design, and embedded microcomputing.
               </p>
             </div>
           </div>
@@ -920,99 +1030,96 @@
          EXPERIENCE & EDUCATION SECTION
          ======================================================================== -->
     <section class="experience-education" id="experience">
-      <div class="container dual-columns-grid">
-        <!-- Column 1: Experience -->
-        <div>
-          <div class="column-header">
-            <span class="spec-icon">💼</span>
-            <h2 class="column-header-title">Work &amp; Internship Experience</h2>
-          </div>
+      <div class="container">
+        <div class="dual-columns-grid">
+          <!-- Professional Experience Column -->
+          <div>
+            <div class="section-header" style="text-align: left; margin-bottom: 28px;">
+              <span class="section-tag">Career History</span>
+              <h2 class="section-title">Work <span class="text-gradient">Experience</span></h2>
+            </div>
 
-          <!-- Curves and Contours LLP Professional Experience -->
-          <div class="info-card" style="margin-bottom: 24px;">
-            <div class="info-card-header">
-              <div>
-                <h3 class="info-title">Curves and Contours LLP</h3>
-                <div class="info-subtitle">Software Developer</div>
+            <!-- Curves and Contours LLP -->
+            <!-- [CONTENT_REVIEW_REQUIRED: Reconcile current employer (Curves and Contours LLP vs Volant Technology) with resume and LinkedIn] -->
+            <div class="info-card" style="margin-bottom: 24px;">
+              <div class="info-card-header">
+                <div>
+                  <h3 class="info-title">Curves and Contours LLP</h3>
+                  <div class="info-subtitle">Software Developer</div>
+                </div>
+                <span class="project-status-badge status-active">April 2025 – Present</span>
               </div>
-              <span class="project-status-badge status-active">April 2025 – Present</span>
-            </div>
-            <div class="info-body">
-              Engineered production-grade, touch-first clinical software applications deployed on Raspberry Pi (Compute Module 5 / Raspberry Pi OS) for proprietary medical therapy equipment, leading the end-to-end design and architecture of the <strong>Laser (Lumino Pro)</strong> and <strong>TECAR</strong> graphical user interfaces (GUIs).
-              <ul class="info-bullets">
-                <li><strong>TECAR Therapy Control GUI:</strong> Designed and developed a full-screen PyQt6 touch interface for Capacitive (CAP) and Resistive (RES) energy transfer therapy, featuring virtual rotary intensity dials, real-time treatment countdown timers, dynamic phase indicators, and acoustic alert tones.</li>
-                <li><strong>Hardware Sensor &amp; Interlock Integration:</strong> Architected asynchronous multi-threaded sensor acquisition over I2C/SPI buses for ADS1115 16-bit ADC (monitoring electrode contact impedance and current delivery) and MLX90614 contactless IR sensor (tracking patient skin temperature to prevent thermal discomfort). Implemented instant millisecond energy shut-off via GPIO footswitch hardware safety interlocks.</li>
-                <li><strong>Medical Laser Kiosk GUI (Lumino Pro):</strong> Engineered an appliance-style tamper-resistant kiosk interface for clinical therapeutic laser systems, incorporating a multi-tier security PIN pad authentication gate to prevent unauthorized laser emission or parameter tampering.</li>
-                <li><strong>Laser Protocol Management &amp; Waveforms:</strong> Built structured clinical protocol workflows for acute and chronic conditions, precise pulse frequency and dosage duration control, and persistent SQLite session audit logging recording delivered joules and clinician treatment histories.</li>
-                <li><strong>Linux Appliance Deployment:</strong> Configured Linux systemd background daemons for instant auto-boot into kiosk mode, crash self-recovery, and custom system diagnostics without desktop environment exposure.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- uCertify Professional Experience -->
-          <div class="info-card" style="margin-bottom: 24px;">
-            <div class="info-card-header">
-              <div>
-                <h3 class="info-title">uCertify</h3>
-                <div class="info-subtitle">Ingest Role / Technical Ingestion Specialist</div>
+              <div class="info-desc">
+                Engineering touch-first GUI applications on Raspberry Pi for physical therapy devices:
+                <ul class="info-bullets">
+                  <li>Developed touch-optimized PyQt6 clinical control panels with virtual rotary dials, keypad widgets, and mode selectors.</li>
+                  <li>Configured asynchronous background threading loops polling ADS1115 ADC and MLX90614 IR sensors over I2C.</li>
+                  <li>Programmed GPIO footswitch listeners to execute immediate software shutoff when the operator releases the pedal.</li>
+                  <li>Configured systemd kiosk services on Raspberry Pi OS for appliance auto-boot and recovery.</li>
+                </ul>
               </div>
-              <span class="project-status-badge status-completed">27 August 2024 – 12 April 2025</span>
             </div>
-            <div class="info-body">
-              Responsible for end-to-end technical content conversion and ingestion, transforming books and instructional courseware into uCertify's official website readable format.
-              <ul class="info-bullets">
-                <li>Converted instructional books and course materials from <strong>.pdf, .epub, and Word document formats</strong> into uCertify's official website and interactive platform readable format.</li>
-                <li>Validated XML/HTML structures, formatting hierarchies, metadata integrity, and multimedia components for flawless cross-device rendering.</li>
-                <li>Conducted rigorous technical quality checks, identifying and resolving layout discrepancies, syntax inconsistencies, and asset mismatches.</li>
-                <li>Collaborated across editorial and development teams to optimize the digital publishing pipeline and ensure complete content accuracy.</li>
-              </ul>
-            </div>
-          </div>
 
-          <!-- HAL Internship -->
-          <div class="info-card">
-            <div class="info-card-header">
-              <div>
-                <h3 class="info-title">Hindustan Aeronautics Limited (HAL)</h3>
-                <div class="info-subtitle">Internship Trainee — Transport Aircraft Division (TAD), Kanpur</div>
+            <!-- uCertify Experience -->
+            <div class="info-card" style="margin-bottom: 24px;">
+              <div class="info-card-header">
+                <div>
+                  <h3 class="info-title">uCertify</h3>
+                  <div class="info-subtitle">Ingest Role / Technical Ingestion Specialist</div>
+                </div>
+                <span class="project-status-badge status-completed">Aug 2024 – Apr 2025</span>
               </div>
-              <span class="project-status-badge status-completed">June 2024 – July 2024</span>
-            </div>
-            <div class="info-body">
-              Completed a 4-week engineering internship at Hindustan Aeronautics Limited (HAL) in the Transport Aircraft Division, Kanpur, developing Python-based computer vision solutions and optimizing backend data workflows.
-              <ul class="info-bullets">
-                <li>Developed and implemented face recognition software with a focus on enhancing facility security measures.</li>
-                <li>Engineered a vehicle recognition system using Python to identify and verify vehicle registration status.</li>
-                <li>Applied object detection to identify and segment non-usable and non-productive mechanical components.</li>
-                <li>Enhanced backend systems to improve inventory data management for aircraft parts and supplier location tracking.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Column 2: Education -->
-        <div id="education">
-          <div class="column-header">
-            <span class="spec-icon">🎓</span>
-            <h2 class="column-header-title">Education &amp; Credentials</h2>
-          </div>
-
-          <div class="info-card">
-            <div class="info-card-header">
-              <div>
-                <h3 class="info-title">Bachelor of Technology (B.Tech)</h3>
-                <div class="info-subtitle">United College of Engineering and Research (UCER), Prayagraj</div>
+              <div class="info-desc">
+                Converted technical textbooks and instructional courseware into structured web platform formats:
+                <ul class="info-bullets">
+                  <li>Transformed educational materials from PDF, EPUB, and Word formats into platform-readable format.</li>
+                  <li>Structured interactive questions, coding labs, and assessment components.</li>
+                  <li>Collaborated with editorial and QA teams to maintain content integrity and formatting standards.</li>
+                </ul>
               </div>
-              <span class="project-status-badge status-completed">2020 – 2024</span>
             </div>
-            <div class="info-body">
-              Four-year undergraduate engineering program in Information Technology, grounding software architecture, algorithm design, computer vision, and systems engineering.
-              <ul class="info-bullets">
-                <li><strong>Institution:</strong> United College of Engineering and Research (UCER), Prayagraj</li>
-                <li><strong>Specialization:</strong> Information Technology (B.Tech IT)</li>
-                <li><strong>Academic Duration:</strong> August 2020 – August 2024</li>
-                <li><strong>Core Focus:</strong> Software Engineering, Python, AI/ML, Embedded Systems, Database Management</li>
-              </ul>
+
+            <!-- HAL Internship -->
+            <div class="info-card">
+              <div class="info-card-header">
+                <div>
+                  <h3 class="info-title">Hindustan Aeronautics Limited (HAL)</h3>
+                  <div class="info-subtitle">Internship Trainee — Transport Aircraft Division, Kanpur</div>
+                </div>
+                <span class="project-status-badge status-completed">July 2024</span>
+              </div>
+              <div class="info-desc">
+                Completed an engineering internship focusing on practical computer vision in Python:
+                <ul class="info-bullets">
+                  <li>Explored OpenCV algorithms for feature extraction, facial landmark recognition, and edge processing.</li>
+                  <li>Authored Python test scripts evaluating detection speed and accuracy across image datasets.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Column -->
+          <div>
+            <div class="section-header" style="text-align: left; margin-bottom: 28px;">
+              <span class="section-tag">Academic Background</span>
+              <h2 class="section-title">Formal <span class="text-gradient">Education</span></h2>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-header">
+                <div>
+                  <h3 class="info-title">Bachelor of Technology (B.Tech)</h3>
+                  <div class="info-subtitle">United College of Engineering and Research (UCER), Prayagraj</div>
+                </div>
+                <span class="project-status-badge status-completed">2020 – 2024</span>
+              </div>
+              <div class="info-desc">
+                Graduated with specialization in Information Technology:
+                <ul class="info-bullets">
+                  <li><strong>Core Coursework:</strong> Data Structures &amp; Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, Computer Networks.</li>
+                  <li><strong>Practical Projects:</strong> Built desktop database applications, sensor interfaces, and foundational computer vision prototypes.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -1020,124 +1127,123 @@
     </section>
 
     <!-- ========================================================================
-         CURRENTLY EXPLORING / LEARNING SECTION
+         CURRENTLY EXPLORING / LEARNING
          ======================================================================== -->
     <section class="learning-section" id="learning">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Continuous Growth</span>
-          <h2 class="section-title">Currently <span class="text-gradient">Exploring &amp; Learning</span></h2>
+          <span class="section-tag">// Continuous Development</span>
+          <h2 class="section-title">Currently <span class="text-gradient">Exploring</span></h2>
           <p class="section-subtitle">
-            Actively deepening technical mastery across software architecture, scalable backends, and low-latency systems.
+            Expanding capabilities into modern systems engineering, edge AI, and web technologies.
           </p>
         </div>
 
         <div class="learning-grid">
           <div class="learning-card">
-            <span class="learning-icon">&gt;</span>
-            <span class="learning-title">Advanced Python &amp; Asyncio</span>
+            <div class="learning-card-header">
+              <span class="learning-icon" aria-hidden="true">⚡</span>
+              <h3 class="learning-title">Edge AI &amp; Lightweight Inference</h3>
+            </div>
+            <p class="learning-desc">Deploying optimized vision models on Raspberry Pi for real-time video processing.</p>
           </div>
+
           <div class="learning-card">
-            <span class="learning-icon">&gt;</span>
-            <span class="learning-title">PyQt6 Architecture &amp; Custom Widgets</span>
+            <div class="learning-card-header">
+              <span class="learning-icon" aria-hidden="true">🐧</span>
+              <h3 class="learning-title">Advanced Embedded Linux</h3>
+            </div>
+            <p class="learning-desc">Exploring custom Yocto builds, overlay filesystems, and device tree overlays for embedded hardware.</p>
           </div>
+
           <div class="learning-card">
-            <span class="learning-icon">&gt;</span>
-            <span class="learning-title">AI Application Architecture &amp; RAG</span>
+            <div class="learning-card-header">
+              <span class="learning-icon" aria-hidden="true">🌐</span>
+              <h3 class="learning-title">Modern Full-Stack Architectures</h3>
+            </div>
+            <p class="learning-desc">Deepening knowledge of TypeScript, Next.js, and RESTful microservices paired with Python backends.</p>
           </div>
+
           <div class="learning-card">
-            <span class="learning-icon">&gt;</span>
-            <span class="learning-title">Data Analysis &amp; Visualization</span>
-          </div>
-          <div class="learning-card">
-            <span class="learning-icon">&gt;</span>
-            <span class="learning-title">Advanced Django &amp; ORM Optimization</span>
-          </div>
-          <div class="learning-card">
-            <span class="learning-icon">&gt;</span>
-            <span class="learning-title">Distributed System Architecture</span>
-          </div>
-          <div class="learning-card">
-            <span class="learning-icon">&gt;</span>
-            <span class="learning-title">Embedded Linux &amp; Kernel Drivers</span>
-          </div>
-          <div class="learning-card">
-            <span class="learning-icon">&gt;</span>
-            <span class="learning-title">Production Software Reliability (SRE)</span>
+            <div class="learning-card-header">
+              <span class="learning-icon" aria-hidden="true">🖥</span>
+              <h3 class="learning-title">Advanced Qt &amp; QML</h3>
+            </div>
+            <p class="learning-desc">Creating fluid animated user interfaces using QML with C++ and Python bindings.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ========================================================================
-         VERIFIED PORTFOLIO STATISTICS SECTION (NO FAKE METRICS)
+         PORTFOLIO TECHNICAL HIGHLIGHTS (Fact-Based)
          ======================================================================== -->
-    <section class="stats-section" aria-label="Portfolio Metrics">
+    <section class="stats-section" aria-label="Portfolio Key Highlights">
       <div class="container stats-grid">
         <div class="stat-item">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">Major Projects Engineered</div>
+          <div class="stat-number">5</div>
+          <div class="stat-label">Featured Projects</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">Hardware Protocols &amp; Buses</div>
+          <div class="stat-number">Python &amp; PyQt6</div>
+          <div class="stat-label">Touch GUI &amp; Sensor Interfaces</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">3+</div>
-          <div class="stat-label">Core Full-Stack Frameworks</div>
+          <div class="stat-number">Embedded Linux</div>
+          <div class="stat-label">Raspberry Pi CM5 &amp; Kiosk Automation</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Practical Implementation Focus</div>
+          <div class="stat-number">Django &amp; MySQL</div>
+          <div class="stat-label">Enterprise Inventory &amp; Role Access</div>
         </div>
       </div>
     </section>
 
     <!-- ========================================================================
-         RESUME & GITHUB SECTION
+         RESUME & GITHUB SECTION (Scaffolding Removed)
          ======================================================================== -->
     <section class="resume-github" id="resume">
       <div class="container resume-github-grid">
         <!-- Resume Panel -->
         <div class="showcase-panel">
           <div class="panel-header">
-            <div class="panel-icon">📄</div>
+            <div class="panel-icon" aria-hidden="true">📄</div>
             <h3 class="panel-title">Curriculum Vitae / Resume</h3>
           </div>
           <p class="panel-desc">
-            A comprehensive overview of technical proficiencies, project experience across medical technology and AI, academic credentials, and software projects.
+            A comprehensive overview of technical proficiencies, project experience across medical technology, embedded hardware, academic credentials, and software engineering roles.
           </p>
 
-          <div style="background: var(--bg-surface); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 24px;">
-            <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-green); margin-bottom: 4px;">File: Yash_Srivastava_Resume.pdf</div>
-            <div style="font-size: 0.86rem; color: var(--text-muted);">Configured path: <code>assets/Yash_Srivastava_Resume.pdf</code></div>
+          <div class="resume-info-box">
+            <div class="resume-info-filename">Yash_Srivastava_Resume.pdf</div>
+            <div class="resume-info-desc">Official PDF document including technical skills, employment history, and education.</div>
           </div>
 
           <div style="display: flex; gap: 14px; flex-wrap: wrap;">
             <a href="assets/Yash_Srivastava_Resume.pdf" download="Yash_Srivastava_Resume.pdf" class="btn btn-primary">
               <span>Download Official Resume</span>
-              <span>↓</span>
+              <span aria-hidden="true">↓</span>
             </a>
-            <button type="button" class="btn btn-secondary" id="open-resume-viewer-btn">
-              <span>View Resume Specs</span>
-              <span>👁</span>
-            </button>
+            <a href="assets/Yash_Srivastava_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="open-resume-viewer-btn">
+              <span>Open Resume PDF</span>
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
 
         <!-- GitHub Panel -->
         <div class="showcase-panel" id="github">
           <div class="panel-header">
-            <div class="panel-icon">💻</div>
+            <div class="panel-icon" aria-hidden="true">💻</div>
             <h3 class="panel-title">Code Repositories &amp; Open Source</h3>
           </div>
           <p class="panel-desc">
-            Source code repositories and collaborative hackathon projects illustrating system architecture, component design, and version control practices.
+            Source code repositories and technical scripts illustrating system architecture, component design, and version control practices.
           </p>
 
           <div class="repo-card">
             <div class="repo-name">
-              <span>📦</span>
+              <span aria-hidden="true">📦</span>
               <span>Open-Source &amp; System Repositories</span>
             </div>
             <p class="repo-desc">
@@ -1146,18 +1252,18 @@
             <div style="margin-top: 14px;">
               <a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" class="btn btn-outline-green btn-sm">
                 <span>Explore GitHub Repositories</span>
-                <span>↗</span>
+                <span aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
 
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: auto;">
-            <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary);">
-              Personal Profile: <a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan);">github.com/yashsrivastava12345</a>
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">
+              GitHub: <a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan);">github.com/yashsrivastava12345</a>
             </span>
             <a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
               <span>Open GitHub Profile</span>
-              <span>↗</span>
+              <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -1165,20 +1271,28 @@
     </section>
 
     <!-- ========================================================================
-         CONTACT SECTION
+         CONTACT SECTION (Placeholder & Config Scaffold Removed)
          ======================================================================== -->
     <section class="contact" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <span class="section-tag">Get In Touch</span>
-          <h2 class="section-title">Let's Build <span class="text-gradient">Something Remarkable</span></h2>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Get In Touch</span>
+          <h2 class="section-title">Contact &amp; <span class="text-gradient">Collaboration</span></h2>
           <p class="section-subtitle">
-            Whether you are discussing engineering opportunities, medical technology software, AI applications, or embedded systems, feel free to reach out.
+            Have an engineering role, a software project, or an embedded Linux challenge? Send a message directly or connect via the links below.
           </p>
+        </div>
 
-          <div class="contact-info-list">
+        <div class="contact-grid">
+          <!-- Left Column: Contact Direct Info -->
+          <div class="contact-info-panel">
+            <h3 class="contact-panel-title">Direct Communication Channels</h3>
+            <p class="contact-panel-desc">
+              Reach out directly via email, professional networking profiles, or WhatsApp for inquiries regarding software development, freelance projects, or full-time roles.
+            </p>
+
             <div class="contact-item">
-              <div class="contact-icon">✉</div>
+              <div class="contact-icon" aria-hidden="true">✉</div>
               <div>
                 <div class="contact-label">Email Address</div>
                 <div class="contact-val">
@@ -1188,17 +1302,17 @@
             </div>
 
             <div class="contact-item">
-              <div class="contact-icon">🔗</div>
+              <div class="contact-icon" aria-hidden="true">💼</div>
               <div>
                 <div class="contact-label">LinkedIn Profile</div>
                 <div class="contact-val">
-                  <a href="https://www.linkedin.com/in/yash-srivastava-943516194/" target="_blank" rel="noopener noreferrer">linkedin.com/in/yash-srivastava-943516194</a>
+                  <a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer">linkedin.com/in/yash-srivastava-363363220</a>
                 </div>
               </div>
             </div>
 
             <div class="contact-item">
-              <div class="contact-icon">💻</div>
+              <div class="contact-icon" aria-hidden="true">💻</div>
               <div>
                 <div class="contact-label">GitHub Profile</div>
                 <div class="contact-val">
@@ -1207,260 +1321,151 @@
               </div>
             </div>
 
-            <!-- WhatsApp Direct Model Link -->
+            <!-- WhatsApp Direct Channel (Scaffolding Removed) -->
             <div class="contact-item">
-              <div class="contact-icon" style="color: #25d366; background: rgba(37, 211, 102, 0.12); border: 1px solid rgba(37, 211, 102, 0.3);">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <div class="contact-icon" style="color: #25d366; background: rgba(37, 211, 102, 0.12); border: 1px solid rgba(37, 211, 102, 0.3);" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.55 0 8.25 3.7 8.25 8.24 0 2.2-.86 4.28-2.42 5.83-1.56 1.56-3.63 2.41-5.83 2.41-1.48 0-2.93-.39-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.26-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.22-.19-.47-.32"/>
                 </svg>
               </div>
-              <div style="flex-grow: 1;">
+              <div>
                 <div class="contact-label">WhatsApp Direct</div>
-                <div class="contact-val" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-                  <!-- Template: Replace '91XXXXXXXXXX' with your active phone number -->
-                  <a href="https://wa.me/message/BZLTCUC3A7JXO1" target="_blank" rel="noopener noreferrer" id="whatsapp-direct-link" style="color: #25d366; font-weight: 600;">
+                <div class="contact-val">
+                  <a href="https://wa.me/message/BZLTCUC3A7JXO1" target="_blank" rel="noopener noreferrer" class="whatsapp-direct-badge">
                     <span>Chat on WhatsApp</span>
-                    <span>↗</span>
+                    <span aria-hidden="true">↗</span>
                   </a>
-                  <button type="button" class="btn btn-sm btn-secondary" id="open-whatsapp-modal-btn" style="padding: 3px 10px; font-size: 0.74rem;">
-                    <span>Modal / Config</span>
-                  </button>
                 </div>
               </div>
             </div>
 
             <div class="contact-item">
-              <div class="contact-icon">📍</div>
+              <div class="contact-icon" aria-hidden="true">📍</div>
               <div>
                 <div class="contact-label">Current Location</div>
                 <div class="contact-val">Ghaziabad, Uttar Pradesh, India</div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Interactive Contact Form -->
-        <div class="contact-form-card">
-          <div class="contact-form-header">
-            <h3 class="contact-form-title">Send a Direct Message</h3>
+          <!-- Right Column: Contact Form -->
+          <div class="contact-form-panel">
+            <h3 class="contact-panel-title">Send a Direct Message</h3>
+            
+            <form id="contact-form" class="contact-form" novalidate>
+              <!-- Web3Forms Routing Key -->
+              <input type="hidden" name="access_key" id="web3forms-access-key" value="03770335-ee12-4217-a02b-a169bbf5cb9e">
+              
+              <!-- Anti-Spam Honeypot Field -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
+
+              <!-- Status Notification Region for Screen Readers & Visual Feedback -->
+              <div id="form-status-msg" class="form-status-msg" role="status" aria-live="polite" style="display: none;"></div>
+
+              <div class="form-group">
+                <label for="contact-name" class="form-label">
+                  Your Full Name <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Sarah Jenkins" autocomplete="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">
+                  Your Email Address <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. sarah@example.com" autocomplete="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">
+                  Project Details / Message <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <textarea id="contact-message" name="message" class="form-textarea" rows="5" placeholder="Describe your engineering role, project requirements, or questions..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-submit">
+                <span>Send Message</span>
+                <span aria-hidden="true">✉</span>
+              </button>
+            </form>
           </div>
-          
-          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-            <!-- Web3Forms Static Form Access Key -->
-            <input type="hidden" name="access_key" id="web3forms-access-key" value="b9e91e79-13f6-41b8-b7de-59ac8c6ed126">
-
-            <!-- Spam Protection Honeypot Field (Invisible to human users) -->
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
-
-            <!-- Custom Subject & Sender Config -->
-            <input type="hidden" name="subject" id="form-subject" value="Portfolio Inquiry from Yash Srivastava Portfolio">
-            <input type="hidden" name="from_name" value="Portfolio Contact Form">
-
-            <div class="form-group">
-              <label for="contact-name" class="form-label">Full Name</label>
-              <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Jane Doe" required>
-            </div>
-
-            <div class="form-group">
-              <label for="contact-email" class="form-label">Email Address</label>
-              <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. jane@company.com" required>
-            </div>
-
-            <div class="form-group">
-              <label for="contact-message" class="form-label">Message / Opportunity Details</label>
-              <textarea id="contact-message" name="message" class="form-textarea" placeholder="Describe the project, role, or collaboration topic..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" id="contact-submit-btn" style="width: 100%;">
-              <span>Transmit Message</span>
-              <span>✉</span>
-            </button>
-
-            <div id="form-status-msg" class="form-status-msg" role="status" aria-live="polite"></div>
-          </form>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- ========================================================================
        FOOTER
        ======================================================================== -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand-col">
-          <div class="footer-title">YASH SRIVASTAVA</div>
-          <p class="footer-tagline">
-            Software Engineer | Python Developer | AI/ML | Full-Stack &amp; Medical Technology Software Developer
-          </p>
-        </div>
+    <div class="container footer-content">
+      <div>
+        <div class="footer-brand">YASH SRIVASTAVA</div>
+        <p class="footer-desc">
+          Software Engineer building practical software systems across Python, desktop GUIs, embedded hardware, and web platforms.
+        </p>
+      </div>
 
-        <div class="footer-links-col">
-          <div class="footer-link-group">
-            <h4>Navigation</h4>
-            <ul>
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#about" style="white-space: nowrap;">Meet&nbsp;Yash</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#projects">Projects</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-link-group">
-            <h4>Engineering</h4>
-            <ul>
-              <li><a href="#architecture">Architecture</a></li>
-              <li><a href="#hardware">Embedded &amp; RPi</a></li>
-              <li><a href="#achievements">Achievements</a></li>
-              <li><a href="#experience">Experience</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-link-group">
-            <h4>Connect</h4>
-            <ul>
-              <li><a href="#contact">Contact</a></li>
-              <li><a href="mailto:yashsrivastava2894@gmail.com">Email</a></li>
-              <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/yash-srivastava-943516194/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="https://wa.me/message/BZLTCUC3A7JXO1" target="_blank" rel="noopener noreferrer" style="color: #25d366;">WhatsApp</a></li>
-              <li><a href="assets/Yash_Srivastava_Resume.pdf" download>Resume (PDF)</a></li>
-            </ul>
-          </div>
-        </div>
+      <div class="footer-links-group">
+        <a href="#hero" class="footer-link">Home</a>
+        <a href="#about" class="footer-link">Meet Yash</a>
+        <a href="#projects" class="footer-link">Projects</a>
+        <a href="#services" class="footer-link">Services</a>
+        <a href="#experience" class="footer-link">Experience</a>
+        <a href="#resume" class="footer-link">Resume</a>
+        <a href="#contact" class="footer-link">Contact</a>
       </div>
 
       <div class="footer-bottom">
-        <div style="text-align:center;">&copy; 2026 Yash Srivastava. All rights reserved.</div>
+        <div>&copy; 2026 Yash Srivastava. All rights reserved.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary);">
+          Obsidian Cyber Theme · Fast, Accessible, Production-Ready
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================
-       PROJECT DETAIL MODAL
+       ACCESSIBLE MODAL & LIGHTBOX DIALOGS
        ======================================================================== -->
-  <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
+
+  <!-- 1. Project Case Study Modal (Shared Dialog for all 5 Projects) -->
+  <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-project-title">
     <div class="modal-container">
       <div class="modal-header">
-        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-green); text-transform: uppercase;">
-          System Specification Viewer
+        <div class="modal-brand-tag" aria-hidden="true">
+          <span>⚡</span>
+          <span>Technical Case Study</span>
         </div>
-        <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close Project Details Dialog">
-          &times;
-        </button>
+        <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close Case Study Dialog">✕</button>
       </div>
-
       <div class="modal-body" id="modal-dynamic-content">
-        <!-- Content injected dynamically via assets/js/app.js -->
+        <!-- Dynamically rendered from projectsData via assets/js/app.js -->
       </div>
     </div>
   </div>
 
-  <!-- ========================================================================
-       RESUME VIEWER MODAL
-       ======================================================================== -->
-  <div class="modal-overlay" id="resume-modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-container" style="max-width: 680px;">
-      <div class="modal-header">
-        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-green); text-transform: uppercase;">
-          Resume File Configuration
-        </div>
-        <button type="button" class="modal-close-btn" id="resume-modal-close-btn" aria-label="Close Resume Dialog">
-          &times;
-        </button>
-      </div>
-
-      <div class="modal-body">
-        <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Yash Srivastava — Developer Resume</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 20px;">
-          The portfolio is linked to your official PDF document located at <code>assets/Yash_Srivastava_Resume.pdf</code>.
-        </p>
-
-        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 24px;">
-          <h4 style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-cyan); margin-bottom: 10px;">Quick Replacement Instructions:</h4>
-          <ol style="margin-left: 20px; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
-            <li>Place your exported resume PDF into the <code>assets/</code> folder.</li>
-            <li>Name it <code>Yash_Srivastava_Resume.pdf</code> (or update the href link in <code>Index.html</code>).</li>
-            <li>All download and preview buttons across the portfolio will instantly point to your file.</li>
-          </ol>
-        </div>
-
-        <div style="display: flex; justify-content: flex-end; gap: 12px;">
-          <a href="assets/Yash_Srivastava_Resume.pdf" download="Yash_Srivastava_Resume.pdf" class="btn btn-primary btn-sm">
-            <span>Download PDF</span>
-            <span>↓</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================================
-       WHATSAPP MODAL
-       ======================================================================== -->
-  <div class="modal-overlay" id="whatsapp-modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-container" style="max-width: 600px;">
-      <div class="modal-header">
-        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #25d366; text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
-          <span>💬</span>
-          <span>WhatsApp Quick-Connect Model</span>
-        </div>
-        <button type="button" class="modal-close-btn" id="whatsapp-modal-close-btn" aria-label="Close WhatsApp Dialog">
-          &times;
-        </button>
-      </div>
-
-      <div class="modal-body">
-        <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Direct WhatsApp Link Model</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 20px;">
-          This link model directs anyone to a direct WhatsApp chat with you across mobile and desktop.
-        </p>
-
-        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 20px;">
-          <h4 style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--accent-cyan); margin-bottom: 10px;">How to link your WhatsApp number:</h4>
-          <ol style="margin-left: 20px; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7;">
-            <li>Standard URL format: <code>https://wa.me/&lt;country-code&gt;&lt;phone-number&gt;</code></li>
-            <li>Example for India (+91): <code>https://wa.me/919876543210</code> (no plus sign, spaces, or brackets).</li>
-            <li>In <code>Index.html</code>, search for <code>https://wa.me/91XXXXXXXXXX</code> and replace with your phone number.</li>
-            <li>Optional pre-filled message: <code>https://wa.me/91XXXXXXXXXX?text=Hi%20Yash,%20I%20saw%20your%20portfolio</code></li>
-          </ol>
-        </div>
-
-        <div style="display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap;">
-          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);">
-            <span>Open WhatsApp Chat</span>
-            <span>↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================================
-       PHOTO LIGHTBOX MODAL (FOR MEET YASH & PERSONAL GALLERY)
-       ======================================================================== -->
-  <div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <!-- 2. Personal Photo Gallery Fullscreen Lightbox -->
+  <div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightbox-title">
     <div class="lightbox-dialog">
       <div class="lightbox-header">
         <div class="lightbox-header-info">
           <span class="lightbox-counter" id="lightbox-counter">1 / 5</span>
-          <span class="lightbox-title" id="lightbox-title">Personal Photograph</span>
+          <span class="lightbox-title" id="lightbox-title">Photograph</span>
         </div>
-        <button type="button" class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Close Lightbox Dialog">&times;</button>
+        <button type="button" class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Close Lightbox Dialog">✕</button>
       </div>
       <div class="lightbox-body">
-        <button type="button" class="lightbox-nav-btn lightbox-nav-prev" id="lightbox-prev-btn" aria-label="Previous Photo">&#8592;</button>
-        <img src="" alt="" class="lightbox-img" id="lightbox-img">
-        <button type="button" class="lightbox-nav-btn lightbox-nav-next" id="lightbox-next-btn" aria-label="Next Photo">&#8594;</button>
+        <button type="button" class="lightbox-nav-btn lightbox-nav-prev" id="lightbox-prev-btn" aria-label="Previous photograph">‹</button>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Personal photograph" class="lightbox-img" id="lightbox-img">
+        <button type="button" class="lightbox-nav-btn lightbox-nav-next" id="lightbox-next-btn" aria-label="Next photograph">›</button>
       </div>
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Core Scripts -->
   <script src="assets/js/projects-data.js"></script>
-  <script src="assets/js/matrix.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/matrix.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
 </body>
 </html>

@@ -37,10 +37,15 @@ class MatrixRain {
     if (prefersReducedMotion) {
       this.isActive = false;
     } else {
-      // Optional: recall user selection within current session only
-      const sessionPref = sessionStorage.getItem('matrix_fx_enabled');
-      if (sessionPref === 'true') {
-        this.isActive = true;
+      // Safely check session preference
+      try {
+        const sessionPref = sessionStorage.getItem('matrix_fx_enabled');
+        if (sessionPref === 'true') {
+          this.isActive = true;
+        }
+      } catch (err) {
+        // Storage access restricted (private browsing / strict sandboxing)
+        this.isActive = false;
       }
     }
 
@@ -120,7 +125,11 @@ class MatrixRain {
 
   toggle() {
     this.isActive = !this.isActive;
-    sessionStorage.setItem('matrix_fx_enabled', this.isActive.toString());
+    try {
+      sessionStorage.setItem('matrix_fx_enabled', this.isActive.toString());
+    } catch (err) {
+      // Storage access restricted
+    }
     this.updateToggleButton();
 
     if (this.isActive) {
@@ -141,6 +150,7 @@ class MatrixRain {
     if (this.isActive) {
       toggleBtn.classList.add('active');
       toggleBtn.setAttribute('aria-pressed', 'true');
+      toggleBtn.setAttribute('title', 'Toggle Matrix Rain: Currently ON');
       toggleBtn.innerHTML = `
         <span class="matrix-status-dot active"></span>
         <span class="btn-label">Matrix FX: ON</span>
@@ -148,6 +158,7 @@ class MatrixRain {
     } else {
       toggleBtn.classList.remove('active');
       toggleBtn.setAttribute('aria-pressed', 'false');
+      toggleBtn.setAttribute('title', 'Toggle Matrix Rain: Currently OFF');
       toggleBtn.innerHTML = `
         <span class="matrix-status-dot"></span>
         <span class="btn-label">Matrix FX: OFF</span>
@@ -174,7 +185,7 @@ class MatrixRain {
     this.ctx.fillStyle = 'rgba(8, 12, 16, 0.15)';
     this.ctx.fillRect(0, 0, width, height);
 
-    this.ctx.font = `${this.fontSize}px 'JetBrains Mono', 'Fira Code', 'Courier New', monospace`;
+    this.ctx.font = `${this.fontSize}px 'JetBrains Mono', 'Courier New', monospace`;
 
     for (let i = 0; i < this.columns; i++) {
       const y = this.drops[i];

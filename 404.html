@@ -3,16 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — System Signal Lost | Yash Srivastava Portfolio</title>
-  
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>404 — Page Not Found | Yash Srivastava Portfolio</title>
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     .error-wrapper {
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -91,32 +97,32 @@
   <div class="error-wrapper">
     <div class="error-card">
       <div class="error-image-wrap">
-        <img src="images/Error 404.webp" onerror="this.onerror=null;this.src='images/Error 404.png';" alt="Cyberpunk workstation showing 404 code error" loading="eager">
+        <img src="/images/error-404.webp" alt="Terminal illustration representing 404 page not found" width="320" height="250" loading="eager">
       </div>
 
       <div class="error-code">404</div>
-      <h1 class="error-heading">SIGNAL INTERRUPTED: RESOURCE NOT FOUND</h1>
+      <h1 class="error-heading">RESOURCE NOT FOUND</h1>
 
       <div class="error-terminal">
-        <div><span class="prompt">$</span> ping -c 1 destination_route</div>
-        <div>[!] Packet transmission failed: host unreachable (error 404)</div>
-        <div>[!] Diagnostics: The endpoint may have been moved, refactored, or is temporarily undergoing maintenance.</div>
+        <div><span class="prompt">$</span> ping destination_route</div>
+        <div>[!] Packet transmission failed: requested path is not available (404)</div>
+        <div>[!] Diagnostics: The page may have moved, been renamed, or is temporarily offline.</div>
         <div><span class="prompt">$</span> exec recovery_sequence --route=/</div>
       </div>
 
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="index.html" class="btn btn-primary">
-          <span>Return to Workstation Hub</span>
-          <span>↵</span>
+        <a href="/" class="btn btn-primary">
+          <span>Return Home</span>
+          <span aria-hidden="true">↵</span>
         </a>
-        <a href="index.html#contact" class="btn btn-secondary">
-          <span>Notify Developer</span>
-          <span>✉</span>
+        <a href="/#contact" class="btn btn-secondary">
+          <span>Contact Me</span>
+          <span aria-hidden="true">✉</span>
         </a>
       </div>
     </div>
   </div>
 
-  <script src="assets/js/matrix.js"></script>
+  <script src="/assets/js/matrix.js" defer></script>
 </body>
 </html>

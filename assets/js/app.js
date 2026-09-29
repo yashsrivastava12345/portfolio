@@ -3,13 +3,13 @@
  * YASH SRIVASTAVA — DEVELOPER PORTFOLIO MAIN SCRIPT
  * ============================================================================
  * 
- * Controls:
- * - Dynamic project card rendering & category filtering (with separate TECAR & Laser cards)
- * - Detailed architecture & case-study modals for all 7 projects
- * - Personal photo gallery & interactive touch-enabled lightbox
- * - Architecture diagram tab switching
- * - Navigation & scroll spy
- * - Contact interaction & external modals
+ * Features:
+ * - Dynamic project card rendering & category filtering with ARIA state
+ * - Accessible case-study modal with focus trap, focus restoration & Escape handler
+ * - Interactive photo gallery & accessible touch/keyboard lightbox
+ * - ARIA tablist architecture diagram switcher with keyboard support
+ * - Responsive navigation with mobile menu accessibility & scroll-spy
+ * - Secure static contact form integration with Web3Forms & honeypot protection
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,9 +20,46 @@ document.addEventListener('DOMContentLoaded', () => {
   initArchitectureTabs();
   initNavigation();
   initContactForm();
-  initResumeModal();
-  initWhatsAppModal();
 });
+
+/**
+ * ============================================================================
+ * ACCESSIBLE DIALOG HELPER (Focus Trap & Restoration)
+ * ============================================================================
+ */
+let lastActiveElement = null;
+
+function getFocusableElements(container) {
+  if (!container) return [];
+  const selector = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  return Array.from(container.querySelectorAll(selector)).filter(el => {
+    return el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement;
+  });
+}
+
+function trapFocusInDialog(e, dialogEl) {
+  if (e.key !== 'Tab') return;
+  const focusables = getFocusableElements(dialogEl);
+  if (focusables.length === 0) {
+    e.preventDefault();
+    return;
+  }
+
+  const firstEl = focusables[0];
+  const lastEl = focusables[focusables.length - 1];
+
+  if (e.shiftKey) {
+    if (document.activeElement === firstEl) {
+      e.preventDefault();
+      lastEl.focus();
+    }
+  } else {
+    if (document.activeElement === lastEl) {
+      e.preventDefault();
+      firstEl.focus();
+    }
+  }
+}
 
 /**
  * ============================================================================
@@ -30,9 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
  * ============================================================================
  */
 
-/**
- * Render dynamic project cards from projectsData
- */
 function initProjectCards(filterCategory = 'all') {
   const container = document.getElementById('projects-grid');
   if (!container || !window.projectsData) return;
@@ -46,7 +80,6 @@ function initProjectCards(filterCategory = 'all') {
   filteredProjects.forEach(project => {
     const card = document.createElement('article');
     
-    // Distinguish TECAR and Laser with dedicated CSS classes and visual styling
     let themeClass = '';
     if (project.id === 'tecar') themeClass = 'project-card-tecar';
     if (project.id === 'laser-lumino-pro') themeClass = 'project-card-laser';
@@ -64,39 +97,65 @@ function initProjectCards(filterCategory = 'all') {
     if (project.statusType === 'completed') statusClass = 'status-completed';
     if (project.statusType === 'concept') statusClass = 'status-concept';
 
-    // Visual cue badge for medical & flagship engineering projects
     let visualCueHtml = '';
     if (project.visualCues) {
       visualCueHtml = `
-        <div class="project-visual-cue ${project.cardTheme || ''}">
+        <div class="project-visual-cue ${project.cardTheme || ''}" aria-hidden="true">
           <span class="cue-icon">${escapeHtml(project.visualCues.icon || '')}</span>
           <span class="cue-text">${escapeHtml(project.visualCues.badge || '')}</span>
         </div>
       `;
     }
 
+    const outcomeBadge = project.outcome ? `
+      <span class="project-outcome-pill" title="Project Outcome / Status">
+        ${escapeHtml(project.outcome)}
+      </span>
+    ` : '';
+
+    const plainSummaryHtml = project.plainSummary ? `
+      <div class="project-plain-summary">
+        <span class="plain-summary-label">In Plain English:</span>
+        <p class="plain-summary-text">${escapeHtml(project.plainSummary)}</p>
+      </div>
+    ` : '';
+
+    const medicalNotice = (project.category === 'medical' && project.details && project.details.disclaimer) ? `
+      <div class="project-card-disclaimer">
+        <span aria-hidden="true">🛡</span> ${escapeHtml(project.details.disclaimer)}
+      </div>
+    ` : '';
+
     card.innerHTML = `
       <div class="project-card-header">
         <div class="project-card-status-wrapper">
           <span class="project-status-badge ${statusClass}">${escapeHtml(project.status)}</span>
+          ${outcomeBadge}
         </div>
         ${visualCueHtml}
         <div class="project-meta-category" title="${escapeHtml(project.categoryLabel)}">${escapeHtml(project.categoryLabel)}</div>
         <h3 class="project-card-title">${escapeHtml(project.title)}</h3>
       </div>
       <div class="project-card-body">
+        ${plainSummaryHtml}
         <p class="project-card-desc">${escapeHtml(project.shortDescription)}</p>
         <div class="project-tags-list">
           ${tagsHtml}
         </div>
+        ${medicalNotice}
         <div class="project-card-actions">
-          <button type="button" class="btn btn-outline-green btn-sm view-details-btn" data-project-id="${project.id}">
-            <span>View Architecture &amp; Details</span>
-            <span>→</span>
+          <button type="button" class="btn btn-outline-green btn-sm view-details-btn" data-project-id="${project.id}" aria-label="View detailed case study for ${escapeHtml(project.title)}">
+            <span>View Case Study</span>
+            <span aria-hidden="true">→</span>
           </button>
           ${project.links && project.links.github ? `
-            <a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View repository on GitHub">
+            <a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View source code on GitHub for ${escapeHtml(project.title)}">
               <span>GitHub</span>
+            </a>
+          ` : ''}
+          ${project.links && project.links.demo ? `
+            <a href="${escapeHtml(project.links.demo)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Open live demonstration for ${escapeHtml(project.title)}">
+              <span>Live Demo</span>
             </a>
           ` : ''}
         </div>
@@ -110,20 +169,22 @@ function initProjectCards(filterCategory = 'all') {
   container.querySelectorAll('.view-details-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-project-id');
+      lastActiveElement = btn;
       openProjectModal(id);
     });
   });
 }
 
-/**
- * Handle project category filtering
- */
 function initProjectFiltering() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       const category = btn.getAttribute('data-filter') || 'all';
       initProjectCards(category);
     });
@@ -136,9 +197,6 @@ function initProjectFiltering() {
  * ============================================================================
  */
 
-/**
- * Open project details modal with complete 10-point technical case study
- */
 function openProjectModal(projectId) {
   if (!window.projectsData) return;
   const project = window.projectsData.find(p => p.id === projectId);
@@ -163,8 +221,8 @@ function openProjectModal(projectId) {
 
   const challengesList = (project.details.challenges || []).map(c => `
     <div class="modal-challenge-card">
-      <div class="modal-challenge-title">⚠️ Challenge: ${escapeHtml(c.challenge)}</div>
-      <div class="modal-challenge-mitigation">✓ Mitigation: ${escapeHtml(c.mitigation)}</div>
+      <div class="modal-challenge-title"><span aria-hidden="true">⚠️</span> Challenge: ${escapeHtml(c.challenge)}</div>
+      <div class="modal-challenge-mitigation"><span aria-hidden="true">✓</span> Mitigation: ${escapeHtml(c.mitigation)}</div>
     </div>
   `).join('');
 
@@ -183,14 +241,24 @@ function openProjectModal(projectId) {
     <div class="modal-case-header">
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 8px;">
         <span class="project-meta-category">${escapeHtml(project.categoryLabel)}</span>
-        <span class="project-status-badge ${statusClass}">${escapeHtml(project.status)}</span>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <span class="project-status-badge ${statusClass}">${escapeHtml(project.status)}</span>
+          ${project.outcome ? `<span class="project-outcome-pill">${escapeHtml(project.outcome)}</span>` : ''}
+        </div>
       </div>
-      <h2 style="font-size: 1.85rem; margin-bottom: 6px; line-height: 1.2;">${escapeHtml(project.title)}</h2>
+      <h2 id="modal-project-title" style="font-size: 1.85rem; margin-bottom: 6px; line-height: 1.2;">${escapeHtml(project.title)}</h2>
       <div style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.98rem; margin-bottom: 14px;">${escapeHtml(project.subtitle)}</div>
       
+      ${project.plainSummary ? `
+        <div class="modal-plain-summary" style="margin-bottom: 16px;">
+          <strong style="color: var(--accent-green); font-family: var(--font-mono); font-size: 0.85rem; display: block; margin-bottom: 4px;">In Plain English:</strong>
+          <p style="font-size: 0.95rem; color: var(--text-primary); line-height: 1.6;">${escapeHtml(project.plainSummary)}</p>
+        </div>
+      ` : ''}
+
       ${project.details.disclaimer ? `
         <div class="modal-disclaimer-badge">
-          🛡 ${escapeHtml(project.details.disclaimer)}
+          <span aria-hidden="true">🛡</span> ${escapeHtml(project.details.disclaimer)}
         </div>
       ` : ''}
     </div>
@@ -203,7 +271,7 @@ function openProjectModal(projectId) {
       </div>
     ` : ''}
 
-    <!-- 2. Problem / Purpose & Engineering Solution -->
+    <!-- 2. Problem & Engineering Solution -->
     <div>
       <h3 class="modal-section-title">2. Problem &amp; Engineering Solution</h3>
       <p class="modal-text" style="margin-bottom: 12px;"><strong>Problem / Purpose:</strong> ${escapeHtml(project.details.problem)}</p>
@@ -258,7 +326,7 @@ function openProjectModal(projectId) {
     <!-- 9. Current Status & Future Improvements -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
       <div style="background: var(--bg-surface); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-green); text-transform: uppercase;">9. Current Status</div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-green); text-transform: uppercase;">9. Current Status / Outcome</div>
         <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 6px;">${escapeHtml(project.details.currentStatus)}</p>
       </div>
       <div style="background: var(--bg-surface); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
@@ -271,12 +339,20 @@ function openProjectModal(projectId) {
     ${project.links ? `
       <div style="padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
         <span style="font-size: 0.86rem; color: var(--text-muted); font-family: var(--font-mono);">${escapeHtml(project.links.note || '')}</span>
-        ${project.links.github ? `
-          <a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-            <span>${escapeHtml(project.links.githubLabel || 'View Project Repository')}</span>
-            <span>↗</span>
-          </a>
-        ` : ''}
+        <div style="display: flex; gap: 10px;">
+          ${project.links.github ? `
+            <a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <span>View Repository</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          ` : ''}
+          ${project.links.demo ? `
+            <a href="${escapeHtml(project.links.demo)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <span>View Demo</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          ` : ''}
+        </div>
       </div>
     ` : ''}
   `;
@@ -289,16 +365,18 @@ function openProjectModal(projectId) {
   if (closeBtn) closeBtn.focus();
 }
 
-/**
- * Close project details modal
- */
 function closeProjectModal() {
   const modalOverlay = document.getElementById('project-modal');
-  if (!modalOverlay) return;
+  if (!modalOverlay || !modalOverlay.classList.contains('open')) return;
 
   modalOverlay.classList.remove('open');
   modalOverlay.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+
+  if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+    lastActiveElement.focus();
+    lastActiveElement = null;
+  }
 }
 
 /**
@@ -311,82 +389,50 @@ let currentPhotoIndex = 0;
 let galleryPhotoList = [];
 
 function initPhotoGalleryAndLightbox() {
-  // Collect all photos from personalPhotos configuration
   if (window.personalPhotos && Array.isArray(window.personalPhotos)) {
     galleryPhotoList = window.personalPhotos;
-  } else {
-    galleryPhotoList = [
-      {
-        id: "profile-main",
-        src: "images/profile/yash-profile.webp",
-        alt: "Yash Srivastava",
-        title: "Yash Srivastava — Profile Portrait",
-        caption: ""
-      },
-      {
-        id: "photo-01",
-        src: "images/snapshots-engineering-lab/Workstation & Embedded Lab.webp",
-        alt: "Workstation & Embedded Lab",
-        title: "Workstation & Embedded Lab",
-        caption: ""
-      },
-      {
-        id: "photo-02",
-        src: "images/ucertify/uCertify — Ingest Role.webp",
-        alt: "uCertify — Ingest Role",
-        title: "uCertify — Ingest Role",
-        caption: ""
-      },
-      {
-        id: "photo-03",
-        src: "images/snapshots-engineering-lab/Medical Device GUI Testing.webp",
-        alt: "Medical Device GUI Testing",
-        title: "Medical Device GUI Testing",
-        caption: ""
-      },
-      {
-        id: "photo-04",
-        src: "images/snapshots-engineering-lab/Sensor & Hardware Engineering.webp",
-        alt: "Sensor & Hardware Engineering",
-        title: "Sensor & Hardware Engineering",
-        caption: ""
-      }
-    ];
   }
 
-  // Bind click on main profile photo to open lightbox
+  // Profile photo trigger
   const profilePhotoCard = document.getElementById('main-profile-photo-card');
   if (profilePhotoCard) {
-    profilePhotoCard.addEventListener('click', () => {
+    const handleProfileOpen = () => {
+      lastActiveElement = profilePhotoCard;
       openLightbox(0);
+    };
+    profilePhotoCard.addEventListener('click', handleProfileOpen);
+    profilePhotoCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleProfileOpen();
+      }
     });
-    profilePhotoCard.style.cursor = 'pointer';
   }
 
-  // Bind click on hero profile photo as well
-  const heroPhotoImg = document.getElementById('hero-profile-photo');
-  if (heroPhotoImg) {
-    heroPhotoImg.addEventListener('click', () => {
-      openLightbox(0);
-    });
-    heroPhotoImg.style.cursor = 'pointer';
-  }
-
-  // Bind clicks on gallery cards
+  // Gallery cards
   const galleryCards = document.querySelectorAll('.personal-gallery-card');
   galleryCards.forEach(card => {
-    card.addEventListener('click', () => {
+    const handleCardOpen = () => {
       const idx = parseInt(card.getAttribute('data-index'), 10);
       if (!isNaN(idx)) {
+        lastActiveElement = card;
         openLightbox(idx);
+      }
+    };
+    card.addEventListener('click', handleCardOpen);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleCardOpen();
       }
     });
   });
 
-  // Bind click on gallery header trigger badge ("Click to view in lightbox")
+  // Gallery header trigger badge
   const galleryTrigger = document.getElementById('gallery-lightbox-trigger');
   if (galleryTrigger) {
     galleryTrigger.addEventListener('click', () => {
+      lastActiveElement = galleryTrigger;
       openLightbox(1);
     });
   }
@@ -416,7 +462,6 @@ function initPhotoGalleryAndLightbox() {
       }
     });
 
-    // Touch swipe gesture support for mobile devices
     let touchStartX = 0;
     let touchEndX = 0;
     lightbox.addEventListener('touchstart', (e) => {
@@ -431,10 +476,8 @@ function initPhotoGalleryAndLightbox() {
     function handleSwipe() {
       const threshold = 50;
       if (touchEndX < touchStartX - threshold) {
-        // Swiped left -> next
         navigateLightbox(1);
       } else if (touchEndX > touchStartX + threshold) {
-        // Swiped right -> prev
         navigateLightbox(-1);
       }
     }
@@ -454,15 +497,23 @@ function openLightbox(index) {
   lightbox.classList.add('open');
   lightbox.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+
+  const closeBtn = document.getElementById('lightbox-close-btn');
+  if (closeBtn) closeBtn.focus();
 }
 
 function closeLightbox() {
   const lightbox = document.getElementById('photo-lightbox');
-  if (!lightbox) return;
+  if (!lightbox || !lightbox.classList.contains('open')) return;
 
   lightbox.classList.remove('open');
   lightbox.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+
+  if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+    lastActiveElement.focus();
+    lastActiveElement = null;
+  }
 }
 
 function navigateLightbox(direction) {
@@ -477,7 +528,6 @@ function updateLightboxContent() {
 
   const imgEl = document.getElementById('lightbox-img');
   const titleEl = document.getElementById('lightbox-title');
-  const captionEl = document.getElementById('lightbox-caption');
   const counterEl = document.getElementById('lightbox-counter');
 
   if (imgEl) {
@@ -486,12 +536,7 @@ function updateLightboxContent() {
   }
 
   if (titleEl) {
-    titleEl.textContent = photo.title || 'Personal Photography';
-  }
-
-  if (captionEl) {
-    captionEl.textContent = '';
-    captionEl.style.display = 'none';
+    titleEl.textContent = photo.title || 'Photograph';
   }
 
   if (counterEl) {
@@ -505,36 +550,54 @@ function updateLightboxContent() {
  * ============================================================================
  */
 function initModalHandlers() {
-  const modalOverlay = document.getElementById('project-modal');
+  const projectModal = document.getElementById('project-modal');
   const closeBtn = document.getElementById('modal-close-btn');
 
   if (closeBtn) {
     closeBtn.addEventListener('click', closeProjectModal);
   }
 
-  if (modalOverlay) {
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) {
+  if (projectModal) {
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
         closeProjectModal();
       }
     });
   }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeProjectModal();
-      closeLightbox();
-      closeResumeModal();
-      closeWhatsAppModal();
-    } else if (e.key === 'ArrowLeft') {
-      const lightbox = document.getElementById('photo-lightbox');
-      if (lightbox && lightbox.classList.contains('open')) {
-        navigateLightbox(-1);
+    // Focus traps
+    if (projectModal && projectModal.classList.contains('open')) {
+      if (e.key === 'Tab') {
+        trapFocusInDialog(e, projectModal);
+      } else if (e.key === 'Escape') {
+        closeProjectModal();
       }
-    } else if (e.key === 'ArrowRight') {
-      const lightbox = document.getElementById('photo-lightbox');
-      if (lightbox && lightbox.classList.contains('open')) {
+      return;
+    }
+
+    const lightbox = document.getElementById('photo-lightbox');
+    if (lightbox && lightbox.classList.contains('open')) {
+      if (e.key === 'Tab') {
+        trapFocusInDialog(e, lightbox);
+      } else if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        navigateLightbox(-1);
+      } else if (e.key === 'ArrowRight') {
         navigateLightbox(1);
+      }
+      return;
+    }
+
+    // Escape closes mobile nav if open
+    const navLinks = document.getElementById('nav-links');
+    const menuToggle = document.getElementById('menu-toggle');
+    if (navLinks && navLinks.classList.contains('open') && e.key === 'Escape') {
+      navLinks.classList.remove('open');
+      if (menuToggle) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.focus();
       }
     }
   });
@@ -542,29 +605,60 @@ function initModalHandlers() {
 
 /**
  * ============================================================================
- * ARCHITECTURE DIAGRAMS TAB SWITCHER (3 TABS)
+ * ARCHITECTURE DIAGRAMS TAB SWITCHER (with ARIA Keyboard Navigation)
  * ============================================================================
  */
 function initArchitectureTabs() {
+  const tabList = document.querySelector('[role="tablist"]');
   const tabs = document.querySelectorAll('.arch-tab-btn');
   const showcases = document.querySelectorAll('.arch-showcase');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-arch-target');
+  function activateTab(tab) {
+    const target = tab.getAttribute('data-arch-target') || tab.getAttribute('aria-controls');
 
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      showcases.forEach(s => {
-        if (s.id === target) {
-          s.style.display = 'block';
-        } else {
-          s.style.display = 'none';
-        }
-      });
+    tabs.forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
     });
+
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
+    tab.focus();
+
+    showcases.forEach(s => {
+      if (s.id === target) {
+        s.style.display = 'block';
+        s.removeAttribute('hidden');
+      } else {
+        s.style.display = 'none';
+        s.setAttribute('hidden', '');
+      }
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab));
   });
+
+  if (tabList) {
+    tabList.addEventListener('keydown', (e) => {
+      const tabArray = Array.from(tabs);
+      const currentIndex = tabArray.indexOf(document.activeElement);
+      if (currentIndex === -1) return;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        const nextIndex = (currentIndex + 1) % tabArray.length;
+        activateTab(tabArray[nextIndex]);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prevIndex = (currentIndex - 1 + tabArray.length) % tabArray.length;
+        activateTab(tabArray[prevIndex]);
+      }
+    });
+  }
 }
 
 /**
@@ -578,6 +672,7 @@ function initNavigation() {
   const links = document.querySelectorAll('.nav-link');
 
   if (menuToggle && navLinks) {
+    menuToggle.setAttribute('aria-controls', 'nav-links');
     menuToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', isOpen.toString());
@@ -586,14 +681,13 @@ function initNavigation() {
 
   links.forEach(link => {
     link.addEventListener('click', () => {
-      if (navLinks) {
+      if (navLinks && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
         if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
       }
     });
   });
 
-  // IntersectionObserver for scroll spy active navigation item
   const sections = document.querySelectorAll('section[id]');
   if ('IntersectionObserver' in window && sections.length > 0) {
     const observer = new IntersectionObserver((entries) => {
@@ -617,24 +711,9 @@ function initNavigation() {
 
 /**
  * ============================================================================
- * CONTACT FORM — Production Static-Form Integration
+ * CONTACT FORM — Client-side Form Integration
  * ============================================================================
- * Sends inquiries directly to yashsrivastava2894@gmail.com using Web3Forms.
- * Features:
- * - Client-side validation (Name, Email format, Message length)
- * - Temporary button disabling with "Sending Message..." state
- * - Asynchronous JSON fetch dispatch (zero page reload, no mailto client popups)
- * - Honeypot anti-spam botcheck
- * - Dynamic subject line: "Portfolio Inquiry from [Visitor Name]"
- * - Structured email payload identifying visitor name, email, and message
- * - Inline status reporting (success/error banners)
- * - Form reset on success & complete user input preservation on failure
  */
-
-// Web3Forms Public Access Key Configuration
-// You can enter your access key here or in Index.html (#web3forms-access-key).
-// To generate your key, visit https://web3forms.com and enter: yashsrivastava2894@gmail.com
-const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
 const RECIPIENT_EMAIL = 'yashsrivastava2894@gmail.com';
 
 function initContactForm() {
@@ -647,14 +726,12 @@ function initContactForm() {
   const messageInput = document.getElementById('contact-message');
   const submitBtn = form.querySelector('button[type="submit"]');
 
-  // Helper to show inline status banner
   function showStatus(messageHtml, statusType) {
     statusMsg.style.display = 'block';
     statusMsg.className = `form-status-msg ${statusType}`;
     statusMsg.innerHTML = messageHtml;
   }
 
-  // Clear error status banner when visitor starts typing again
   [nameInput, emailInput, messageInput].forEach(input => {
     if (input) {
       input.addEventListener('input', () => {
@@ -668,18 +745,16 @@ function initContactForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // 1. Read input values
     const name = nameInput ? nameInput.value.trim() : '';
     const email = emailInput ? emailInput.value.trim() : '';
     const message = messageInput ? messageInput.value.trim() : '';
 
-    // 2. Spam Honeypot Check (Silently reject bot submissions)
     const botcheckInput = form.querySelector('input[name="botcheck"]');
     if (botcheckInput && botcheckInput.checked) {
+      // Honeypot caught automated bot
       return;
     }
 
-    // 3. Validation
     if (!name) {
       showStatus('Please enter your full name.', 'error');
       nameInput?.focus();
@@ -700,38 +775,34 @@ function initContactForm() {
     }
 
     if (!message || message.length < 5) {
-      showStatus('Please provide message details (minimum 5 characters).', 'error');
+      showStatus('Please enter your message (minimum 5 characters).', 'error');
       messageInput?.focus();
       return;
     }
 
-    // 4. Resolve Access Key
     const htmlKeyInput = document.getElementById('web3forms-access-key');
-    const accessKey = (htmlKeyInput && htmlKeyInput.value.trim() && htmlKeyInput.value.trim() !== 'YOUR_ACCESS_KEY_HERE')
-      ? htmlKeyInput.value.trim()
-      : (WEB3FORMS_ACCESS_KEY !== 'YOUR_ACCESS_KEY_HERE' ? WEB3FORMS_ACCESS_KEY : '');
+    const accessKey = htmlKeyInput ? htmlKeyInput.value.trim() : '';
 
-    // 5. Update UI to Sending State
-    const originalBtnContent = submitBtn ? submitBtn.innerHTML : '<span>Transmit Message</span> <span>✉</span>';
+    const originalBtnContent = submitBtn ? submitBtn.innerHTML : '<span>Send Message</span> <span aria-hidden="true">✉</span>';
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Sending Message...</span> <span>⏳</span>`;
+      submitBtn.innerHTML = `<span>Sending Message...</span> <span aria-hidden="true">⏳</span>`;
     }
-    showStatus('Transmitting your message securely...', 'loading');
+    showStatus('Sending your message...', 'loading');
 
     try {
       if (!accessKey) {
-        throw new Error('Web3Forms Access Key is not configured yet. Please add your key in index.html or assets/js/app.js.');
+        throw new Error('Contact form routing is not configured.');
       }
 
-      // Structure email according to requirements
       const payload = {
         access_key: accessKey,
         name: name,
         email: email,
         message: message,
         subject: `Portfolio Inquiry from ${name}`,
-        from_name: name
+        from_name: name,
+        botcheck: botcheckInput ? botcheckInput.value : ""
       };
 
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -746,10 +817,9 @@ function initContactForm() {
       const data = await response.json().catch(() => null);
 
       if (response.ok && data && (data.success || data.status === 200)) {
-        // Success: Reset form inputs, present success message, restore button
         form.reset();
         showStatus(
-          `✓ Thank you, <strong>${escapeHtml(name)}</strong>! Your message was transmitted successfully to <strong>${escapeHtml(RECIPIENT_EMAIL)}</strong>. I will get back to you shortly at <strong>${escapeHtml(email)}</strong>.`,
+          `✓ Thank you, <strong>${escapeHtml(name)}</strong>! Your message was sent successfully. I will get back to you shortly at <strong>${escapeHtml(email)}</strong>.`,
           'success'
         );
       } else {
@@ -758,9 +828,8 @@ function initContactForm() {
       }
     } catch (err) {
       console.error('Contact Form Transmission Error:', err);
-      // Failure: Display clear error message, PRESERVE entered data (do not reset form), allow retry
       showStatus(
-        `✕ Transmission could not be completed: ${escapeHtml(err.message || 'Network error')}.<br>Your message has been preserved below. You can try again or email directly to <a href="mailto:${escapeHtml(RECIPIENT_EMAIL)}" style="color: var(--accent-green); text-decoration: underline;">${escapeHtml(RECIPIENT_EMAIL)}</a>.`,
+        `✕ Message could not be sent: ${escapeHtml(err.message || 'Network error')}.<br>Your message has been preserved below. You can try again or email directly to <a href="mailto:${escapeHtml(RECIPIENT_EMAIL)}" style="color: var(--accent-green); text-decoration: underline;">${escapeHtml(RECIPIENT_EMAIL)}</a>.`,
         'error'
       );
     } finally {
@@ -772,83 +841,6 @@ function initContactForm() {
   });
 }
 
-/**
- * ============================================================================
- * RESUME MODAL HANDLER
- * ============================================================================
- */
-function initResumeModal() {
-  const openResumeBtn = document.getElementById('open-resume-viewer-btn');
-  const resumeModal = document.getElementById('resume-modal');
-  const closeResumeBtn = document.getElementById('resume-modal-close-btn');
-
-  if (openResumeBtn && resumeModal) {
-    openResumeBtn.addEventListener('click', () => {
-      resumeModal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  }
-
-  if (closeResumeBtn && resumeModal) {
-    closeResumeBtn.addEventListener('click', closeResumeModal);
-  }
-
-  if (resumeModal) {
-    resumeModal.addEventListener('click', (e) => {
-      if (e.target === resumeModal) {
-        closeResumeModal();
-      }
-    });
-  }
-}
-
-function closeResumeModal() {
-  const resumeModal = document.getElementById('resume-modal');
-  if (!resumeModal) return;
-  resumeModal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-/**
- * ============================================================================
- * WHATSAPP MODAL HANDLER
- * ============================================================================
- */
-function initWhatsAppModal() {
-  const openBtn = document.getElementById('open-whatsapp-modal-btn');
-  const modal = document.getElementById('whatsapp-modal');
-  const closeBtn = document.getElementById('whatsapp-modal-close-btn');
-
-  if (openBtn && modal) {
-    openBtn.addEventListener('click', () => {
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  }
-
-  if (closeBtn && modal) {
-    closeBtn.addEventListener('click', closeWhatsAppModal);
-  }
-
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeWhatsAppModal();
-      }
-    });
-  }
-}
-
-function closeWhatsAppModal() {
-  const modal = document.getElementById('whatsapp-modal');
-  if (!modal) return;
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-/**
- * Basic XSS protection utility
- */
 function escapeHtml(str) {
   if (typeof str !== 'string') return '';
   return str
