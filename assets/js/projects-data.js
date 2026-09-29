@@ -80,7 +80,7 @@ const projectsData = [
     cardTheme: "tecar",
     visualCues: {
       type: "tecar",
-      badge: "⚡ RF & SENSOR INTERFACE",
+      badge: "RF & SENSOR INTERFACE",
       icon: "⚡"
     },
     plainSummary: "A touch-screen control application for physical therapy equipment running on a Raspberry Pi, allowing clinicians to set therapy parameters, monitor live sensor feedback, and enforce safety cutoffs.",
@@ -185,7 +185,7 @@ Safety Monitoring (GPIO Footswitch Listener & Acoustic Feedback)`
     cardTheme: "laser",
     visualCues: {
       type: "laser",
-      badge: "🔆 LASER KIOSK & PROTOCOLS",
+      badge: "LASER KIOSK & PROTOCOLS",
       icon: "🔆"
     },
     plainSummary: "A dedicated full-screen touchscreen kiosk application running on Raspberry Pi for operating clinical laser therapy equipment, featuring clinician PIN authorization, treatment protocol libraries, and session auditing.",
@@ -290,7 +290,7 @@ Session History & Audit Trail (SQLite Treatment Database)`
     cardTheme: "enterprise",
     visualCues: {
       type: "enterprise",
-      badge: "🏢 ENTERPRISE ORM & QR",
+      badge: "ENTERPRISE ORM & QR",
       icon: "🏢"
     },
     plainSummary: "A web-based internal management platform built with Python and Django to centralize warehouse stock levels, track components using serial and QR codes, and coordinate quality inspections across departments.",
@@ -381,7 +381,7 @@ Audit Logs & Dynamic Reporting`
     cardTheme: "volant",
     visualCues: {
       type: "volant",
-      badge: "🌐 MEDICAL CATALOG",
+      badge: "MEDICAL CATALOG",
       icon: "🌐"
     },
     plainSummary: "A clean product showcase and technical catalog website for a medical equipment provider, organizing clinical physiotherapy devices into structured categories with responsive WebP visuals.",
@@ -465,7 +465,7 @@ Inquiry & Location Integration`
     cardTheme: "cv",
     visualCues: {
       type: "cv",
-      badge: "👁 OPENCV & OCR",
+      badge: "OPENCV & OCR",
       icon: "👁"
     },
     plainSummary: "A collection of practical computer vision and text recognition modules built with Python and OpenCV for facial feature detection, edge processing, and document text extraction.",

@@ -130,7 +130,6 @@ function initProjectCards(filterCategory = 'all') {
       <div class="project-card-header">
         <div class="project-card-status-wrapper">
           <span class="project-status-badge ${statusClass}">${escapeHtml(project.status)}</span>
-          ${outcomeBadge}
         </div>
         ${visualCueHtml}
         <div class="project-meta-category" title="${escapeHtml(project.categoryLabel)}">${escapeHtml(project.categoryLabel)}</div>
@@ -243,7 +242,7 @@ function openProjectModal(projectId) {
         <span class="project-meta-category">${escapeHtml(project.categoryLabel)}</span>
         <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
           <span class="project-status-badge ${statusClass}">${escapeHtml(project.status)}</span>
-          ${project.outcome ? `<span class="project-outcome-pill">${escapeHtml(project.outcome)}</span>` : ''}
+          ${(project.outcome && project.outcome.trim().toLowerCase() !== project.status.trim().toLowerCase()) ? `<span class="project-outcome-pill">${escapeHtml(project.outcome)}</span>` : ''}
         </div>
       </div>
       <h2 id="modal-project-title" style="font-size: 1.85rem; margin-bottom: 6px; line-height: 1.2;">${escapeHtml(project.title)}</h2>
