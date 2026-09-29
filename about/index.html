@@ -55,7 +55,7 @@
       <nav aria-label="Main Navigation">
         <ul class="nav-links" id="nav-links">
           <li><a href="../index.html" class="nav-link">Home</a></li>
-          <li><a href="../about/" class="nav-link active">About</a></li>
+          <li><a href="index.html" class="nav-link active">About</a></li>
           <li><a href="../skills/" class="nav-link">Skills</a></li>
           <li><a href="../projects/" class="nav-link">Projects</a></li>
           <li><a href="../experience/" class="nav-link">Experience</a></li>
@@ -113,163 +113,261 @@
           <span class="separator">/</span>
           <span class="current" aria-current="page">About</span>
         </nav>
-        <span class="section-tag">// Professional Profile</span>
-        <h1 class="section-title">About <span class="text-gradient">Yash Srivastava</span></h1>
+        <span class="section-tag">// Behind the Code</span>
+        <h1 class="section-title">Meet <span class="text-gradient">Yash Srivastava</span></h1>
         <p class="section-subtitle">
-          Software Engineer dedicated to building tactile user interfaces, embedded Linux deployments, and solid technical foundations.
+          Software engineer building practical systems across Python, desktop GUIs, embedded hardware, and enterprise applications.
         </p>
       </div>
     </section>
 
-    <!-- Detailed Background & Portrait -->
-    <section style="padding: 70px 0;">
+    <!-- Solo Profile Photo & Identity Terminal Presentation -->
+    <section class="meet-yash-section" style="padding-top: 20px;">
       <div class="container">
-        <div class="about-grid" style="display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: start;">
-          
-          <!-- Left Column: Portrait & Highlights -->
-          <div style="display: flex; flex-direction: column; gap: 24px;">
-            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; padding: 16px; text-align: center;">
-              <img src="../images/profile/yash-profile.webp" alt="Yash Srivastava portrait photograph" style="border-radius: var(--radius-sm); width: 100%; height: auto; max-height: 400px; object-fit: cover;" width="400" height="480">
-              <div style="margin-top: 16px; text-align: left;">
-                <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-highlight);">Yash Srivastava</h2>
-                <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); margin-bottom: 8px;">Software Engineer</p>
-                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Ghaziabad, Uttar Pradesh, India</p>
+        
+        <div class="meet-yash-profile-grid">
+          <!-- Left Column: Portrait Card with HUD Brackets -->
+          <div class="profile-photo-column">
+            <div class="profile-photo-card" id="main-profile-photo-card" role="button" tabindex="0" aria-label="View Yash Srivastava portrait in fullscreen lightbox" title="Click to open portrait in lightbox">
+              <div class="profile-photo-wrapper">
+                <div class="corner-bracket cb-tl" aria-hidden="true"></div>
+                <div class="corner-bracket cb-tr" aria-hidden="true"></div>
+                <div class="corner-bracket cb-bl" aria-hidden="true"></div>
+                <div class="corner-bracket cb-br" aria-hidden="true"></div>
+                <img src="../images/profile/yash-profile.webp" onerror="if(this.src.indexOf('.webp')!==-1){this.src='../images/profile/yash-profile.png';}" alt="Yash Srivastava portrait photograph" class="profile-photo-img" width="340" height="510" loading="eager">
               </div>
-            </div>
-
-            <!-- Quick Specs Card -->
-            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px;">
-              <h3 style="font-size: 0.95rem; font-family: var(--font-mono); text-transform: uppercase; color: var(--text-highlight); margin-bottom: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">Quick Facts</h3>
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--text-secondary);">
-                <li><strong>Degree:</strong> B.Tech (2021&ndash;2025)</li>
-                <li><strong>Institution:</strong> UCER Prayagraj</li>
-                <li><strong>Primary Stack:</strong> Python, PyQt6, Linux</li>
-                <li><strong>Secondary:</strong> Django, SQLite, OpenCV</li>
-                <li><strong>Languages:</strong> English, Hindi</li>
-              </ul>
+              <div class="profile-photo-badge">
+                <span class="badge-status-dot" aria-hidden="true"></span>
+                <span>YASH SRIVASTAVA // SYSTEMS DEV</span>
+              </div>
             </div>
           </div>
 
-          <!-- Right Column: Narrative & Engineering Approach -->
-          <div style="display: flex; flex-direction: column; gap: 32px;">
-            <div>
-              <h2 style="font-size: 1.6rem; color: var(--text-highlight); margin-bottom: 16px;">The Intersection of Hardware and Code</h2>
-              <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 16px;">
-                I am a software engineer with a distinct passion for physical systems. While many developers focus solely on browser-based software, I have dedicated substantial time to understanding how software interacts with actual microcontrollers, sensors, analog-to-digital converters, and industrial touchscreens.
-              </p>
-              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 16px;">
-                At <strong>Curves and Contours LLP</strong>, I engineer full-screen graphical applications in PyQt6 that run on Raspberry Pi Compute Modules inside physical medical therapy units. These machines require high-contrast clinical themes, touch keypad validation, safety cutoff monitoring, and continuous systemd service automation so the device operates as a trustworthy dedicated appliance.
-              </p>
-              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
-                Previously, at <strong>uCertify</strong>, I participated in structured technical content ingestion pipelines, verifying digital educational courseware against strict validation criteria. During an internship at <strong>Hindustan Aeronautics Limited (HAL)</strong> in Kanpur, I analyzed aircraft instrumentation, avionics communication architectures, and explored applied computer vision.
-              </p>
+          <!-- Right Column: Personal Narrative & Terminal Identity -->
+          <div class="profile-narrative-column">
+            <h2 class="narrative-heading">
+              Practical Engineering Across Hardware &amp; Software
+            </h2>
+            
+            <p class="narrative-lead">
+              I am a Software Engineer based in Ghaziabad, Uttar Pradesh, specializing in Python application development, embedded Linux platforms (Raspberry Pi), and touch-first desktop user interfaces.
+            </p>
+
+            <p class="narrative-body">
+              My engineering work is rooted in practical execution: writing asynchronous sensor acquisition loops over I2C/SPI buses, building touch-optimized PyQt6 clinical control panels, configuring hardened Linux kiosk environments with systemd daemons, and developing multi-tier Django inventory systems.
+            </p>
+
+            <div class="key-focus-areas">
+              <div class="focus-title">Primary Engineering Focus:</div>
+              <div class="focus-pills">
+                <span class="focus-pill">Python 3</span>
+                <span class="focus-pill">PyQt6 / Desktop GUIs</span>
+                <span class="focus-pill">Raspberry Pi (CM5 / 4)</span>
+                <span class="focus-pill">Django &amp; Relational ORM</span>
+                <span class="focus-pill">I2C / SPI Sensor Buses</span>
+                <span class="focus-pill">Embedded Linux (systemd)</span>
+              </div>
             </div>
 
-            <!-- Engineering Philosophy -->
-            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent); border-radius: var(--radius-md); padding: 28px;">
-              <h3 style="font-size: 1.2rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 12px;">Engineering Philosophy</h3>
-              <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 12px;">
-                <strong>1. Resilience over Hype:</strong> I prioritize predictable error boundaries, defensive parameter validation, and robust system recovery over fragile bleeding-edge frameworks.
-              </p>
-              <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 12px;">
-                <strong>2. The Appliance Experience:</strong> When software runs on a dedicated kiosk or embedded display, it must feel like an appliance—no visible operating system crashes, no accidental minimize shortcuts, and clean boot-up directly into the workflow.
-              </p>
-              <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary);">
-                <strong>3. Transparent Attribution:</strong> I communicate exactly what I built, the challenges faced, and the real hardware constraints involved, avoiding inflated or fabricated claims.
-              </p>
-            </div>
-
-            <!-- Areas of Interest -->
-            <div>
-              <h3 style="font-size: 1.3rem; color: var(--text-highlight); margin-bottom: 16px;">Areas of Deep Technical Interest</h3>
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
-                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
-                  <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); margin-bottom: 6px;">Embedded Linux Kiosks</h4>
-                  <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Building tamper-resistant, full-screen graphical applications using PyQt6, X11/Wayland kiosk shells, and systemd services.</p>
+            <!-- Personal Identity Card ($ whoami) -->
+            <div class="identity-terminal-card">
+              <div class="identity-terminal-header">
+                <div class="terminal-dots" aria-hidden="true">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
                 </div>
-                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
-                  <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); margin-bottom: 6px;">Sensor Bus Telemetry</h4>
-                  <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">I2C and SPI peripheral communication, ADS1115 ADC data sampling, and thermal safety interlock logic.</p>
+                <div>whoami --profile</div>
+                <div style="color: var(--accent-green);">ONLINE</div>
+              </div>
+              <div class="identity-terminal-body">
+                <div class="terminal-prompt-line">
+                  <span aria-hidden="true">$</span>
+                  <span>whoami</span>
                 </div>
-                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
-                  <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); margin-bottom: 6px;">Edge AI &amp; Vision</h4>
-                  <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Exploring lightweight computer vision models with OpenCV and OCR algorithms optimized for single-board computers.</p>
+                <div class="identity-row">
+                  <span class="identity-key">NAME</span>
+                  <span class="identity-val highlight-green">: Yash Srivastava</span>
+                </div>
+                <div class="identity-row">
+                  <span class="identity-key">ROLE</span>
+                  <span class="identity-val">: Software Engineer</span>
+                </div>
+                <div class="identity-row">
+                  <span class="identity-key">FOCUS</span>
+                  <span class="identity-val highlight-cyan">: Python / PyQt6 / Django</span>
+                </div>
+                <div class="identity-row">
+                  <span class="identity-key">SYSTEMS</span>
+                  <span class="identity-val">: Raspberry Pi / Embedded Linux</span>
+                </div>
+                <div class="identity-row">
+                  <span class="identity-key">LOCATION</span>
+                  <span class="identity-val">: Ghaziabad, Uttar Pradesh, India</span>
+                </div>
+                <div class="identity-row">
+                  <span class="identity-key">STATUS</span>
+                  <span class="identity-val highlight-green">: Available for Opportunities</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Snapshots & Engineering Lab Photo Gallery -->
+        <div class="personal-gallery-section" style="margin-top: 60px;">
+          <div class="gallery-section-header">
+            <div>
+              <h3 class="gallery-section-title">
+                <span aria-hidden="true">&#128248;</span>
+                <span>Snapshots &amp; Engineering Lab</span>
+              </h3>
+              <p class="gallery-section-subtitle">// Workbenches, collaborative sessions &amp; embedded hardware testing</p>
+            </div>
+            <button type="button" class="gallery-lightbox-btn" id="gallery-lightbox-trigger" aria-label="Open Snapshots &amp; Engineering Lab in fullscreen lightbox" title="Click to view Snapshots in lightbox">
+              <span>Click to view in lightbox</span>
+              <span aria-hidden="true">&#128269;</span>
+            </button>
+          </div>
+
+          <div class="personal-gallery-grid">
+            <!-- Gallery Card 01 -->
+            <button type="button" class="personal-gallery-card" data-index="1" aria-label="View Workstation and Embedded Lab photograph in lightbox">
+              <div class="gallery-card-media">
+                <img src="../images/snapshots-engineering-lab/workstation-embedded-lab.webp" srcset="../images/snapshots-engineering-lab/workstation-embedded-lab-800.webp 800w, ../images/snapshots-engineering-lab/workstation-embedded-lab.webp 1600w" sizes="(max-width: 768px) 100vw, 400px" alt="Electronics workbench with circuit boards, testing meters, and development terminal" class="gallery-card-img" width="800" height="800" loading="lazy">
+                <div class="gallery-card-overlay">
+                  <div class="gallery-expand-icon" aria-hidden="true">&#128269;</div>
+                </div>
+              </div>
+              <div class="gallery-card-footer">
+                <div class="gallery-card-title">Workstation &amp; Embedded Lab</div>
+              </div>
+            </button>
+
+            <!-- Gallery Card 02 -->
+            <button type="button" class="personal-gallery-card" data-index="2" aria-label="View uCertify Ingest Role team photograph in lightbox">
+              <div class="gallery-card-media">
+                <img src="../images/snapshots-engineering-lab/ucertify-ingest-role.webp" srcset="../images/snapshots-engineering-lab/ucertify-ingest-role-800.webp 800w, ../images/snapshots-engineering-lab/ucertify-ingest-role.webp 1600w" sizes="(max-width: 768px) 100vw, 400px" alt="Team members at uCertify office collaborating on content ingestion operations" class="gallery-card-img" width="800" height="764" loading="lazy">
+                <div class="gallery-card-overlay">
+                  <div class="gallery-expand-icon" aria-hidden="true">&#128269;</div>
+                </div>
+              </div>
+              <div class="gallery-card-footer">
+                <div class="gallery-card-title">uCertify &mdash; Ingest Role</div>
+              </div>
+            </button>
+
+            <!-- Gallery Card 03 -->
+            <button type="button" class="personal-gallery-card" data-index="3" aria-label="View Medical Device GUI Testing photograph in lightbox">
+              <div class="gallery-card-media">
+                <img src="../images/snapshots-engineering-lab/medical-device-gui-testing.webp" srcset="../images/snapshots-engineering-lab/medical-device-gui-testing-800.webp 800w, ../images/snapshots-engineering-lab/medical-device-gui-testing.webp 1600w" sizes="(max-width: 768px) 100vw, 400px" alt="Touchscreen display showing graphical interface during medical therapy software testing" class="gallery-card-img" width="800" height="450" loading="lazy">
+                <div class="gallery-card-overlay">
+                  <div class="gallery-expand-icon" aria-hidden="true">&#128269;</div>
+                </div>
+              </div>
+              <div class="gallery-card-footer">
+                <div class="gallery-card-title">Medical Device GUI Testing</div>
+              </div>
+            </button>
+
+            <!-- Gallery Card 04 -->
+            <button type="button" class="personal-gallery-card" data-index="4" aria-label="View Sensor and Hardware Engineering photograph in lightbox">
+              <div class="gallery-card-media">
+                <img src="../images/snapshots-engineering-lab/sensor-hardware-engineering.webp" srcset="../images/snapshots-engineering-lab/sensor-hardware-engineering-800.webp 800w, ../images/snapshots-engineering-lab/sensor-hardware-engineering.webp 1600w" sizes="(max-width: 768px) 100vw, 400px" alt="Sensor hardware prototyping breadboard with connected wiring and microcontroller modules" class="gallery-card-img" width="800" height="450" loading="lazy">
+                <div class="gallery-card-overlay">
+                  <div class="gallery-expand-icon" aria-hidden="true">&#128269;</div>
+                </div>
+              </div>
+              <div class="gallery-card-footer">
+                <div class="gallery-card-title">Sensor &amp; Hardware Engineering</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Facts Strip -->
+        <div class="quick-facts" style="margin-top: 48px;">
+          <div class="fact-card">
+            <span class="fact-icon" aria-hidden="true">&#127891;</span>
+            <div class="fact-title">B.Tech in Computer Science &amp; Engineering</div>
+            <div class="fact-desc">United College of Engineering and Research (UCER), Prayagraj (2021 &ndash; 2025)</div>
+          </div>
+          <div class="fact-card">
+            <span class="fact-icon" aria-hidden="true">&#128205;</span>
+            <div class="fact-title">Location &amp; Work Model</div>
+            <div class="fact-desc">Ghaziabad, Uttar Pradesh, India &bull; Open to On-Site, Hybrid, and Remote Roles</div>
+          </div>
+          <div class="fact-card">
+            <span class="fact-icon" aria-hidden="true">&#9889;</span>
+            <div class="fact-title">Systems Engineering Focus</div>
+            <div class="fact-desc">Python GUI design, I2C/SPI sensor acquisition, and Linux kiosk automation</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Lab & Workstation Snapshots Gallery -->
+    <!-- Engineering Philosophy Section -->
     <section style="padding: 70px 0; background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">// Engineering Gallery</span>
-          <h2 class="section-title">Snapshots from the <span class="text-gradient">Lab</span></h2>
-          <p class="section-subtitle">
-            Visual glimpses into development workstations, touchscreen GUI testing, and hardware test benches.
-          </p>
+      <div class="container" style="max-width: 900px;">
+        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+          <span class="section-tag">// Engineering Philosophy</span>
+          <h2 class="section-title">Core <span class="text-gradient">Principles</span></h2>
         </div>
 
-        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px;">
-          
-          <div class="gallery-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
-            <img src="../images/snapshots-engineering-lab/workstation-embedded-lab-800.webp" alt="Development workstation setup with test equipment and circuit testing" style="width: 100%; height: 220px; object-fit: cover;" width="800" height="450" loading="lazy">
-            <div style="padding: 16px;">
-              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-highlight); margin-bottom: 4px;">Workstation &amp; Embedded Lab</h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted);">Development workstation and hardware testing bench</p>
-            </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.15rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 8px;">1. Resilience Over Fragility</h3>
+            <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary);">
+              Medical electrotherapy and industrial control equipment cannot afford unhandled exceptions. I prioritize defensive programming, explicit error boundaries, non-blocking asynchronous threads, and predictable crash recovery loops.
+            </p>
           </div>
 
-          <div class="gallery-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
-            <img src="../images/snapshots-engineering-lab/medical-device-gui-testing-800.webp" alt="Touchscreen monitor testing medical device graphical user interface" style="width: 100%; height: 220px; object-fit: cover;" width="800" height="450" loading="lazy">
-            <div style="padding: 16px;">
-              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-highlight); margin-bottom: 4px;">Medical Device GUI Testing</h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted);">Evaluating touch response and clinical sensor feedback</p>
-            </div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.15rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 8px;">2. The Appliance Experience</h3>
+            <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary);">
+              When software powers a clinical touchscreen or embedded kiosk, it must feel like a dedicated appliance. The user should never see desktop minimize shortcuts, OS update prompts, or command-line windows—the device boots cleanly and runs seamlessly.
+            </p>
           </div>
 
-          <div class="gallery-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
-            <img src="../images/snapshots-engineering-lab/sensor-hardware-engineering-800.webp" alt="Circuit prototyping breadboard with connected sensors and wiring" style="width: 100%; height: 220px; object-fit: cover;" width="800" height="450" loading="lazy">
-            <div style="padding: 16px;">
-              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-highlight); margin-bottom: 4px;">Sensor &amp; Hardware Bench</h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted);">Prototyping ADC signal lines and sensor buses</p>
-            </div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.15rem; font-family: var(--font-mono); color: var(--text-highlight); margin-bottom: 8px;">3. Hardware-Aware Code</h3>
+            <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary);">
+              Writing software for physical devices requires understanding timing, serial buses (I2C/SPI), analog noise, contact resistance, and thermal constraints. Real-world engineering begins where software meets physical electronics.
+            </p>
           </div>
-
-          <div class="gallery-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
-            <img src="../images/snapshots-engineering-lab/ucertify-ingest-role-800.webp" alt="Office collaboration during technical content operations" style="width: 100%; height: 220px; object-fit: cover;" width="800" height="450" loading="lazy">
-            <div style="padding: 16px;">
-              <h4 style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-highlight); margin-bottom: 4px;">uCertify &mdash; Content Ingestion</h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted);">Structured content ingestion operations and team collaboration</p>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section style="padding: 60px 0; border-top: 1px solid var(--border-subtle); text-align: center;">
-      <div class="container" style="max-width: 600px;">
-        <h2 style="font-size: 1.5rem; color: var(--text-highlight); margin-bottom: 16px;">Want to see what I have built?</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem;">
-          Explore detailed architectural breakdowns and technical case studies across medical and enterprise projects.
-        </p>
-        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <div style="text-align: center; margin-top: 40px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
           <a href="../projects/" class="btn btn-primary">
-            <span>Explore Projects</span>
-            <span class="btn-arrow">&rarr;</span>
+            <span>Explore Engineering Projects</span>
+            <span aria-hidden="true">&rarr;</span>
           </a>
           <a href="../contact/" class="btn btn-secondary">
-            <span>Contact Yash</span>
+            <span>Get in Touch</span>
           </a>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Photo Lightbox Modal -->
+  <div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <div class="lightbox-dialog">
+      <div class="lightbox-header">
+        <div class="lightbox-header-info">
+          <span class="lightbox-counter" id="lightbox-counter">1 / 5</span>
+          <span class="lightbox-title" id="lightbox-title">Photograph</span>
+        </div>
+        <button type="button" class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Close Lightbox Dialog">&times;</button>
+      </div>
+      <div class="lightbox-body">
+        <button type="button" class="lightbox-nav-btn lightbox-nav-prev" id="lightbox-prev-btn" aria-label="Previous photograph">&lsaquo;</button>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Personal photograph" class="lightbox-img" id="lightbox-img">
+        <button type="button" class="lightbox-nav-btn lightbox-nav-next" id="lightbox-next-btn" aria-label="Next photograph">&rsaquo;</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Global Footer -->
   <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
@@ -288,7 +386,7 @@
         <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
           <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
-          <li><a href="../about/" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
+          <li><a href="index.html" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
           <li><a href="../skills/" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
           <li><a href="../projects/" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
           <li><a href="../experience/" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
@@ -313,6 +411,8 @@
     </div>
   </footer>
 
+  <script src="../assets/js/projects-data.js"></script>
   <script src="../assets/js/settings.js"></script>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>
