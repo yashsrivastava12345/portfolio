@@ -1961,17 +1961,22 @@ img {
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.architecture-tabs {
+.architecture-tabs,
+.arch-tabs-list {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: 16px;
-  margin-bottom: 36px;
+  margin: 0 auto 36px auto;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .arch-tab-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -1995,6 +2000,28 @@ img {
   border-color: var(--accent);
   color: var(--accent);
   box-shadow: 0 0 16px var(--accent-glow);
+}
+
+/* Light Mode Architecture Tabs */
+[data-theme="light"] .arch-tab-btn {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.16);
+  color: #334155;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .arch-tab-btn:hover {
+  border-color: #0284c7;
+  color: #0369a1;
+  background: #f8fafc;
+}
+
+[data-theme="light"] .arch-tab-btn.active {
+  background: #ffffff;
+  border-color: #059669;
+  color: #047857;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.12), 0 2px 8px rgba(15, 23, 42, 0.08);
+  font-weight: 600;
 }
 
 .arch-showcase {
