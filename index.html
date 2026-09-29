@@ -156,6 +156,8 @@
               <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
               <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
               <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
+              <div style="height: 1px; background: var(--border-subtle); margin: 6px 0;" role="separator"></div>
+              <button type="button" class="palette-option replay-terminal-trigger" role="menuitem" style="color: var(--accent);"><span style="font-family: var(--font-mono);">&gt;_</span> Replay Intro</button>
             </div>
           </div>
 
@@ -192,14 +194,33 @@
         <div class="terminal-replay-hint">v2.0</div>
       </div>
       <div class="terminal-window-body">
-        <div class="terminal-prompt-line">
-          <span class="terminal-user">yash@workstation</span>:<span class="terminal-path">~/portfolio</span>$ <span class="terminal-command">./welcome.sh</span>
+        <div class="terminal-prompt-line" style="margin-bottom: 8px;">
+          <span class="terminal-user">yash@workstation</span>:<span class="terminal-path">~</span>$ <span class="terminal-command">whoami</span>
         </div>
         <div class="terminal-output-area">
-          <div class="term-line" data-delay="120">&gt; Initializing Yash Srivastava portfolio environment...</div>
-          <div class="term-line" data-delay="400">&gt; <span class="term-highlight">Role:</span> Software Engineer &bull; Python &bull; PyQt6 &bull; Embedded Linux</div>
-          <div class="term-line" data-delay="700">&gt; <span class="term-highlight">Systems:</span> Medical Electrotherapy Kiosks, Sensor Buses, Django ORM</div>
-          <div class="term-line term-success" data-delay="1000">&check; <span class="term-accent">Systems operational. Portfolio ready.</span></div>
+          <div class="term-line" data-delay="80" style="color: var(--text-highlight); font-weight: 600;">yash &bull; Software Engineer</div>
+          
+          <div class="term-line" data-delay="220" style="margin-top: 10px; margin-bottom: 6px;">
+            <span class="terminal-user">yash@workstation</span>:<span class="terminal-path">~/portfolio</span>$ <span class="terminal-command">./initialize_portfolio.sh</span>
+          </div>
+          
+          <div class="term-line" data-delay="360">&gt; Loading portfolio...</div>
+          <div class="term-line" data-delay="500" style="display: flex; justify-content: space-between;">
+            <span>&gt; Loading projects...</span>
+            <span class="term-accent">&check;</span>
+          </div>
+          <div class="term-line" data-delay="640" style="display: flex; justify-content: space-between;">
+            <span>&gt; Loading skills...</span>
+            <span class="term-accent">&check;</span>
+          </div>
+          <div class="term-line" data-delay="780" style="display: flex; justify-content: space-between;">
+            <span>&gt; Loading experience...</span>
+            <span class="term-accent">&check;</span>
+          </div>
+          
+          <div class="term-line term-success" data-delay="940" style="margin-top: 12px; font-size: 0.95rem;">
+            Welcome to Yash Srivastava's portfolio.
+          </div>
         </div>
         <div class="terminal-actions">
           <button type="button" class="btn btn-primary" id="btn-enter-portfolio">

@@ -48,45 +48,55 @@ The site highlights practical systems engineering: bridging hardware circuits, e
 
 ```text
 Portfolio/
-├── index.html                  # Main developer portfolio entry point
+├── index.html                  # Main developer portfolio & Terminal Intro
 ├── 404.html                    # Cyberpunk terminal 404 error page (root-relative assets)
 ├── README.md                   # Project documentation and setup guide
 ├── robots.txt                  # Search engine crawl rules and sitemap reference
-├── sitemap.xml                 # Canonical sitemap for single-page portfolio
+├── sitemap.xml                 # Canonical multi-page sitemap
 ├── _headers                    # Cloudflare Pages security headers and asset caching
 ├── .gitattributes              # LF line-ending normalization and binary declarations
 ├── .gitignore                  # Git ignore rules for clean version control
 │
+├── about/                      # Extended Biography & Systems Engineering Philosophy
+│   └── index.html
+├── skills/                     # Complete Technical Proficiencies & Hardware Stack
+│   └── index.html
+├── projects/                   # Flagship Engineering Case Studies & Dedicated Pages
+│   ├── index.html              # Complete Projects Directory
+│   ├── tecar/index.html        # TECAR Therapy Control Deep Dive
+│   ├── laser-lumino-pro/       # Lumino Pro Laser Platform Deep Dive
+│   ├── django-ims/             # Enterprise Inventory System Deep Dive
+│   ├── volant-technologies/    # Healthcare Web Platform Deep Dive
+│   └── cv-ocr-projects/        # Computer Vision & OCR Automation Deep Dive
+├── experience/                 # Complete Career Timeline & Technical Roles
+│   └── index.html
+├── resume/                     # Interactive Resume & High-Quality PDF View
+│   └── index.html
+├── contact/                    # Direct Channels & Web3Forms Contact Portal
+│   └── index.html
+│
 ├── assets/                     # Core stylesheets, scripts, icons, and documents
 │   ├── css/
-│   │   └── style.css           # Design tokens, responsive breakpoints, accessible UI
+│   │   └── style.css           # Design tokens, palettes, responsive breakpoints, accessible UI
 │   ├── js/
 │   │   ├── app.js              # Application logic, accessible dialogs, and lightbox
-│   │   ├── matrix.js           # Canvas Matrix rain animation engine (guarded storage)
-│   │   └── projects-data.js    # Data model for projects and photo registry
+│   │   ├── matrix.js           # Ambient Canvas Matrix animation engine
+│   │   ├── projects-data.js    # Data model for projects, case studies, and photo registry
+│   │   └── settings.js         # Unified Theme, Palette, Matrix FX, and Terminal Intro Engine
 │   ├── icons/
-│   │   ├── favicon-32x32.png   # Standard 32x32 browser favicon
+│   │   ├── favicon.ico         # Browser favicon
+│   │   ├── favicon-32x32.png   # 32x32 browser favicon
 │   │   ├── apple-touch-icon.png# iOS home screen icon (180x180)
 │   │   └── android-chrome-*.png# PWA / high-res icons
 │   └── Yash_Srivastava_Resume.pdf # Downloadable resume document
 │
-└── images/                     # Optimized WebP visual assets
-    ├── profile/
-    │   └── yash-profile.webp   # Primary portrait photograph
-    ├── projects/
-    │   └── AIwallpaper20250202040324316.webp # Workstation HUD visual
-    ├── snapshots-engineering-lab/
-    │   ├── workstation-embedded-lab.webp     # High-res workstation snapshot
-    │   ├── workstation-embedded-lab-800.webp # Optimized display thumbnail
-    │   ├── medical-device-gui-testing.webp   # High-res GUI testing snapshot
-    │   ├── medical-device-gui-testing-800.webp # Optimized display thumbnail
-    │   ├── sensor-hardware-engineering.webp  # High-res sensor bench snapshot
-    │   ├── sensor-hardware-engineering-800.webp # Optimized display thumbnail
-    │   ├── ucertify-ingest-role.webp         # High-res role snapshot
-    │   └── ucertify-ingest-role-800.webp     # Optimized display thumbnail
-    ├── error-404.webp                        # 404 error page visual
-    ├── og-image.webp                         # Branded 1200x630 social share card
-    └── og-image.png                          # PNG fallback for social crawlers
+└── images/                     # Photographic & visual assets (WebP + PNG fallbacks)
+    ├── profile/                # Portrait photographs
+    ├── projects/               # Workstation illustration assets
+    ├── snapshots-engineering-lab/ # Lab workbenches, devices, and testing photographs
+    ├── error-404.webp          # 404 error page visual
+    ├── og-image.webp           # Branded 1200x630 social share card
+    └── og-image.png            # PNG fallback for social crawlers
 ```
 
 ---
