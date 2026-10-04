@@ -56,6 +56,7 @@ Portfolio/
 ├── _headers                    # Cloudflare Pages security headers and asset caching
 ├── .gitattributes              # LF line-ending normalization and binary declarations
 ├── .gitignore                  # Git ignore rules for clean version control
+├── PORTFOLIO_CLEANUP_REPORT.md # Production cleanup audit and inventory report
 │
 ├── about/                      # Extended Biography & Systems Engineering Philosophy
 │   └── index.html

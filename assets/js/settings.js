@@ -458,36 +458,28 @@
         }
       });
 
-      // Check visit status: use localStorage with portfolio_intro_v3
-      let hasSeen = false;
-      try {
-        hasSeen = localStorage.getItem('portfolio_intro_v3') === 'true';
-      } catch (e) {
-        hasSeen = false;
-      }
-
-      // Check URL overrides: ?intro or ?terminal forces it
+      // Check URL overrides: ?skip_intro forces skip
       const urlParams = new URLSearchParams(window.location.search);
-      const forceIntro = urlParams.has('intro') || urlParams.has('terminal');
+      const skipIntro = urlParams.has('skip_intro') || urlParams.get('intro') === '0';
 
       // Expose globally for console testing or programmatic triggering
       window.openTerminalIntro = () => this.open(true);
       window.resetTerminalIntro = () => {
-        try { localStorage.removeItem('portfolio_intro_v3'); } catch (e) {}
-        window.location.reload();
+        try {
+          localStorage.removeItem('portfolio_intro_v3');
+          localStorage.removeItem('portfolio_intro_seen');
+          sessionStorage.removeItem('portfolio_intro_seen');
+        } catch (e) {}
+        this.open(true);
       };
 
-      // On Home page (where overlay exists in DOM), show intro if first visit or forced
-      if (hasSeen && !forceIntro) {
-        document.documentElement.classList.add('intro-seen');
+      // Always show terminal intro on visit unless explicitly skipped via ?skip_intro
+      if (!skipIntro) {
+        this.open(false);
+      } else {
         this.overlay.classList.add('dismissed');
         this.overlay.classList.remove('visible');
         this.overlay.style.display = 'none';
-      } else {
-        document.documentElement.classList.remove('intro-seen');
-        this.overlay.classList.remove('dismissed');
-        this.overlay.classList.add('visible');
-        this.open(false);
       }
     },
 
@@ -531,12 +523,6 @@
 
     close(markSeen = true) {
       if (!this.overlay) return;
-      if (markSeen) {
-        try {
-          localStorage.setItem('portfolio_intro_v3', 'true');
-        } catch (e) {}
-      }
-      document.documentElement.classList.add('intro-seen');
       this.overlay.classList.add('dismissed');
       this.overlay.classList.remove('visible');
       setTimeout(() => {

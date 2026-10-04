@@ -949,7 +949,6 @@ img {
   transition: opacity 0.25s ease-out;
 }
 
-html.intro-seen .terminal-intro-overlay,
 .terminal-intro-overlay.dismissed {
   opacity: 0 !important;
   pointer-events: none !important;
@@ -2722,6 +2721,11 @@ html.intro-seen .terminal-intro-overlay,
   background: var(--accent-cyan-dim);
   border: 1px solid rgba(0, 229, 255, 0.3);
   display: block;
+}
+
+/* Honeypot & Utility Hidden Rule */
+.hidden {
+  display: none !important;
 }
 
 /* --------------------------------------------------------------------------

@@ -751,8 +751,10 @@ function initContactForm() {
     const message = messageInput ? messageInput.value.trim() : '';
 
     const botcheckInput = form.querySelector('input[name="botcheck"]');
-    if (botcheckInput && botcheckInput.checked) {
-      // Honeypot caught automated bot
+    const isBotDetected = botcheckInput && (botcheckInput.checked || (botcheckInput.type !== 'checkbox' && botcheckInput.value.trim() !== ''));
+    if (isBotDetected) {
+      // Honeypot caught automated bot — silently abort transmission to discard spam
+      console.warn('Bot submission blocked by honeypot.');
       return;
     }
 
@@ -808,9 +810,14 @@ function initContactForm() {
         email: email,
         message: message,
         subject: subjectVal || `Portfolio Inquiry from ${name}`,
-        from_name: name,
-        botcheck: botcheckInput ? botcheckInput.value : ""
+        from_name: name
       };
+
+      // In Web3Forms, the honeypot field must only be submitted if populated or checked by a bot.
+      // For legitimate human submissions, botcheck must NOT be included in the payload.
+      if (isBotDetected) {
+        payload.botcheck = botcheckInput.value || 'on';
+      }
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
