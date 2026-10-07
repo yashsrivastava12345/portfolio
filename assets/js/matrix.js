@@ -175,7 +175,7 @@ class MatrixRain {
       toggleBtn.setAttribute('title', 'Toggle Matrix Rain: Currently ON');
       toggleBtn.innerHTML = `
         <span class="matrix-status-dot active"></span>
-        <span class="btn-label">Matrix FX: ON</span>
+        <span class="ctrl-label btn-label">Matrix FX: ON</span>
       `;
     } else {
       toggleBtn.classList.remove('active');
@@ -183,7 +183,7 @@ class MatrixRain {
       toggleBtn.setAttribute('title', 'Toggle Matrix Rain: Currently OFF');
       toggleBtn.innerHTML = `
         <span class="matrix-status-dot"></span>
-        <span class="btn-label">Matrix FX: OFF</span>
+        <span class="ctrl-label btn-label">Matrix FX: OFF</span>
       `;
     }
   }
