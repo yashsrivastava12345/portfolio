@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-palette="emerald">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Engineering Resume | Yash Srivastava | Software Engineer</title>
-  
-  <meta name="description" content="Official engineering resume of Yash Srivastava — Software Engineer specializing in Python, PyQt6 touchscreen kiosks, embedded Linux hardware integration, and full-stack systems.">
+
+  <meta name="description" content="Resume of Yash Srivastava — Software Engineer & UI Designer specializing in Python, PyQt6/PySide, C++, Qt, embedded Linux and hardware-software integration.">
   <link rel="canonical" href="https://yashsrivastava.dev/resume/">
 
-  <!-- Immediate Theme & Palette Initialization -->
+  <!-- Apply saved theme before paint (same storage key as the rest of the portfolio) -->
   <script>
     (function () {
       try {
-        var t = localStorage.getItem('portfolio_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-        var p = localStorage.getItem('portfolio_palette') || 'emerald';
+        var t = localStorage.getItem('portfolio_theme') ||
+          (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
         document.documentElement.setAttribute('data-theme', t);
-        document.documentElement.setAttribute('data-palette', p);
       } catch (e) {}
     })();
   </script>
@@ -29,365 +28,603 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yashsrivastava.dev/resume/">
   <meta property="og:title" content="Engineering Resume | Yash Srivastava">
-  <meta property="og:description" content="Recruiter-friendly resume view with direct PDF download for Yash Srivastava, Software Engineer.">
+  <meta property="og:description" content="Software Engineer & UI Designer — Python, PyQt6/PySide, C++, Qt, embedded Linux, hardware-software integration.">
   <meta property="og:image" content="https://yashsrivastava.dev/images/og-image.webp">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  
-  <!-- Preconnect Fonts -->
+  <!-- Fonts (unchanged from the previous version of this page) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============ Tokens ============ */
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --radius: 14px;
+      --nav-h: 64px;
+      --maxw: 1080px;
+      --ease: cubic-bezier(.2, .7, .2, 1);
+    }
+    :root[data-theme="dark"] {
+      --bg: #0a1013;
+      --bg-soft: #0e1519;
+      --card: rgba(20, 30, 35, .72);
+      --card-solid: #111a1f;
+      --border: rgba(160, 190, 200, .14);
+      --border-strong: rgba(160, 190, 200, .26);
+      --text: #e7eef1;
+      --text-2: #b4c3c9;
+      --muted: #8a9ca4;
+      --accent: #34d399;
+      --accent-ink: #04201a;
+      --accent-soft: rgba(52, 211, 153, .12);
+      --accent-line: rgba(52, 211, 153, .45);
+      --shadow: 0 10px 30px -12px rgba(0, 0, 0, .6);
+      --grid: rgba(160, 190, 200, .07);
+      --glow: rgba(52, 211, 153, .10);
+      color-scheme: dark;
+    }
+    :root[data-theme="light"] {
+      --bg: #f5f8f7;
+      --bg-soft: #edf2f1;
+      --card: rgba(255, 255, 255, .85);
+      --card-solid: #ffffff;
+      --border: rgba(15, 40, 50, .12);
+      --border-strong: rgba(15, 40, 50, .24);
+      --text: #0f1c21;
+      --text-2: #33454c;
+      --muted: #5a6e76;
+      --accent: #047857;
+      --accent-ink: #ffffff;
+      --accent-soft: rgba(4, 120, 87, .09);
+      --accent-line: rgba(4, 120, 87, .45);
+      --shadow: 0 10px 28px -14px rgba(15, 40, 50, .28);
+      --grid: rgba(15, 40, 50, .06);
+      --glow: rgba(4, 120, 87, .08);
+      color-scheme: light;
+    }
+
+    /* ============ Base ============ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; min-height: 100vh;
+      font-family: var(--font-sans); font-size: 16px; line-height: 1.65;
+      color: var(--text); background: var(--bg);
+      background-image:
+        radial-gradient(900px 480px at 85% -5%, var(--glow), transparent 60%),
+        radial-gradient(circle at 1px 1px, var(--grid) 1px, transparent 0);
+      background-size: auto, 26px 26px;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, p, ul { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    a { color: inherit; text-decoration: none; }
+    .ico { width: 18px; height: 18px; flex: none; }
+    .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+    .skip-link {
+      position: absolute; left: 12px; top: -60px; z-index: 200; padding: 10px 14px;
+      background: var(--accent); color: var(--accent-ink); border-radius: 8px; font-weight: 600;
+    }
+    .skip-link:focus { top: 10px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    /* ============ Navigation ============ */
+    .nav {
+      position: sticky; top: 0; z-index: 100; height: var(--nav-h);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-weight: 600; letter-spacing: .04em; font-size: .92rem; }
+    .brand .prompt { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      position: relative; display: block; padding: 8px 12px; border-radius: 8px;
+      font-size: .9rem; font-weight: 500; color: var(--text-2); transition: color .2s, background .2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--accent-soft); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-links a.active::after {
+      content: ""; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 2px; border-radius: 2px; background: var(--accent);
+    }
+    .nav-tools { display: flex; align-items: center; gap: 8px; }
+    .icon-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 38px; min-width: 38px; padding: 0 10px;
+      border: 1px solid var(--border-strong); border-radius: 10px; background: transparent; color: var(--text);
+      font: inherit; font-size: .82rem; cursor: pointer; transition: border-color .2s, background .2s;
+    }
+    .icon-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .menu-btn { display: none; }
+    .theme-light-icon { display: none; }
+    :root[data-theme="light"] .theme-dark-icon { display: none; }
+    :root[data-theme="light"] .theme-light-icon { display: inline; }
+    .theme-glyph { font-size: 1.05rem; line-height: 1; }
+
+    /* ============ Buttons / chips / badges ============ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 10px 18px;
+      border-radius: 11px; border: 1px solid var(--border-strong); background: var(--card-solid); color: var(--text);
+      font-weight: 600; font-size: .92rem; transition: transform .2s var(--ease), border-color .2s, background .2s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: var(--shadow); }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+    .btn-primary:hover { background: var(--accent); filter: brightness(1.08); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      padding: 4px 11px; border-radius: 999px; border: 1px solid var(--border-strong);
+      font-family: var(--font-mono); font-size: .78rem; color: var(--text-2); background: color-mix(in srgb, var(--card-solid) 60%, transparent);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--text); }
+    .chip-accent { border-color: var(--accent-line); background: var(--accent-soft); color: var(--text); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 7px; padding: 3px 11px; border-radius: 999px;
+      font-family: var(--font-mono); font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; vertical-align: middle;
+    }
+    .badge-current { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line); margin-left: 6px; }
+    .badge-ongoing { background: rgba(245, 158, 11, .14); color: #d97706; border: 1px solid rgba(245, 158, 11, .5); }
+    :root[data-theme="dark"] .badge-ongoing { color: #fbbf24; }
+    .pulse { width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
+
+    /* ============ Cards ============ */
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+      transition: transform .3s var(--ease), border-color .3s, box-shadow .3s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--accent-line); box-shadow: var(--shadow); }
+
+    /* ============ Sections ============ */
+    section { padding: 72px 0 8px; }
+    .sec-head { margin-bottom: 28px; }
+    .sec-tag { font-family: var(--font-mono); font-size: .8rem; color: var(--accent); letter-spacing: .06em; }
+    .sec-title { font-size: clamp(1.6rem, 3.2vw, 2.1rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin-top: 4px; }
+    .sec-title::after {
+      content: ""; display: block; width: 56px; height: 3px; margin-top: 12px; border-radius: 3px; background: var(--accent);
+      transform-origin: left; transition: width .8s var(--ease);
+    }
+    .reveal.in .sec-title::after, .sec-head.in .sec-title::after { width: 96px; }
+
+    /* ============ Hero ============ */
+    .hero { padding: 72px 0 16px; }
+    .hero-eyebrow { font-family: var(--font-mono); font-size: .85rem; color: var(--accent); letter-spacing: .05em; }
+    .hero h1 { font-size: clamp(2.4rem, 7vw, 4.2rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.05; margin: 12px 0 10px; }
+    .hero h1 .grad { background: linear-gradient(100deg, var(--text) 30%, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-role { font-size: clamp(1.1rem, 2.4vw, 1.5rem); font-weight: 600; color: var(--text-2); }
+    .hero-stack { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 18px; font-family: var(--font-mono); font-size: .88rem; color: var(--text-2); }
+    .hero-stack li + li::before { content: "|"; color: var(--accent); margin-right: 10px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .hero-meta li { padding: 6px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); font-size: .85rem; color: var(--text-2); }
+    .hero-meta strong { color: var(--text); font-weight: 600; }
+
+    /* ============ Summary ============ */
+    .summary-card { padding: 28px clamp(20px, 4vw, 36px); border-left: 3px solid var(--accent); }
+    .summary-card p { font-size: clamp(1rem, 1.6vw, 1.1rem); color: var(--text-2); max-width: 78ch; }
+
+    /* ============ Skills ============ */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr)); gap: 16px; }
+    .skill-card { padding: 20px; }
+    .skill-card h3 { display: flex; align-items: center; gap: 10px; font-size: .95rem; font-weight: 600; margin-bottom: 14px; }
+    .skill-card h3 .ico { color: var(--accent); }
+
+    /* ============ Timeline ============ */
+    .timeline { position: relative; padding-left: 30px; display: grid; gap: 20px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--accent-line), var(--border)); }
+    .tl-item { position: relative; }
+    .tl-dot {
+      position: absolute; left: -30px; top: 26px; width: 16px; height: 16px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--accent-line);
+    }
+    .tl-current .tl-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 5px var(--accent-soft); }
+    .exp-card { padding: 24px clamp(18px, 3vw, 30px); }
+    .tl-current .exp-card { border-color: var(--accent-line); background: linear-gradient(135deg, var(--accent-soft), var(--card) 55%); }
+    .exp-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 6px 20px; margin-bottom: 14px; }
+    .exp-head h3 { font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 700; letter-spacing: -.01em; }
+    .org { color: var(--text-2); font-weight: 500; margin-top: 2px; }
+    .dates { font-family: var(--font-mono); font-size: .82rem; color: var(--accent); padding-top: 4px; }
+
+    /* ============ Bullets ============ */
+    .bullets { display: grid; gap: 9px; }
+    .bullets li { position: relative; padding-left: 20px; color: var(--text-2); font-size: .95rem; line-height: 1.6; }
+    .bullets li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+    .bullets strong { color: var(--text); font-weight: 600; }
+
+    /* ============ Projects ============ */
+    .projects-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .project { padding: 26px clamp(18px, 3vw, 30px); display: flex; flex-direction: column; gap: 16px; position: relative; overflow: hidden; }
+    .project::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: linear-gradient(90deg, var(--accent), transparent 75%); opacity: .7; }
+    .project-ongoing::before { background: linear-gradient(90deg, #f59e0b, transparent 75%); }
+    .proj-top { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; margin-bottom: 8px; }
+    .proj-num { font-family: var(--font-mono); font-weight: 600; font-size: .85rem; color: var(--accent); padding: 2px 9px; border: 1px solid var(--accent-line); border-radius: 8px; }
+    .proj-tag { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .04em; color: var(--muted); text-transform: uppercase; flex: 1 1 auto; min-width: 0; }
+    .project h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 700; line-height: 1.3; letter-spacing: -.01em; }
+    .waves { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .waves li {
+      text-align: center; padding: 7px 4px; border-radius: 9px; border: 1px solid var(--border-strong);
+      font-family: var(--font-mono); font-size: .78rem; font-weight: 600; color: var(--text);
+      background: linear-gradient(180deg, var(--accent-soft), transparent);
+    }
+    @media (min-width: 900px) {
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ============ Education / extras ============ */
+    .split { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 900px) { .split { grid-template-columns: 1fr 1fr; } }
+    .panel { padding: 24px clamp(18px, 3vw, 28px); }
+    .panel h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--accent); font-family: var(--font-mono); letter-spacing: .02em; }
+    .edu-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; }
+    .edu-row strong { font-size: 1.05rem; }
+    .edu-row .score { font-family: var(--font-mono); color: var(--accent); font-weight: 600; }
+    .edu-school { color: var(--text-2); }
+    .edu-dates { font-family: var(--font-mono); font-size: .82rem; color: var(--muted); margin-top: 2px; }
+    .certs { display: grid; gap: 8px; }
+    .certs li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: .93rem; }
+    .certs li:last-child { border-bottom: 0; }
+    .certs strong { font-weight: 600; }
+    .certs span { color: var(--muted); font-family: var(--font-mono); font-size: .8rem; white-space: nowrap; }
+    .stack-gap { display: grid; gap: 20px; align-content: start; }
+
+    /* ============ Closing CTA & footer ============ */
+    .cta { text-align: center; padding: 40px 24px; margin-top: 16px; }
+    .cta h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); letter-spacing: -.02em; }
+    .cta p { color: var(--text-2); margin: 8px auto 22px; max-width: 52ch; }
+    .cta .hero-actions { justify-content: center; margin-top: 0; }
+    footer { margin-top: 72px; padding: 26px 0 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: .85rem; font-family: var(--font-mono); }
+    .foot-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+
+    /* ============ Reveal animation ============ */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+    .no-js .reveal { opacity: 1; transform: none; }
+
+    /* ============ Responsive ============ */
+    @media (max-width: 860px) {
+      .menu-btn { display: inline-flex; }
+      .nav-links {
+        position: absolute; top: var(--nav-h); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0;
+        padding: 8px 20px 14px; background: var(--bg); border-bottom: 1px solid var(--border);
+        display: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 10px; font-size: 1rem; }
+      .nav-links a.active::after { left: 10px; right: auto; width: 28px; bottom: 6px; }
+    }
+    @media (max-width: 520px) {
+      section { padding-top: 56px; }
+      .hero { padding-top: 48px; }
+      .hero-actions .btn { flex: 1 1 calc(50% - 6px); justify-content: center; padding: 10px 12px; }
+      .hero-actions .btn-primary { flex-basis: 100%; }
+      .waves { grid-template-columns: repeat(2, 1fr); }
+      .certs li { flex-direction: column; gap: 0; }
+      .brand .brand-name { display: none; }
+    }
+    .btn, .chip, .card, .icon-btn { max-width: 100%; }
+    .chip, .bullets li, .org, .proj-tag, h1, h3 { overflow-wrap: anywhere; }
+
+    /* ============ Accessibility: reduced motion ============ */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      .sec-title::after { width: 96px; }
+    }
+
+    /* ============ Print ============ */
+    @media print {
+      :root, :root[data-theme="dark"] { --bg: #fff; --card: #fff; --card-solid: #fff; --text: #000; --text-2: #222; --muted: #444; --accent: #0b5d46; --border: #bbb; --border-strong: #999; --accent-soft: transparent; --accent-line: #888; --shadow: none; --grid: transparent; --glow: transparent; }
+      body { background: #fff; font-size: 11pt; }
+      .nav, .hero-actions, .cta, .skip-link, footer, .hero-meta { display: none !important; }
+      section { padding-top: 18px; break-inside: auto; }
+      .card, .tl-item { break-inside: avoid; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .hero h1 .grad { color: #000; background: none; }
+    }
+  </style>
 </head>
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+<body class="no-js">
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <header class="navbar" id="top-navbar">
-    <div class="container nav-container">
-      <a href="../index.html" class="nav-brand" aria-label="Yash Srivastava Portfolio Home">
-        <span class="brand-prompt">&gt;_</span>
-        <span class="brand-name">YASH SRIVASTAVA</span>
+  <header class="nav" id="top-nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Yash Srivastava — back to top">
+        <span class="prompt" aria-hidden="true">&gt;_</span><span class="brand-name">YASH SRIVASTAVA</span>
       </a>
-
-      <nav aria-label="Main Navigation">
+      <nav aria-label="Resume sections">
         <ul class="nav-links" id="nav-links">
-          <li><a href="../index.html" class="nav-link">Home</a></li>
-          <li><a href="../about/index.html" class="nav-link">About</a></li>
-          <li><a href="../skills/index.html" class="nav-link">Skills</a></li>
-          <li><a href="../projects/index.html" class="nav-link">Projects</a></li>
-          <li><a href="../experience/index.html" class="nav-link">Experience</a></li>
-          <li><a href="index.html" class="nav-link active">Resume</a></li>
-          <li><a href="../contact/index.html" class="nav-link">Contact</a></li>
+          <li><a href="#summary" class="nav-link">Summary</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="../index.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
-
-      <div class="nav-actions">
-        <div class="nav-controls">
-          <button type="button" class="ctrl-btn theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme" title="Toggle Theme (Dark / Light)">
-            <span class="ctrl-icon theme-icon-dark" aria-hidden="true">&#9790;</span>
-            <span class="ctrl-icon theme-icon-light" aria-hidden="true">&#9788;</span>
-            <span class="ctrl-label">Dark</span>
-          </button>
-
-          <div class="palette-dropdown" id="palette-dropdown-container">
-            <button type="button" class="ctrl-btn palette-toggle" id="palette-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select accent color palette" title="Select Color Palette">
-              <span class="palette-color-preview" id="palette-color-preview" aria-hidden="true"></span>
-              <span class="ctrl-label">Palette</span>
-            </button>
-            <div class="palette-menu" id="palette-menu" role="menu" aria-label="Color Palettes">
-              <button type="button" class="palette-option active" data-palette="emerald" role="menuitem"><span class="swatch swatch-emerald"></span> Emerald</button>
-              <button type="button" class="palette-option" data-palette="electric-blue" role="menuitem"><span class="swatch swatch-blue"></span> Electric Blue</button>
-              <button type="button" class="palette-option" data-palette="cyan" role="menuitem"><span class="swatch swatch-cyan"></span> Neon Cyan</button>
-              <button type="button" class="palette-option" data-palette="violet" role="menuitem"><span class="swatch swatch-violet"></span> Royal Violet</button>
-              <button type="button" class="palette-option" data-palette="amber" role="menuitem"><span class="swatch swatch-amber"></span> Cyber Amber</button>
-              <button type="button" class="palette-option" data-palette="monochrome" role="menuitem"><span class="swatch swatch-mono"></span> Monochrome</button>
-            </div>
-          </div>
-
-          <button type="button" class="ctrl-btn matrix-toggle" id="matrix-toggle-btn" aria-pressed="false" aria-label="Toggle Matrix Canvas Animation" title="Toggle Matrix FX">
-            <span class="matrix-status-dot"></span>
-            <span class="ctrl-label">Matrix: OFF</span>
-          </button>
-        </div>
-
-        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
+      <div class="nav-tools">
+        <button type="button" class="icon-btn" id="theme-btn" aria-label="Switch between dark and light theme" title="Toggle theme">
+          <span class="theme-glyph theme-dark-icon" aria-hidden="true">&#9790;</span>
+          <span class="theme-glyph theme-light-icon" aria-hidden="true">&#9788;</span>
         </button>
+        <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
       </div>
     </div>
   </header>
 
-  <main id="main-content">
-    <section class="page-hero">
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <div class="hero" id="top">
       <div class="container">
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href="../index.html">Home</a>
-          <span class="separator">/</span>
-          <span class="current" aria-current="page">Resume</span>
-        </nav>
-        <span class="section-tag">// Curriculum Vitae</span>
-        <h1 class="section-title">Engineering <span class="text-gradient">Resume</span></h1>
-        <p class="section-subtitle">
-          Recruiter-ready technical profile detailing work history, embedded kiosk systems, software engineering skills, and verified projects.
-        </p>
+        <p class="hero-eyebrow">// engineering resume</p>
+        <h1><span class="grad">Yash Srivastava</span></h1>
+        <p class="hero-role">Software Engineer &amp; UI Designer</p>
+        <ul class="hero-stack" aria-label="Core technologies">
+          <li>Python</li><li>PyQt6/PySide</li><li>C++</li><li>Qt</li><li>Embedded Linux</li><li>Hardware-Software Integration</li>
+        </ul>
+        <div class="hero-actions">
+          <!-- Resume PDF: path preserved from the previous version of this page. Replace the file at this path with the updated PDF. -->
+          <a href="../assets/Yash_Srivastava_Resume.pdf" class="btn btn-primary" download="Yash_Srivastava_Resume.pdf"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Download Resume</span></a>
+          <a href="tel:+917985611009" class="btn"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>7985611009</span></a>
+          <a href="mailto:yashsrivastava2894@gmail.com" class="btn"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg><span>Email</span></a>
+          <a href="https://www.linkedin.com/in/yash-srivastava-943516194/" class="btn" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a>
+          <a href="https://github.com/yashsrivastava12345" class="btn" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.3 6.4-1.5 6.4-7a5.4 5.4 0 0 0-1.5-3.8 5 5 0 0 0-.1-3.8s-1.2-.3-3.9 1.5a13.4 13.4 0 0 0-7 0C6.3 2.8 5.1 3.1 5.1 3.1a5 5 0 0 0-.1 3.8A5.4 5.4 0 0 0 3.5 10.7c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/></svg><span>GitHub</span></a>
+        </div>
+        <ul class="hero-meta">
+          <li><strong>2 years</strong> software application development</li>
+          <li><strong>Touchscreen</strong> apps on Raspberry Pi systems</li>
+          <li><strong>Device control</strong> &amp; real-time monitoring UIs</li>
+        </ul>
+      </div>
+    </div>
 
-        <!-- Action bar -->
-        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px;">
-          <a href="../assets/Yash_Srivastava_Resume.pdf" class="btn btn-primary" download="Yash_Srivastava_Resume.pdf" title="Download Official PDF Resume">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span>Download Official PDF</span>
-          </a>
-          <button type="button" class="btn btn-secondary btn-print" onclick="window.print()" title="Print Resume">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="6 9 6 2 18 2 18 9"></polyline>
-              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-              <rect x="6" y="14" width="12" height="8"></rect>
-            </svg>
-            <span>Print View</span>
-          </button>
-          <a href="../contact/index.html" class="btn btn-secondary">
-            <span>Contact Yash &rarr;</span>
-          </a>
+    <!-- ================= SUMMARY ================= -->
+    <section id="summary" aria-labelledby="summary-title">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-tag">01 / about</p>
+          <h2 class="sec-title" id="summary-title">Professional Summary</h2>
+        </div>
+        <div class="card summary-card reveal"><p>Software Engineer with 2 years of experience in software application development, specializing in Python, PyQt6/PySide, C++, Qt-based GUI development, embedded Linux, and hardware-software integration. Hands-on experience developing touchscreen applications for Raspberry Pi-based systems, implementing device-control workflows, real-time monitoring interfaces, parameter configuration, and multi-screen application architectures. Experienced in debugging, testing, SDLC practices, database integration, and developing reliable software for hardware-connected applications.</p></div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-tag">02 / stack</p>
+          <h2 class="sec-title" id="skills-title">Technical Skills</h2>
+        </div>
+        <div class="skills-grid">
+        <article class="card skill-card reveal">
+          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Programming Languages</span></h3>
+          <ul class="chips"><li class="chip ">Python</li><li class="chip ">C++</li><li class="chip ">C</li><li class="chip ">Java</li><li class="chip ">JavaScript</li></ul>
+        </article>
+        <article class="card skill-card reveal">
+          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg><span>GUI &amp; Application Development</span></h3>
+          <ul class="chips"><li class="chip ">PyQt6</li><li class="chip ">PySide</li><li class="chip ">Qt</li><li class="chip ">Tkinter</li><li class="chip ">Desktop Application Development</li><li class="chip ">Touchscreen UI</li></ul>
+        </article>
+        <article class="card skill-card reveal">
+          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span>Embedded Systems &amp; Hardware</span></h3>
+          <ul class="chips"><li class="chip ">Raspberry Pi</li><li class="chip ">Embedded Linux</li><li class="chip ">GPIO</li><li class="chip ">Hardware-Software Integration</li><li class="chip ">Peripheral Integration</li><li class="chip ">Device Control</li></ul>
+        </article>
+        <article class="card skill-card reveal">
+          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span>Databases</span></h3>
+          <ul class="chips"><li class="chip ">MySQL</li><li class="chip ">SQLite</li><li class="chip ">Oracle</li><li class="chip ">PL/SQL</li></ul>
+        </article>
+        <article class="card skill-card reveal">
+          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span>Software Engineering</span></h3>
+          <ul class="chips"><li class="chip ">OOP</li><li class="chip ">Data Structures &amp; Algorithms</li><li class="chip ">SDLC</li><li class="chip ">Debugging</li><li class="chip ">Testing</li><li class="chip ">Root-Cause Analysis</li><li class="chip ">Modular Application Design</li></ul>
+        </article>
+        <article class="card skill-card reveal">
+          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><span>Computer Vision &amp; Data Processing</span></h3>
+          <ul class="chips"><li class="chip ">OpenCV</li><li class="chip ">NumPy</li><li class="chip ">Pandas</li><li class="chip ">Matplotlib</li><li class="chip ">OCR</li><li class="chip ">Image Processing</li></ul>
+        </article>
+        <article class="card skill-card reveal">
+          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span>Web &amp; Backend</span></h3>
+          <ul class="chips"><li class="chip ">Django</li><li class="chip ">REST APIs</li><li class="chip ">HTML</li><li class="chip ">CSS</li><li class="chip ">JavaScript</li></ul>
+        </article>
+        <article class="card skill-card reveal">
+          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg><span>Tools</span></h3>
+          <ul class="chips"><li class="chip ">Git</li><li class="chip ">GitHub</li><li class="chip ">Linux</li><li class="chip ">VS Code</li></ul>
+        </article>
         </div>
       </div>
     </section>
 
-    <!-- Resume Document View -->
-    <section style="padding: 40px 0 80px;">
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience" aria-labelledby="exp-title">
       <div class="container">
-        
-        <article class="resume-paper" id="resume-document">
-          
-          <!-- Resume Header Block -->
-          <div class="resume-header-block">
-            <div>
-              <h2 style="font-size: 2rem; color: var(--text-highlight); margin-bottom: 6px;">Yash Srivastava</h2>
-              <div style="font-family: var(--font-mono); font-size: 1.05rem; color: var(--accent); margin-bottom: 8px;">
-                Software Engineer &bull; Python, Embedded Touch Kiosks &amp; Full-Stack Systems
-              </div>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">
-                Prayagraj, Uttar Pradesh, India
-              </p>
-            </div>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px; text-align: right;">
-              <div>Email: <a href="mailto:yashsrivastava2894@gmail.com" style="color: var(--accent);">yashsrivastava2894@gmail.com</a></div>
-              <div>LinkedIn: <a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">in/yash-srivastava-363363220</a></div>
-              <div>GitHub: <a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">github.com/yashsrivastava12345</a></div>
-            </div>
-          </div>
-
-          <!-- Professional Summary -->
-          <div class="resume-section">
-            <h3 class="resume-section-title">Professional Summary</h3>
-            <p style="color: var(--text-secondary); line-height: 1.65; font-size: 0.95rem;">
-              Software Engineer specializing in Python, PyQt6 touchscreen applications, and embedded Linux systems. Proven experience developing full-screen touch control software for commercial clinical physiotherapy and medical laser platforms. Background includes aerospace industrial training at Hindustan Aeronautics Limited (HAL) and software development internship at uCertify. Adept at bridging software with physical hardware, including I2C/SPI sensor acquisition (ADCs, infrared thermometry), safety interlocks, and SQLite databases.
-            </p>
-          </div>
-
-          <!-- Technical Skills -->
-          <div class="resume-section">
-            <h3 class="resume-section-title">Technical Skills</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; font-size: 0.9rem;">
+        <div class="sec-head reveal">
+          <p class="sec-tag">03 / career</p>
+          <h2 class="sec-title" id="exp-title">Professional Experience</h2>
+        </div>
+        <div class="timeline">
+        <article class="tl-item reveal tl-current">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card exp-card">
+            <header class="exp-head">
               <div>
-                <strong style="color: var(--text-highlight); display: block; margin-bottom: 4px; font-family: var(--font-mono);">Languages &amp; Core:</strong>
-                <span style="color: var(--text-secondary);">Python 3, C/C++ (Embedded fundamentals), JavaScript (ES6+), SQL, HTML5, CSS3</span>
+                <h3>Software Engineer &amp; UI Designer <span class="badge badge-current">Current</span></h3>
+                <p class="org">Curves and Contours Limited Liability Partnership</p>
               </div>
-              <div>
-                <strong style="color: var(--text-highlight); display: block; margin-bottom: 4px; font-family: var(--font-mono);">Frameworks &amp; GUIs:</strong>
-                <span style="color: var(--text-secondary);">PyQt6, Qt GUI Framework, Django Web Framework, Django ORM</span>
-              </div>
-              <div>
-                <strong style="color: var(--text-highlight); display: block; margin-bottom: 4px; font-family: var(--font-mono);">Embedded &amp; Hardware:</strong>
-                <span style="color: var(--text-secondary);">Raspberry Pi OS, I2C &amp; SPI Buses, ADS1115 16-Bit ADC, MLX90614 Contactless IR, GPIO Interlocks, Systemd</span>
-              </div>
-              <div>
-                <strong style="color: var(--text-highlight); display: block; margin-bottom: 4px; font-family: var(--font-mono);">Data &amp; Computer Vision:</strong>
-                <span style="color: var(--text-secondary);">OpenCV, NumPy, Pytesseract OCR, SQLite3, MySQL, Relational Database Modeling</span>
-              </div>
-            </div>
+              <p class="dates">20 October 2024 – Present</p>
+            </header>
+            <ul class="bullets"><li>Developed and maintained Python-based desktop applications using <strong>PyQt6/PySide</strong>, implementing multi-screen workflows, reusable UI components and event-driven application logic.</li><li>Designed and implemented touchscreen-oriented interfaces, application navigation and user workflows for software used in hardware-connected environments (see TECAR and Lumino Pro).</li><li>Worked on <strong>hardware-software integration</strong> and <strong>Raspberry Pi/Linux</strong>-based application deployment, including device-control and peripheral interaction.</li><li>Integrated application logic with databases and implemented data-driven workflows.</li><li>Performed application testing, debugging and root-cause analysis to identify and resolve software and integration issues.</li><li>Followed SDLC practices for feature development, testing, maintenance and iterative improvement.</li></ul>
           </div>
-
-          <!-- Work Experience -->
-          <div class="resume-section">
-            <h3 class="resume-section-title">Work Experience</h3>
-
-            <!-- Role 1 -->
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <div>
-                  <span class="resume-role">Software Engineer</span> &mdash; <span class="resume-company">Curves and Contours LLP</span>
-                </div>
-                <span class="resume-dates">2024 &mdash; Present</span>
-              </div>
-              <ul class="resume-bullets">
-                <li>Engineered full-screen touch control software for commercial medical physical therapy kiosks, leading development for the <strong>TECAR Therapy</strong> and <strong>Laser Lumino Pro</strong> platforms.</li>
-                <li>Designed custom PyQt6 user interface components including rotary dials, dual-frequency mode toggles, and multi-stage countdown timers with audio cues.</li>
-                <li>Built an asynchronous, non-blocking hardware abstraction layer in Python polling ADS1115 16-bit ADCs and MLX90614 infrared contactless patient skin temperature sensors over I2C/SPI serial buses.</li>
-                <li>Programmed software safety cutoff monitors linked to physical GPIO footswitches, immediately terminating PWM energy output on release.</li>
-                <li>Structured SQLite databases to persist clinician therapy presets, operational logs, and patient treatment parameters.</li>
-                <li>Configured headless Raspberry Pi OS kiosk deployments with systemd services for automated startup, error recovery, and desktop lockdown.</li>
-              </ul>
-            </div>
-
-            <!-- Role 2 -->
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <div>
-                  <span class="resume-role">Software Development Intern</span> &mdash; <span class="resume-company">uCertify</span>
-                </div>
-                <span class="resume-dates">Aug 2024 &mdash; Apr 2025</span>
-              </div>
-              <ul class="resume-bullets">
-                <li>Contributed to web educational platform development, authoring modular components and data-checking logic.</li>
-                <li>Collaborated in agile development sprints, participated in code reviews, and resolved software bugs across multiple release cycles.</li>
-                <li>Gained practical industry experience in structured software engineering, relational database schemas, and team-based version control workflows.</li>
-              </ul>
-            </div>
-
-            <!-- Role 3 -->
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <div>
-                  <span class="resume-role">Engineering Intern</span> &mdash; <span class="resume-company">Hindustan Aeronautics Limited (HAL)</span>
-                </div>
-                <span class="resume-dates">July 2024</span>
-              </div>
-              <ul class="resume-bullets">
-                <li>Completed technical industrial training at HAL's Avionics division, examining high-reliability embedded software and computing architectures for defense aircraft.</li>
-                <li>Studied military avionics safety standards, fault-tolerant design redundancy, and hardware verification procedures.</li>
-                <li>Analyzed real-time telemetry protocols and mission-critical documentation requirements.</li>
-              </ul>
-            </div>
-
-          </div>
-
-          <!-- Featured Projects -->
-          <div class="resume-section">
-            <h3 class="resume-section-title">Key Projects &amp; Implementations</h3>
-
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <div>
-                  <span class="resume-role">TECAR Therapy Touch Control Software</span>
-                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(Python, PyQt6, Raspberry Pi OS, I2C/SPI, SQLite)</span>
-                </div>
-                <span class="resume-dates">Medical Technology</span>
-              </div>
-              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
-                Touchscreen medical therapy software managing Capacitive and Resistive RF modalities with live impedance feedback, contactless skin temperature monitoring, and footswitch safety cutoffs.
-              </p>
-            </div>
-
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <div>
-                  <span class="resume-role">Laser (Lumino Pro) Multi-Screen Therapy Platform</span>
-                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(Python, PyQt6, Linux Kiosk, Hardware Safety)</span>
-                </div>
-                <span class="resume-dates">Medical Technology</span>
-              </div>
-              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
-                Touch kiosk interface for therapeutic clinical laser platforms with dual-screen workflows, automated protocol timers, and safety interlock verification.
-              </p>
-            </div>
-
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <div>
-                  <span class="resume-role">IMS / CIMS &mdash; Inventory &amp; Management Information System</span>
-                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(Python, Django, MySQL, QR Tracking, RBAC)</span>
-                </div>
-                <span class="resume-dates">Enterprise Software</span>
-              </div>
-              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
-                Enterprise management web application for warehouse stock management, dynamic QR code generation, quality control routing, and role-based access control.
-              </p>
-            </div>
-
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <div>
-                  <span class="resume-role">Volant Technologies &mdash; Clinical Product Platform</span>
-                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(HTML5, CSS3, JavaScript, JSON Architecture, WebP)</span>
-                </div>
-                <span class="resume-dates">Commercial Web Platform</span>
-              </div>
-              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
-                Responsive medical equipment catalog website organizing specialized physiotherapy hardware with structured JSON schemas and optimized media delivery.
-              </p>
-            </div>
-
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <div>
-                  <span class="resume-role">Computer Vision &amp; OCR Image Processing Modules</span>
-                  <span class="resume-company" style="font-weight: normal; margin-left: 6px;">(Python 3, OpenCV, NumPy, Pytesseract)</span>
-                </div>
-                <span class="resume-dates">AI / Computer Vision</span>
-              </div>
-              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-top: 4px;">
-                Practical image preprocessing and recognition pipelines implementing Otsu adaptive thresholding, morphological noise suppression, deskewing, and facial landmark detection.
-              </p>
-            </div>
-
-          </div>
-
-          <!-- Education -->
-          <div class="resume-section">
-            <h3 class="resume-section-title">Education</h3>
-            <div class="resume-item">
-              <div class="resume-item-header">
-                <div>
-                  <span class="resume-role">Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</span>
-                </div>
-                <span class="resume-dates">2021 &mdash; 2025</span>
-              </div>
-              <div class="resume-company" style="margin-bottom: 4px;">
-                United College of Engineering and Research (UCER), Prayagraj &bull; AKTU
-              </div>
-              <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5;">
-                Key Coursework: Operating Systems, Computer Networks, Database Management Systems, Data Structures &amp; Algorithms, Object-Oriented Software Engineering, Computer System Architecture.
-              </p>
-            </div>
-          </div>
-
         </article>
+        <article class="tl-item reveal">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card exp-card">
+            <header class="exp-head">
+              <div>
+                <h3>Graduate Engineering Intern </h3>
+                <p class="org">Hindustan Aeronautics Limited (HAL), Transport Aircraft Division, Kanpur</p>
+              </div>
+              <p class="dates">18 June 2024 – 17 July 2024</p>
+            </header>
+            <ul class="bullets"><li>Developed real-time <strong>face recognition</strong> and <strong>vehicle recognition</strong> systems using Python and computer-vision technologies.</li><li>Implemented object-detection workflows for identification of aircraft-related components.</li><li>Worked with <strong>PL/SQL</strong> backend systems for aircraft-parts data, including supplier and location information.</li><li>Collaborated on software solutions involving real-time image processing and data management.</li></ul>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
 
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" aria-labelledby="proj-title">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-tag">04 / work</p>
+          <h2 class="sec-title" id="proj-title">Featured Projects</h2>
+        </div>
+        <div class="projects-grid">
+        <article class="card project project-featured reveal" id="project-tecar">
+          <header>
+            <div class="proj-top"><span class="proj-num" aria-hidden="true">01</span><p class="proj-tag">Embedded GUI + Hardware Integration + Device Control</p></div>
+            <h3>TECAR Therapy System — Embedded GUI &amp; Hardware Integration</h3>
+          </header>
+          <ul class="chips"><li class="chip chip-accent">Python</li><li class="chip chip-accent">PyQt6</li><li class="chip chip-accent">Raspberry Pi</li><li class="chip chip-accent">Embedded Linux</li><li class="chip chip-accent">Touchscreen GUI</li><li class="chip chip-accent">GPIO</li><li class="chip chip-accent">Hardware Integration</li></ul>
+          
+          <ul class="bullets"><li>Developed a touchscreen-based TECAR therapy application for a <strong>Raspberry Pi-based embedded device</strong> using <strong>Python and PyQt6</strong>.</li><li>Designed a full-screen, touch-first GUI with multi-screen navigation and centralized application management, supporting Home, Therapy, Protocol, Manual and Automated treatment workflows.</li><li>Implemented <strong>Resistive and Capacitive therapy modes</strong> with configurable treatment parameters and device-control workflows.</li><li>Developed <strong>Protocol Mode and Auto Mode</strong> workflows to simplify treatment selection and device operation.</li><li>Implemented <strong>History and Memory</strong> functionality for therapy records and reusable treatment configurations.</li><li>Integrated software workflows with Raspberry Pi hardware/peripherals, including <strong>GPIO-based control</strong>, and worked on Linux startup, deployment and application debugging.</li></ul>
+        </article>
+        <article class="card project project-featured reveal" id="project-lumino">
+          <header>
+            <div class="proj-top"><span class="proj-num" aria-hidden="true">02</span><p class="proj-tag">Embedded Application + Device Monitoring + Parameter Control</p></div>
+            <h3>Lumino Pro — Multi-Wavelength High-Power Laser Therapy System</h3>
+          </header>
+          <ul class="chips"><li class="chip chip-accent">Python</li><li class="chip chip-accent">PyQt6</li><li class="chip chip-accent">Raspberry Pi</li><li class="chip chip-accent">Embedded Linux</li><li class="chip chip-accent">Touchscreen UI</li><li class="chip chip-accent">Device Monitoring</li><li class="chip chip-accent">Multi-Wavelength</li><li class="chip chip-accent">Hardware Integration</li></ul>
+          <ul class="waves" aria-label="Wavelengths"><li>660 nm</li><li>808 nm</li><li>980 nm</li><li>1064 nm</li></ul>
+          <ul class="bullets"><li>Developed software for the Lumino Pro multi-wavelength high-power laser therapy device using a <strong>Raspberry Pi-based embedded application architecture</strong>.</li><li>Designed and implemented touchscreen GUI workflows for <strong>Manual, Auto and Protocol modes</strong>, using reusable components and structured navigation across device-control screens.</li><li>Developed interfaces for configuring and displaying treatment parameters, including continuous and pulsed operating modes.</li><li>Worked with device-control and monitoring requirements for <strong>660 nm, 808 nm, 980 nm and 1064 nm</strong> wavelengths.</li><li>Implemented interfaces for <strong>independent wavelength power control</strong> and real-time temperature/device monitoring requirements.</li><li>Worked on <strong>embedded Linux</strong> deployment, startup configuration, system-level debugging and reliable full-screen operation.</li></ul>
+        </article>
+        <article class="card project project-ongoing reveal" id="project-ims">
+          <header>
+            <div class="proj-top"><span class="proj-num" aria-hidden="true">03</span><p class="proj-tag">Enterprise Application</p><span class="badge badge-ongoing"><span class="pulse" aria-hidden="true"></span>ONGOING</span></div>
+            <h3>Inventory Management System (IMS) — Ongoing</h3>
+          </header>
+          <ul class="chips"><li class="chip chip-accent">Python</li><li class="chip chip-accent">Django</li><li class="chip chip-accent">MySQL</li><li class="chip chip-accent">QR Tracking</li><li class="chip chip-accent">Enterprise Application</li></ul>
+          
+          <ul class="bullets"><li>Currently developing an enterprise-oriented Inventory Management System using <strong>Python, Django and MySQL</strong>.</li><li>Implementing inventory, procurement, quality-control, service-management and user workflows.</li><li>Developing <strong>QR-based inventory and serial/batch tracking</strong> functionality.</li><li>Designing database-driven and role-based workflows while working on architecture, backend logic, testing and debugging.</li></ul>
+        </article>
+        <article class="card project reveal" id="project-cv">
+          <header>
+            <div class="proj-top"><span class="proj-num" aria-hidden="true">04</span><p class="proj-tag">Computer Vision</p></div>
+            <h3>Real-Time Computer Vision Systems</h3>
+          </header>
+          <ul class="chips"><li class="chip chip-accent">Python</li><li class="chip chip-accent">OpenCV</li><li class="chip chip-accent">OCR</li><li class="chip chip-accent">Face Recognition</li><li class="chip chip-accent">Vehicle Recognition</li><li class="chip chip-accent">CCTV</li></ul>
+          
+          <ul class="bullets"><li>Developed real-time <strong>face-recognition</strong> and <strong>vehicle number-plate recognition</strong> workflows using Python and OpenCV.</li><li>Processed CCTV/image data for recognition and database-based verification.</li><li>Applied OCR and image-processing techniques to vehicle and component recognition tasks.</li></ul>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" aria-labelledby="edu-title">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-tag">05 / background</p>
+          <h2 class="sec-title" id="edu-title">Education, Achievements &amp; Training</h2>
+        </div>
+        <div class="split">
+          <div class="stack-gap">
+            <article class="card panel reveal">
+              <h3>Education</h3>
+              <div class="edu-row"><strong>B.Tech — Information Technology</strong><span class="score">64.54%</span></div>
+              <p class="edu-school">United College of Engineering and Research, Prayagraj</p>
+              <p class="edu-dates">Aug 2020 – Aug 2024</p>
+            </article>
+            <article class="card panel reveal">
+              <h3>Achievements</h3>
+              <ul class="bullets"><li><strong>HackerRank</strong> — Problem Solving: 5-star rating.</li></ul>
+            </article>
+          </div>
+          <article class="card panel reveal">
+            <h3>Training &amp; Certifications</h3>
+            <ul class="certs"><li><strong>Python</strong><span>SoloLearn, 2018</span></li><li><strong>SQL</strong><span>SoloLearn, 2019</span></li><li><strong>Java</strong><span>SoloLearn, 2022</span></li><li><strong>Practical PL/SQL</strong><span>UCER, 2023</span></li><li><strong>Image Processing using OpenCV</strong><span>UCER, 2023</span></li><li><strong>Python with Django</strong><span>UCER, 2022</span></li></ul>
+          </article>
+        </div>
+
+        <div class="card cta reveal">
+          <h2>Let&rsquo;s talk about your next tool or device.</h2>
+          <p>Open to Software Engineer / Tools Development roles involving GUI applications, embedded Linux and hardware-connected software.</p>
+          <div class="hero-actions">
+            <a href="../assets/Yash_Srivastava_Resume.pdf" class="btn btn-primary" download="Yash_Srivastava_Resume.pdf"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Download Resume</span></a>
+            <a href="mailto:yashsrivastava2894@gmail.com" class="btn"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg><span>yashsrivastava2894@gmail.com</span></a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer" style="padding: 50px 0 30px; border-top: 1px solid var(--border-subtle); background: var(--bg-primary);">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="../index.html" class="nav-brand" style="margin-bottom: 12px; display: inline-flex;">
-          <span class="brand-prompt">&gt;_</span>
-          <span class="brand-name">YASH SRIVASTAVA</span>
-        </a>
-        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; line-height: 1.6;">
-          Software Engineer specializing in Python, PyQt6, embedded Linux, and hardware-connected touch kiosks.
-        </p>
-      </div>
-
-      <div class="footer-links-group">
-        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Navigation</h4>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
-          <li><a href="../index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Home</a></li>
-          <li><a href="../about/index.html" style="color: var(--text-secondary); font-size: 0.88rem;">About</a></li>
-          <li><a href="../skills/index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Skills</a></li>
-          <li><a href="../projects/index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Projects</a></li>
-          <li><a href="../experience/index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Experience</a></li>
-          <li><a href="index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Resume</a></li>
-          <li><a href="../contact/index.html" style="color: var(--text-secondary); font-size: 0.88rem;">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-social-group">
-        <h4 style="font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 14px; color: var(--text-highlight);">Connect</h4>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
-          <li><a href="https://github.com/yashsrivastava12345" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">GitHub &nearr;</a></li>
-          <li><a href="https://www.linkedin.com/in/yash-srivastava-363363220/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.88rem;">LinkedIn &nearr;</a></li>
-          <li><a href="mailto:yashsrivastava2894@gmail.com" style="color: var(--text-secondary); font-size: 0.88rem;">yashsrivastava2894@gmail.com</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container footer-bottom" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: 0.82rem; font-family: var(--font-mono);">
-      <p>&copy; 2026 Yash Srivastava. Engineered with pure HTML5, CSS3 &amp; Vanilla JS.</p>
-      <p>Obsidian Dark &bull; 6 Curated Palettes &bull; Zero Framework Bloat</p>
+  <footer>
+    <div class="container foot-inner">
+      <p>&copy; Yash Srivastava</p>
+      <p><a href="#top">Back to top &uarr;</a></p>
     </div>
   </footer>
 
-  <script src="../assets/js/settings.js"></script>
+  <script>
+    (function () {
+      var doc = document, root = doc.documentElement;
+      doc.body.classList.remove('no-js');
+
+      /* ---- Theme toggle (persisted per viewer, optional) ---- */
+      var themeBtn = doc.getElementById('theme-btn');
+      themeBtn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('portfolio_theme', next); } catch (e) {}
+      });
+
+      /* ---- Mobile menu ---- */
+      var menuBtn = doc.getElementById('menu-btn'), links = doc.getElementById('nav-links');
+      function setMenu(open) {
+        links.classList.toggle('open', open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+      }
+      menuBtn.addEventListener('click', function () { setMenu(!links.classList.contains('open')); });
+      links.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+      doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+      doc.addEventListener('click', function (e) { if (!e.target.closest('.nav')) setMenu(false); });
+
+      /* ---- Scroll reveal ---- */
+      var items = doc.querySelectorAll('.reveal');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        items.forEach(function (el) { io.observe(el); });
+      }
+
+      /* ---- Active nav state ---- */
+      var navLinks = Array.prototype.slice.call(doc.querySelectorAll('.nav-link[href^="#"]'));
+      var map = {};
+      navLinks.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+      function setActive(id) {
+        navLinks.forEach(function (a) {
+          var on = a === map[id];
+          a.classList.toggle('active', on);
+          if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+      }
+      if ('IntersectionObserver' in window) {
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) setActive(en.target.id); });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        Object.keys(map).forEach(function (id) { var s = doc.getElementById(id); if (s) spy.observe(s); });
+      }
+    })();
+  </script>
 </body>
 </html>
